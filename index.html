@@ -372,188 +372,72 @@
         }
 
         /* ============================================
-           DISPLAY CARDS — Writing (from 21st.dev)
+           WRITING — Clean vertical list
            ============================================ */
-        .display-cards-wrapper {
-            display: grid;
-            grid-template-areas: "stack";
-            place-items: center;
-            min-height: 340px;
-            padding: 40px 0 80px;
-        }
-        .display-card {
-            grid-area: stack;
-            position: relative;
+        .writing-list { display: flex; flex-direction: column; gap: 0; }
+        .writing-item {
             display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 420px;
-            height: 180px;
-            padding: 24px 28px;
-            border-radius: 16px;
-            border: 1px solid var(--border);
-            background: rgba(255,255,255,0.03);
-            backdrop-filter: blur(12px);
-            transform: skewY(-4deg);
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            align-items: flex-start;
+            gap: 20px;
+            padding: 24px 0;
+            border-bottom: 1px solid var(--border);
             text-decoration: none;
             color: var(--text);
-            overflow: hidden;
+            transition: all 0.2s;
         }
-        .display-card::after {
-            content: '';
-            position: absolute;
-            right: -1px;
-            top: -5%;
-            height: 110%;
-            width: 200px;
-            background: linear-gradient(to left, var(--bg), transparent);
-            pointer-events: none;
+        .writing-item:first-child { padding-top: 0; }
+        .writing-item:last-child { border-bottom: none; }
+        .writing-item:hover .wi-title { color: var(--accent); }
+        .writing-item:hover .wi-arrow { transform: translateX(4px); opacity: 1; }
+        .wi-bar {
+            width: 4px;
+            border-radius: 4px;
+            flex-shrink: 0;
+            align-self: stretch;
         }
-        .display-card:nth-child(1) {
-            filter: grayscale(100%);
-            z-index: 1;
-        }
-        .display-card:nth-child(1)::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 16px;
-            background: rgba(9,9,11,0.5);
-            transition: opacity 0.5s;
-            z-index: 2;
-        }
-        .display-card:nth-child(1):hover {
-            transform: skewY(-4deg) translateY(-16px);
-            filter: grayscale(0%);
-        }
-        .display-card:nth-child(1):hover::before { opacity: 0; }
-
-        .display-card:nth-child(2) {
-            transform: skewY(-4deg) translate(60px, 40px);
-            filter: grayscale(100%);
-            z-index: 2;
-        }
-        .display-card:nth-child(2)::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 16px;
-            background: rgba(9,9,11,0.5);
-            transition: opacity 0.5s;
-            z-index: 2;
-        }
-        .display-card:nth-child(2):hover {
-            transform: skewY(-4deg) translate(60px, 28px);
-            filter: grayscale(0%);
-        }
-        .display-card:nth-child(2):hover::before { opacity: 0; }
-
-        .display-card:nth-child(3) {
-            transform: skewY(-4deg) translate(120px, 80px);
-            filter: grayscale(100%);
-            z-index: 3;
-        }
-        .display-card:nth-child(3)::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 16px;
-            background: rgba(9,9,11,0.5);
-            transition: opacity 0.5s;
-            z-index: 2;
-        }
-        .display-card:nth-child(3):hover {
-            transform: skewY(-4deg) translate(120px, 64px);
-            filter: grayscale(0%);
-        }
-        .display-card:nth-child(3):hover::before { opacity: 0; }
-
-        .display-card:nth-child(4) {
-            transform: skewY(-4deg) translate(180px, 120px);
-            z-index: 4;
-        }
-        .display-card:nth-child(4):hover {
-            transform: skewY(-4deg) translate(180px, 104px);
-        }
-
-        .display-card:hover {
-            border-color: var(--border-hover);
-            box-shadow: 0 16px 48px rgba(0,0,0,0.4);
-        }
-
-        .display-card .card-icon {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .display-card .card-icon span {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            background: rgba(59,130,246,0.2);
-        }
-        .display-card .card-icon span svg { width: 14px; height: 14px; color: var(--blue-300); }
-        .display-card .card-title { font-size: 15px; font-weight: 600; color: var(--accent); position: relative; z-index: 3; }
-        .display-card .card-desc { font-size: 15px; color: var(--text-secondary); position: relative; z-index: 3; line-height: 1.5; }
-        .display-card .card-meta { font-size: 12px; color: var(--text-tertiary); position: relative; z-index: 3; }
-
-        /* Articles grid */
-        .articles-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-        }
-        .article-card {
-            display: flex;
-            flex-direction: column;
-            padding: 24px;
-            border-radius: 16px;
-            border: 1px solid var(--border);
-            background: var(--bg-card);
-            color: var(--text);
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-        .article-card:hover {
-            border-color: var(--border-hover);
-            background: var(--bg-card-hover);
-            transform: translateY(-4px);
-            box-shadow: 0 12px 32px rgba(0,0,0,0.3);
-        }
-        .article-tag {
+        .wi-body { flex: 1; min-width: 0; }
+        .wi-tag {
             display: inline-block;
             font-size: 10px;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.08em;
-            padding: 4px 10px;
-            border-radius: 6px;
-            margin-bottom: 12px;
-            width: fit-content;
-        }
-        .article-card h3 {
-            font-size: 16px;
-            font-weight: 600;
-            line-height: 1.4;
+            padding: 3px 8px;
+            border-radius: 4px;
             margin-bottom: 8px;
-            color: var(--text);
         }
-        .article-card p {
-            font-size: 13px;
+        .wi-title {
+            font-size: 19px;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 6px;
+            transition: color 0.2s;
+        }
+        .wi-desc {
+            font-size: 14px;
             color: var(--text-secondary);
             line-height: 1.6;
-            margin-bottom: 12px;
-            flex: 1;
+            margin: 0;
         }
-        .article-meta {
-            font-size: 11px;
+        .wi-side {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            align-self: center;
+        }
+        .wi-time {
+            font-size: 12px;
             color: var(--text-tertiary);
             font-weight: 500;
+            white-space: nowrap;
         }
+        .wi-arrow {
+            color: var(--text-tertiary);
+            opacity: 0;
+            transition: all 0.2s;
+        }
+        .wi-arrow svg { width: 16px; height: 16px; }
 
         /* ============================================
            EXPERIENCE
@@ -694,7 +578,9 @@
             .hero .tagline { font-size: 16px; }
             .stats { gap: 24px; flex-wrap: wrap; }
             .stat-value { font-size: 24px; }
-            .articles-grid { grid-template-columns: 1fr; }
+            .writing-item { gap: 12px; }
+            .wi-title { font-size: 16px; }
+            .wi-side { display: none; }
             .experience { grid-template-columns: 1fr; }
             .thoughts-grid { grid-template-columns: 1fr; }
             .contact-grid { grid-template-columns: 1fr; }
@@ -925,48 +811,90 @@
     <section id="writing">
         <div class="section-header"><h2>Writing</h2><div class="line"></div></div>
 
-        <div class="articles-grid">
-            <a href="the-bank-of-2030.html" class="article-card">
-                <span class="article-tag" style="background:rgba(59,130,246,0.15);color:#93c5fd;">AI in Banking</span>
-                <h3>The Bank of 2030 Has 10x the Clients and Half the People</h3>
-                <p>AI agents are not chatbots. They're autonomous systems that will reshape how banks operate.</p>
-                <span class="article-meta">9 min read</span>
+        <div class="writing-list">
+            <a href="the-bank-of-2030.html" class="writing-item">
+                <div class="wi-bar" style="background:#3b82f6;"></div>
+                <div class="wi-body">
+                    <div class="wi-tag" style="background:rgba(59,130,246,0.15);color:#93c5fd;">AI in Banking</div>
+                    <div class="wi-title">The Bank of 2030 Has 10x the Clients and Half the People</div>
+                    <p class="wi-desc">AI agents are not chatbots. They're autonomous systems that will reshape how banks operate.</p>
+                </div>
+                <div class="wi-side">
+                    <span class="wi-time">9 min</span>
+                    <span class="wi-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                </div>
             </a>
-            <a href="why-longevity-will-be-the-next-trillion-dollar-financial-product.html" class="article-card">
-                <span class="article-tag" style="background:rgba(34,197,94,0.15);color:#86efac;">Longevity</span>
-                <h3>Why Longevity Will Be the Next Trillion-Dollar Financial Product</h3>
-                <p>Every actuarial table assumes you'll die around 80. What happens when that number is wrong?</p>
-                <span class="article-meta">9 min read</span>
+            <a href="why-longevity-will-be-the-next-trillion-dollar-financial-product.html" class="writing-item">
+                <div class="wi-bar" style="background:#22c55e;"></div>
+                <div class="wi-body">
+                    <div class="wi-tag" style="background:rgba(34,197,94,0.15);color:#86efac;">Longevity</div>
+                    <div class="wi-title">Why Longevity Will Be the Next Trillion-Dollar Financial Product</div>
+                    <p class="wi-desc">Every actuarial table assumes you'll die around 80. What happens when that number is wrong?</p>
+                </div>
+                <div class="wi-side">
+                    <span class="wi-time">9 min</span>
+                    <span class="wi-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                </div>
             </a>
-            <a href="robots-dont-need-bank-accounts.html" class="article-card">
-                <span class="article-tag" style="background:rgba(249,115,22,0.15);color:#fdba74;">Robotics</span>
-                <h3>Robots Don't Need Bank Accounts &mdash; But Their Owners Will</h3>
-                <p>Who finances a fleet of warehouse bots? Who insures a household robot? The products don't exist yet.</p>
-                <span class="article-meta">9 min read</span>
+            <a href="robots-dont-need-bank-accounts.html" class="writing-item">
+                <div class="wi-bar" style="background:#f97316;"></div>
+                <div class="wi-body">
+                    <div class="wi-tag" style="background:rgba(249,115,22,0.15);color:#fdba74;">Robotics</div>
+                    <div class="wi-title">Robots Don't Need Bank Accounts &mdash; But Their Owners Will</div>
+                    <p class="wi-desc">Who finances a fleet of warehouse bots? Who insures a household robot? The financial products don't exist yet.</p>
+                </div>
+                <div class="wi-side">
+                    <span class="wi-time">9 min</span>
+                    <span class="wi-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                </div>
             </a>
-            <a href="space-is-open-for-business.html" class="article-card">
-                <span class="article-tag" style="background:rgba(139,92,246,0.15);color:#c4b5fd;">Space Economy</span>
-                <h3>Space Is Open for Business &mdash; And Finance Isn't Ready</h3>
-                <p>$1.8 trillion by 2035. The Gulf is already investing. European finance is watching from the ground.</p>
-                <span class="article-meta">10 min read</span>
+            <a href="space-is-open-for-business.html" class="writing-item">
+                <div class="wi-bar" style="background:#8b5cf6;"></div>
+                <div class="wi-body">
+                    <div class="wi-tag" style="background:rgba(139,92,246,0.15);color:#c4b5fd;">Space Economy</div>
+                    <div class="wi-title">Space Is Open for Business &mdash; And Finance Isn't Ready</div>
+                    <p class="wi-desc">$1.8 trillion by 2035. The Gulf is already investing. European finance is watching from the ground.</p>
+                </div>
+                <div class="wi-side">
+                    <span class="wi-time">10 min</span>
+                    <span class="wi-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                </div>
             </a>
-            <a href="what-i-see-selling-ai-to-european-banks.html" class="article-card">
-                <span class="article-tag" style="background:rgba(59,130,246,0.15);color:#93c5fd;">Field Report</span>
-                <h3>What I See Selling AI to European Banks</h3>
-                <p>The gap between AI strategy and production is enormous. And it's getting wider, not smaller.</p>
-                <span class="article-meta">7 min read</span>
+            <a href="what-i-see-selling-ai-to-european-banks.html" class="writing-item">
+                <div class="wi-bar" style="background:#3b82f6;"></div>
+                <div class="wi-body">
+                    <div class="wi-tag" style="background:rgba(59,130,246,0.15);color:#93c5fd;">Field Report</div>
+                    <div class="wi-title">What I See Selling AI to European Banks</div>
+                    <p class="wi-desc">The gap between AI strategy and production is enormous. And it's getting wider, not smaller.</p>
+                </div>
+                <div class="wi-side">
+                    <span class="wi-time">7 min</span>
+                    <span class="wi-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                </div>
             </a>
-            <a href="silicon-valley-and-europe-two-planets.html" class="article-card">
-                <span class="article-tag" style="background:rgba(236,72,153,0.15);color:#f9a8d4;">Perspective</span>
-                <h3>Silicon Valley and Europe Are Two Different Planets</h3>
-                <p>The truth is somewhere in the middle. But the speed gap is real.</p>
-                <span class="article-meta">7 min read</span>
+            <a href="silicon-valley-and-europe-two-planets.html" class="writing-item">
+                <div class="wi-bar" style="background:#ec4899;"></div>
+                <div class="wi-body">
+                    <div class="wi-tag" style="background:rgba(236,72,153,0.15);color:#f9a8d4;">Perspective</div>
+                    <div class="wi-title">Silicon Valley and Europe Are Two Different Planets</div>
+                    <p class="wi-desc">The truth is somewhere in the middle. But the speed gap is real.</p>
+                </div>
+                <div class="wi-side">
+                    <span class="wi-time">7 min</span>
+                    <span class="wi-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                </div>
             </a>
-            <a href="innovation-is-not-a-department.html" class="article-card">
-                <span class="article-tag" style="background:rgba(234,179,8,0.15);color:#fde047;">Opinion</span>
-                <h3>Innovation Is Not a Department</h3>
-                <p>Most companies are stuck in pilot purgatory. The innovation lab is where ideas go to die.</p>
-                <span class="article-meta">6 min read</span>
+            <a href="innovation-is-not-a-department.html" class="writing-item">
+                <div class="wi-bar" style="background:#eab308;"></div>
+                <div class="wi-body">
+                    <div class="wi-tag" style="background:rgba(234,179,8,0.15);color:#fde047;">Opinion</div>
+                    <div class="wi-title">Innovation Is Not a Department</div>
+                    <p class="wi-desc">Most companies are stuck in pilot purgatory. The innovation lab is where ideas go to die.</p>
+                </div>
+                <div class="wi-side">
+                    <span class="wi-time">6 min</span>
+                    <span class="wi-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                </div>
             </a>
         </div>
     </section>
