@@ -25,10 +25,11 @@
         "image": "https://andreapadula.com/andrea-padula.png",
         "jobTitle": "Head of Partnerships & Business Development",
         "worksFor": { "@type": "Organization", "name": "Streetbeat", "url": "https://streetbeat.com" },
-        "description": "Innovation, AI, and technology between Silicon Valley and Europe. Head of Partnerships & BD at Streetbeat.",
-        "knowsAbout": ["Artificial Intelligence", "Financial Services", "Banking Innovation", "Fintech", "Business Development", "European Banking", "Wealth Management", "EU AI Act"],
+        "description": "Innovation, AI, and technology between Silicon Valley and Europe. Head of Partnerships & BD at Streetbeat. Experience across Italy, France, Qatar, Saudi Arabia, Taiwan, and the US.",
+        "knowsAbout": ["Artificial Intelligence", "Financial Services", "Banking Innovation", "Fintech", "Business Development", "European Banking", "Wealth Management", "EU AI Act", "Middle East Finance", "Asia Pacific Business"],
         "alumniOf": { "@type": "EducationalOrganization", "name": "ESCP Business School" },
-        "sameAs": ["https://www.linkedin.com/in/andreapadula/"]
+        "sameAs": ["https://www.linkedin.com/in/andreapadula/"],
+        "knowsLanguage": ["Italian", "English", "French", "Portuguese"]
     }
     </script>
 
@@ -486,7 +487,7 @@
         /* ============================================
            EXPERIENCE
            ============================================ */
-        .experience { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+        .experience { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
         .exp-item {
             padding: 28px;
             border-radius: 16px;
@@ -503,6 +504,54 @@
         .exp-year { font-size: 12px; font-weight: 600; color: var(--accent); margin-bottom: 14px; letter-spacing: 0.02em; }
         .exp-content h3 { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
         .exp-content p { font-size: 13px; color: var(--text-secondary); margin-bottom: 0; line-height: 1.6; }
+
+        /* ============================================
+           THOUGHTS (LinkedIn posts)
+           ============================================ */
+        .thoughts-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+        .thought-card {
+            padding: 28px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            transition: all 0.3s;
+        }
+        .thought-card:hover {
+            border-color: var(--border-hover);
+            background: var(--bg-card-hover);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.3);
+        }
+        .thought-card .thought-tag {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 4px 10px;
+            border-radius: 6px;
+            margin-bottom: 14px;
+        }
+        .thought-card .thought-tag.ai { background: rgba(59,130,246,0.15); color: var(--blue-300); }
+        .thought-card .thought-tag.sv { background: rgba(139,92,246,0.15); color: #c4b5fd; }
+        .thought-card .thought-tag.bd { background: rgba(34,197,94,0.15); color: #86efac; }
+        .thought-card .thought-tag.productivity { background: rgba(249,115,22,0.15); color: #fdba74; }
+        .thought-card .thought-tag.field { background: rgba(236,72,153,0.15); color: #f9a8d4; }
+        .thought-card .thought-text {
+            font-size: 15px;
+            color: var(--text);
+            line-height: 1.7;
+            margin-bottom: 14px;
+            font-style: italic;
+        }
+        .thought-card .thought-meta {
+            font-size: 12px;
+            color: var(--text-tertiary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .thought-card .thought-meta svg { width: 14px; height: 14px; color: var(--text-tertiary); }
 
         /* ============================================
            CONTACT
@@ -589,6 +638,7 @@
             .articles-flat h3 { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
             .articles-flat p { font-size: 13px; color: var(--text-secondary); margin: 0; }
             .experience { grid-template-columns: 1fr; }
+            .thoughts-grid { grid-template-columns: 1fr; }
             .contact-grid { grid-template-columns: 1fr; }
             nav { top: 10px; padding: 4px 6px; }
             nav a { font-size: 12px; padding: 6px 10px; }
@@ -602,6 +652,7 @@
 <!-- Floating pill nav (inspired by expandable-tabs) -->
 <nav>
     <a href="#about">About</a>
+    <a href="#thoughts">Thoughts</a>
     <a href="#writing">Writing</a>
     <div class="sep"></div>
     <a href="#contact">Contact</a>
@@ -695,10 +746,10 @@
         </div>
 
         <div class="stats">
-            <div class="stat"><div class="stat-value">10+</div><div class="stat-label">Years in BD</div></div>
-            <div class="stat"><div class="stat-value">2</div><div class="stat-label">Continents</div></div>
+            <div class="stat"><div class="stat-value">6</div><div class="stat-label">Countries lived in</div></div>
+            <div class="stat"><div class="stat-value">3</div><div class="stat-label">Continents</div></div>
             <div class="stat"><div class="stat-value">4</div><div class="stat-label">Languages</div></div>
-            <div class="stat"><div class="stat-value">$15M</div><div class="stat-label">Series A</div></div>
+            <div class="stat"><div class="stat-value">ESCP</div><div class="stat-label">110/110</div></div>
         </div>
     </div>
 </div>
@@ -707,10 +758,10 @@
 
     <section id="about">
         <div class="section-header"><h2>About</h2><div class="line"></div></div>
-        <p><strong>Head of Partnerships & Business Development at Streetbeat</strong> — an AI platform for financial services based in Menlo Park, California. Backed by CDP Venture Capital and Azimut.</p>
-        <p>I'm based in Milan and work for a company headquartered in Menlo Park. My job is to bring AI into European banks and financial institutions — which means I spend most of my days in conversations with C-level executives about what AI can actually do for them, beyond the slide deck.</p>
-        <p>Before Streetbeat: ESCP Business School (110/110), roles across Milan, Paris, Doha, Riyadh, and Taipei.</p>
-        <p>I write about what I see at the intersection of technology, innovation, and financial services. Not theory — field notes.</p>
+        <p><strong>Head of Partnerships & Business Development at Streetbeat</strong> — an AI platform for financial services based in Menlo Park, California.</p>
+        <p>I'm based in Milan and I work at the intersection of Silicon Valley innovation and European financial institutions. My job is to bring AI into banks, wealth managers, and asset managers across Europe and the Middle East — which means I spend my days in conversations with C-level executives about what AI can actually do for them, beyond the slide deck.</p>
+        <p>I've lived and worked in six countries across three continents: Italy, France, Qatar, Saudi Arabia, Taiwan, and the United States. I've worked in consulting (Deloitte), financial services, and tech — always at the crossroads of innovation and business development.</p>
+        <p>I write about what I see in the field. Not theory — observations from someone who sells AI to people who don't trust AI yet.</p>
         <div class="topics">
             <span class="topic">AI in Banking</span>
             <span class="topic">Innovation Strategy</span>
@@ -728,25 +779,88 @@
             <div class="exp-item">
                 <div class="exp-year">2023 — Present</div>
                 <div class="exp-content">
-                    <h3>Streetbeat</h3>
-                    <p>Head of Partnerships & BD — AI platform for financial services, Menlo Park</p>
+                    <h3>Streetbeat — Head of Partnerships & BD</h3>
+                    <p>AI platform for financial services, Menlo Park. Bringing AI to European and Middle Eastern banks, wealth managers, and financial institutions.</p>
                 </div>
             </div>
             <div class="exp-item">
-                <div class="exp-year">International</div>
+                <div class="exp-year">Middle East</div>
                 <div class="exp-content">
-                    <h3>Milan, Paris, Doha, Riyadh, Taipei</h3>
-                    <p>Business development and relationship management across industries and continents</p>
+                    <h3>Qatar & Saudi Arabia</h3>
+                    <p>Business development in Doha and Riyadh — consulting and financial services in one of the fastest-growing markets in the world.</p>
+                </div>
+            </div>
+            <div class="exp-item">
+                <div class="exp-year">Asia</div>
+                <div class="exp-content">
+                    <h3>Taiwan</h3>
+                    <p>Taipei — international business development at the crossroads of Asia-Pacific technology and trade.</p>
+                </div>
+            </div>
+            <div class="exp-item">
+                <div class="exp-year">Europe</div>
+                <div class="exp-content">
+                    <h3>Deloitte & Consulting</h3>
+                    <p>Milan, Paris, Rome — consulting, financial advisory, and relationship management across multiple industries.</p>
                 </div>
             </div>
             <div class="exp-item">
                 <div class="exp-year">2010 — 2013</div>
                 <div class="exp-content">
                     <h3>ESCP Business School</h3>
-                    <p>110/110 — M&A, Corporate Strategy, Financial Theory, Negotiation</p>
+                    <p>110/110 — M&A, Corporate Strategy, Financial Theory, Negotiation, Entrepreneurship</p>
+                </div>
+            </div>
+            <div class="exp-item">
+                <div class="exp-year">Volunteering</div>
+                <div class="exp-content">
+                    <h3>European Commission — Start@Europe</h3>
+                    <p>Parliamentary debates on financial regulation, economic growth, and innovation policy.</p>
                 </div>
             </div>
         </div>
+    </section>
+
+    <!-- Thoughts: LinkedIn posts -->
+    <section id="thoughts">
+        <div class="section-header"><h2>Thoughts</h2><div class="line"></div></div>
+        <p style="margin-bottom: 24px; color: var(--text-secondary); font-size: 15px;">Things I post on <a href="https://www.linkedin.com/in/andreapadula/" target="_blank">LinkedIn</a> — observations from the field, not polished takes.</p>
+
+        <div class="thoughts-grid">
+            <div class="thought-card">
+                <div class="thought-tag ai">AI in Banking</div>
+                <p class="thought-text">"Questa settimana tre call con tre banche diverse. Tutte e tre mi hanno detto 'noi sull'AI siamo avanti rispetto al mercato.' Statisticamente qualcuno mente."</p>
+                <div class="thought-meta">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452z"/></svg>
+                    <span>LinkedIn &middot; 2026</span>
+                </div>
+            </div>
+            <div class="thought-card">
+                <div class="thought-tag sv">Silicon Valley</div>
+                <p class="thought-text">"Another work week spent in Doha, Qatar — I've started falling in love with this city. The Qatari perfect blend of tradition and innovation continues to attract investments, foster growth and spark new opportunities."</p>
+                <div class="thought-meta">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452z"/></svg>
+                    <span>LinkedIn &middot; 2025 &middot; 116 reactions</span>
+                </div>
+            </div>
+            <div class="thought-card">
+                <div class="thought-tag productivity">Productivity</div>
+                <p class="thought-text">"Siamo abituati a pensare che fare più cose insieme significhi essere più efficienti. La realtà? Ogni volta che passiamo da un'attività all'altra, perdiamo circa 25 minuti per ritornare al livello di concentrazione. Il cervello non è fatto per il multitasking: è fatto per la concentrazione."</p>
+                <div class="thought-meta">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452z"/></svg>
+                    <span>LinkedIn &middot; 2025</span>
+                </div>
+            </div>
+            <div class="thought-card">
+                <div class="thought-tag bd">Business Dev</div>
+                <p class="thought-text">"The banks that move fastest aren't the ones that build everything or buy everything. They're the ones that figure out what's core — and make that call fast."</p>
+                <div class="thought-meta">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452z"/></svg>
+                    <span>LinkedIn &middot; 2026</span>
+                </div>
+            </div>
+        </div>
+        <p style="margin-top: 24px; text-align: center;"><a href="https://www.linkedin.com/in/andreapadula/" target="_blank" class="btn" style="display: inline-flex;">See all on LinkedIn <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;margin-left:4px;"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></a></p>
     </section>
 
     <!-- Writing: Display Cards layout (from 21st.dev) -->
