@@ -11,11 +11,6 @@
       <image:title>Andrea Padula — Head of Partnerships and Business Development at Streetbeat</image:title>
       <image:caption>Andrea Padula, Head of Partnerships and BD at Streetbeat. Based in Milan, bridging Europe and Silicon Valley. AI, innovation, and financial services.</image:caption>
     </image:image>
-    <image:image>
-      <image:loc>https://andreapadula.com/andrea-padula-streetbeat.jpg</image:loc>
-      <image:title>Andrea Padula — AI and Financial Services Expert</image:title>
-      <image:caption>Andrea Padula speaking about AI in European banking and financial services. Streetbeat, Menlo Park.</image:caption>
-    </image:image>
   </url>
   <url>
     <loc>https://andreapadula.com/about.html</loc>
@@ -25,8 +20,32 @@
     <image:image>
       <image:loc>https://andreapadula.com/andrea-padula.png</image:loc>
       <image:title>Andrea Padula portrait</image:title>
-      <image:caption>Andrea Padula — Head of Partnerships at Streetbeat, based in Milan. AI expert for European financial services.</image:caption>
+      <image:caption>Andrea Padula — Head of Partnerships at Streetbeat, based in Milan.</image:caption>
     </image:image>
+  </url>
+  <url>
+    <loc>https://andreapadula.com/the-bank-of-2030.html</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://andreapadula.com/why-longevity-will-be-the-next-trillion-dollar-financial-product.html</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://andreapadula.com/robots-dont-need-bank-accounts.html</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://andreapadula.com/space-is-open-for-business.html</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://andreapadula.com/what-i-see-selling-ai-to-european-banks.html</loc>
