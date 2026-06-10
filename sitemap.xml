@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://andreapadula.com/</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://andreapadula.com/andrea-padula.png</image:loc>
+      <image:title>Andrea Padula — Head of Partnerships and Business Development at Streetbeat</image:title>
+      <image:caption>Andrea Padula, Head of Partnerships and BD at Streetbeat. Based in Milan, bridging Europe and Silicon Valley. AI, innovation, and financial services.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://andreapadula.com/andrea-padula-streetbeat.jpg</image:loc>
+      <image:title>Andrea Padula — AI and Financial Services Expert</image:title>
+      <image:caption>Andrea Padula speaking about AI in European banking and financial services. Streetbeat, Menlo Park.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://andreapadula.com/about.html</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://andreapadula.com/andrea-padula.png</image:loc>
+      <image:title>Andrea Padula portrait</image:title>
+      <image:caption>Andrea Padula — Head of Partnerships at Streetbeat, based in Milan. AI expert for European financial services.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://andreapadula.com/what-i-see-selling-ai-to-european-banks.html</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://andreapadula.com/silicon-valley-and-europe-two-planets.html</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://andreapadula.com/innovation-is-not-a-department.html</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>
