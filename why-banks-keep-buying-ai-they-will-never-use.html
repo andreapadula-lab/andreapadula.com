@@ -70,6 +70,14 @@
         }
         .hero-img svg { width: 100px; height: 100px; opacity: 0.12; }
         @media (max-width: 600px) { .article-header h1 { font-size: 28px; } .author-box { flex-direction: column; text-align: center; } .hero-img { height: 200px; } }
+    
+        .related-articles { margin: 48px 0 0; padding: 32px 0; border-top: 1px solid var(--border); }
+        .related-articles h3 { font-size: 16px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 20px; }
+        .related-link { display: block; padding: 16px 0; border-bottom: 1px solid var(--border); transition: padding-left 0.2s; }
+        .related-link:last-child { border-bottom: none; }
+        .related-link:hover { padding-left: 8px; }
+        .related-link .rl-title { font-size: 16px; font-weight: 500; color: var(--text); display: block; margin-bottom: 4px; }
+        .related-link .rl-meta { font-size: 13px; color: var(--text-muted); }
     </style>
 </head>
 <body>
@@ -165,6 +173,23 @@
         <p><strong>The banks that win will not be the ones that bought the most AI. They'll be the ones that shipped it.</strong></p>
         <p>And shipping requires something much harder than a signed contract. It requires a CTO who knows what the business actually needs, a compliance team that's been in the room from the start, and an organization willing to kill a pilot that isn't working.</p>
         <p>That's a short list of requirements. Almost nobody meets all three.</p>
+    </div>
+
+    
+    <div class="related-articles">
+        <h3>Keep Reading</h3>
+        <a href="the-bank-of-2030.html" class="related-link">
+            <span class="rl-title">The Bank of 2030 Has 10x the Clients and Half the People</span>
+            <span class="rl-meta">Jun 2025</span>
+        </a>
+        <a href="the-pilot-trap.html" class="related-link">
+            <span class="rl-title">The Pilot Trap</span>
+            <span class="rl-meta">May 2025</span>
+        </a>
+        <a href="the-eu-ai-act-is-a-competitive-advantage.html" class="related-link">
+            <span class="rl-title">The EU AI Act Is a Competitive Advantage</span>
+            <span class="rl-meta">Mar 2025</span>
+        </a>
     </div>
 
     <div class="author-box">

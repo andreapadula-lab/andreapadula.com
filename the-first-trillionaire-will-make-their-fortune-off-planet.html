@@ -70,6 +70,14 @@
         }
         .hero-img svg { width: 100px; height: 100px; opacity: 0.12; }
         @media (max-width: 600px) { .article-header h1 { font-size: 28px; } .author-box { flex-direction: column; text-align: center; } .hero-img { height: 200px; } }
+    
+        .related-articles { margin: 48px 0 0; padding: 32px 0; border-top: 1px solid var(--border); }
+        .related-articles h3 { font-size: 16px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 20px; }
+        .related-link { display: block; padding: 16px 0; border-bottom: 1px solid var(--border); transition: padding-left 0.2s; }
+        .related-link:last-child { border-bottom: none; }
+        .related-link:hover { padding-left: 8px; }
+        .related-link .rl-title { font-size: 16px; font-weight: 500; color: var(--text); display: block; margin-bottom: 4px; }
+        .related-link .rl-meta { font-size: 13px; color: var(--text-muted); }
     </style>
 </head>
 <body>
@@ -149,6 +157,23 @@
         <p>History doesn't repeat, but it rhymes. And right now, the rhyme is loud enough that anyone paying attention can hear it.</p>
         <p>The first trillionaire will make their fortune off-planet. The only question is whether the financial system is ready to finance the journey, or whether it will be rebuilt from scratch by someone who doesn't wait for permission.</p>
         <p>I know which outcome I'd bet on.</p>
+    </div>
+
+    
+    <div class="related-articles">
+        <h3>Keep Reading</h3>
+        <a href="space-is-open-for-business.html" class="related-link">
+            <span class="rl-title">Space Is Open for Business</span>
+            <span class="rl-meta">Feb 2026</span>
+        </a>
+        <a href="robots-dont-need-bank-accounts.html" class="related-link">
+            <span class="rl-title">Robots Don't Need Bank Accounts — But They Will</span>
+            <span class="rl-meta">Dec 2025</span>
+        </a>
+        <a href="why-longevity-will-be-the-next-trillion-dollar-financial-product.html" class="related-link">
+            <span class="rl-title">Why Longevity Will Be the Next Trillion-Dollar Financial Product</span>
+            <span class="rl-meta">Sep 2025</span>
+        </a>
     </div>
 
     <div class="author-box">

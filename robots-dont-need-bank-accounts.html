@@ -70,6 +70,14 @@
         }
         .hero-img svg { width: 100px; height: 100px; opacity: 0.12; }
         @media (max-width: 600px) { .article-header h1 { font-size: 28px; } .author-box { flex-direction: column; text-align: center; } .hero-img { height: 200px; } }
+    
+        .related-articles { margin: 48px 0 0; padding: 32px 0; border-top: 1px solid var(--border); }
+        .related-articles h3 { font-size: 16px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 20px; }
+        .related-link { display: block; padding: 16px 0; border-bottom: 1px solid var(--border); transition: padding-left 0.2s; }
+        .related-link:last-child { border-bottom: none; }
+        .related-link:hover { padding-left: 8px; }
+        .related-link .rl-title { font-size: 16px; font-weight: 500; color: var(--text); display: block; margin-bottom: 4px; }
+        .related-link .rl-meta { font-size: 13px; color: var(--text-muted); }
     </style>
 </head>
 <body>
@@ -152,6 +160,23 @@
         <p>I work at the intersection of AI and financial services. Every week, I see how slow finance moves when it comes to software AI &mdash; and software AI has been around for years. Physical AI is newer, more complex, and more capital-intensive. If finance struggled to adapt to ChatGPT, it is completely unprepared for a humanoid robot that shows up on a loading dock and starts working.</p>
         <p><strong>The robots don't need bank accounts. But the companies that build them, deploy them, insure them, finance them, and profit from them absolutely do.</strong> The financial services industry that figures this out first won't just serve the robotics economy. It will own a piece of it.</p>
         <p>That's not a prediction. That's an inevitability on a timeline. The only question is who moves first.</p>
+    </div>
+
+    
+    <div class="related-articles">
+        <h3>Keep Reading</h3>
+        <a href="the-bank-of-2030.html" class="related-link">
+            <span class="rl-title">The Bank of 2030 Has 10x the Clients and Half the People</span>
+            <span class="rl-meta">Jun 2025</span>
+        </a>
+        <a href="space-is-open-for-business.html" class="related-link">
+            <span class="rl-title">Space Is Open for Business</span>
+            <span class="rl-meta">Feb 2026</span>
+        </a>
+        <a href="the-first-trillionaire-will-make-their-fortune-off-planet.html" class="related-link">
+            <span class="rl-title">The First Trillionaire Will Make Their Fortune Off-Planet</span>
+            <span class="rl-meta">Jan 2026</span>
+        </a>
     </div>
 
     <div class="author-box">

@@ -78,6 +78,14 @@
         footer { padding: 40px 0; border-top: 1px solid var(--border); text-align: center; }
         footer p { color: var(--text-muted); font-size: 13px; }
         @media (max-width: 600px) { .article-header h1 { font-size: 28px; } .author-box { flex-direction: column; text-align: center; } .hero-img { height: 200px; } }
+    
+        .related-articles { margin: 48px 0 0; padding: 32px 0; border-top: 1px solid var(--border); }
+        .related-articles h3 { font-size: 16px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 20px; }
+        .related-link { display: block; padding: 16px 0; border-bottom: 1px solid var(--border); transition: padding-left 0.2s; }
+        .related-link:last-child { border-bottom: none; }
+        .related-link:hover { padding-left: 8px; }
+        .related-link .rl-title { font-size: 16px; font-weight: 500; color: var(--text); display: block; margin-bottom: 4px; }
+        .related-link .rl-meta { font-size: 13px; color: var(--text-muted); }
     </style>
 </head>
 <body>
@@ -175,6 +183,23 @@
         <p>Deep work is not a nice-to-have. It's not a lifestyle preference for people who read productivity books. It's a competitive advantage, and it's becoming the most important one.</p>
         <p>The question for every professional, every team, and every organization is simple: are you protecting your ability to think deeply, or are you letting it erode one notification at a time?</p>
         <p>Because the market will reward the ones who protect it. And the rest will wonder why they're working harder and falling behind.</p>
+    </div>
+
+    
+    <div class="related-articles">
+        <h3>Keep Reading</h3>
+        <a href="your-brain-is-not-a-browser.html" class="related-link">
+            <span class="rl-title">Your Brain Is Not a Browser</span>
+            <span class="rl-meta">Jun 2026</span>
+        </a>
+        <a href="when-100-is-the-new-60.html" class="related-link">
+            <span class="rl-title">When 100 Is the New 60</span>
+            <span class="rl-meta">Mar 2026</span>
+        </a>
+        <a href="innovation-is-not-a-department.html" class="related-link">
+            <span class="rl-title">Innovation Is Not a Department</span>
+            <span class="rl-meta">Feb 2025</span>
+        </a>
     </div>
 
     <div class="author-box">

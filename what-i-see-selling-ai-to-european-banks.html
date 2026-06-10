@@ -70,6 +70,14 @@
         }
         .hero-img svg { width: 100px; height: 100px; opacity: 0.12; }
         @media (max-width: 600px) { .article-header h1 { font-size: 28px; } .author-box { flex-direction: column; text-align: center; } .hero-img { height: 200px; } }
+    
+        .related-articles { margin: 48px 0 0; padding: 32px 0; border-top: 1px solid var(--border); }
+        .related-articles h3 { font-size: 16px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 20px; }
+        .related-link { display: block; padding: 16px 0; border-bottom: 1px solid var(--border); transition: padding-left 0.2s; }
+        .related-link:last-child { border-bottom: none; }
+        .related-link:hover { padding-left: 8px; }
+        .related-link .rl-title { font-size: 16px; font-weight: 500; color: var(--text); display: block; margin-bottom: 4px; }
+        .related-link .rl-meta { font-size: 13px; color: var(--text-muted); }
     </style>
 </head>
 <body>
@@ -116,6 +124,23 @@
         <p>I'm not writing this to sell anything. I'm writing it because I have a front-row seat to something that most people only read about in reports. I talk to the people making these decisions every day. I see what works and what doesn't.</p>
         <p>And I think the conversation about AI in banking is too abstract. Too many think pieces, not enough field reports. Too many "AI will transform banking" and not enough "here's what actually happened when a bank tried to use AI last Tuesday."</p>
         <p>That's what I want to write about. What I actually see. Not what I think should happen — what's happening.</p>
+    </div>
+
+    
+    <div class="related-articles">
+        <h3>Keep Reading</h3>
+        <a href="the-bank-of-2030.html" class="related-link">
+            <span class="rl-title">The Bank of 2030 Has 10x the Clients and Half the People</span>
+            <span class="rl-meta">Jun 2025</span>
+        </a>
+        <a href="three-conversations-that-changed-how-i-sell-ai.html" class="related-link">
+            <span class="rl-title">Three Conversations That Changed How I Sell AI</span>
+            <span class="rl-meta">Nov 2025</span>
+        </a>
+        <a href="the-pilot-trap.html" class="related-link">
+            <span class="rl-title">The Pilot Trap</span>
+            <span class="rl-meta">May 2025</span>
+        </a>
     </div>
 
     <div class="author-box">

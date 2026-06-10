@@ -70,6 +70,14 @@
         }
         .hero-img svg { width: 100px; height: 100px; opacity: 0.12; }
         @media (max-width: 600px) { .article-header h1 { font-size: 28px; } .author-box { flex-direction: column; text-align: center; } .hero-img { height: 200px; } }
+    
+        .related-articles { margin: 48px 0 0; padding: 32px 0; border-top: 1px solid var(--border); }
+        .related-articles h3 { font-size: 16px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 20px; }
+        .related-link { display: block; padding: 16px 0; border-bottom: 1px solid var(--border); transition: padding-left 0.2s; }
+        .related-link:last-child { border-bottom: none; }
+        .related-link:hover { padding-left: 8px; }
+        .related-link .rl-title { font-size: 16px; font-weight: 500; color: var(--text); display: block; margin-bottom: 4px; }
+        .related-link .rl-meta { font-size: 13px; color: var(--text-muted); }
     </style>
 </head>
 <body>
@@ -155,6 +163,23 @@
         <p>Stop measuring pilots launched. Start measuring products shipped. Stop separating innovation from the business. Start embedding it. Stop giving pilots unlimited timelines. Start killing them when they don't convert.</p>
         <p>The banks that figure this out in the next two years will own the decade. The ones that don't will still be running pilots in 2030, wondering why nothing ever ships.</p>
         <p>I know which group I'd rather work with.</p>
+    </div>
+
+    
+    <div class="related-articles">
+        <h3>Keep Reading</h3>
+        <a href="why-banks-keep-buying-ai-they-will-never-use.html" class="related-link">
+            <span class="rl-title">Why Banks Keep Buying AI They Will Never Use</span>
+            <span class="rl-meta">Oct 2024</span>
+        </a>
+        <a href="innovation-is-not-a-department.html" class="related-link">
+            <span class="rl-title">Innovation Is Not a Department</span>
+            <span class="rl-meta">Feb 2025</span>
+        </a>
+        <a href="what-i-see-selling-ai-to-european-banks.html" class="related-link">
+            <span class="rl-title">What I See Selling AI to European Banks</span>
+            <span class="rl-meta">Oct 2024</span>
+        </a>
     </div>
 
     <div class="author-box">

@@ -69,6 +69,14 @@
         }
         .hero-img svg { width: 100px; height: 100px; opacity: 0.12; }
         @media (max-width: 600px) { .article-header h1 { font-size: 28px; } .author-box { flex-direction: column; text-align: center; } .hero-img { height: 200px; } }
+    
+        .related-articles { margin: 48px 0 0; padding: 32px 0; border-top: 1px solid var(--border); }
+        .related-articles h3 { font-size: 16px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 20px; }
+        .related-link { display: block; padding: 16px 0; border-bottom: 1px solid var(--border); transition: padding-left 0.2s; }
+        .related-link:last-child { border-bottom: none; }
+        .related-link:hover { padding-left: 8px; }
+        .related-link .rl-title { font-size: 16px; font-weight: 500; color: var(--text); display: block; margin-bottom: 4px; }
+        .related-link .rl-meta { font-size: 13px; color: var(--text-muted); }
     </style>
 </head>
 <body>
@@ -118,6 +126,23 @@
         <p>That's hard. It's political. And no innovation team can do it alone.</p>
         <p><strong>The companies that will win the next decade are the ones that stop treating innovation as a project and start treating it as an operating principle.</strong> Not "we have a team for that." Instead: "every team does that."</p>
         <p>It sounds obvious. Almost nobody does it.</p>
+    </div>
+
+    
+    <div class="related-articles">
+        <h3>Keep Reading</h3>
+        <a href="the-pilot-trap.html" class="related-link">
+            <span class="rl-title">The Pilot Trap</span>
+            <span class="rl-meta">May 2025</span>
+        </a>
+        <a href="what-silicon-valley-knows-about-failure.html" class="related-link">
+            <span class="rl-title">What Silicon Valley Knows About Failure That Europe Doesn't</span>
+            <span class="rl-meta">May 2026</span>
+        </a>
+        <a href="most-ai-products-fail.html" class="related-link">
+            <span class="rl-title">Most AI Products Fail Because Nobody Asked the Customer</span>
+            <span class="rl-meta">Apr 2026</span>
+        </a>
     </div>
 
     <div class="author-box">

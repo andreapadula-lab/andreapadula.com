@@ -70,6 +70,14 @@
         }
         .hero-img svg { width: 100px; height: 100px; opacity: 0.12; }
         @media (max-width: 600px) { .article-header h1 { font-size: 28px; } .author-box { flex-direction: column; text-align: center; } .hero-img { height: 200px; } }
+    
+        .related-articles { margin: 48px 0 0; padding: 32px 0; border-top: 1px solid var(--border); }
+        .related-articles h3 { font-size: 16px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 20px; }
+        .related-link { display: block; padding: 16px 0; border-bottom: 1px solid var(--border); transition: padding-left 0.2s; }
+        .related-link:last-child { border-bottom: none; }
+        .related-link:hover { padding-left: 8px; }
+        .related-link .rl-title { font-size: 16px; font-weight: 500; color: var(--text); display: block; margin-bottom: 4px; }
+        .related-link .rl-meta { font-size: 13px; color: var(--text-muted); }
     </style>
 </head>
 <body>
@@ -206,6 +214,23 @@
         <p>I see it every week in the conversations I have across Milan, Zurich, London, Doha, and Riyadh. The institutions that have regulatory clarity are moving. The ones that don't are still waiting for someone to draw the lines.</p>
 
         <p>Europe drew the lines. Now it's time to build.</p>
+    </div>
+
+    
+    <div class="related-articles">
+        <h3>Keep Reading</h3>
+        <a href="what-menlo-park-gets-wrong-about-europe.html" class="related-link">
+            <span class="rl-title">What Menlo Park Gets Wrong About Europe</span>
+            <span class="rl-meta">Aug 2025</span>
+        </a>
+        <a href="the-bank-of-2030.html" class="related-link">
+            <span class="rl-title">The Bank of 2030 Has 10x the Clients and Half the People</span>
+            <span class="rl-meta">Jun 2025</span>
+        </a>
+        <a href="silicon-valley-and-europe-two-planets.html" class="related-link">
+            <span class="rl-title">Silicon Valley and Europe: Two Planets, One Industry</span>
+            <span class="rl-meta">Dec 2024</span>
+        </a>
     </div>
 
     <div class="author-box">
