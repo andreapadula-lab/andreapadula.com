@@ -12,7 +12,16 @@
     <meta property="og:image" content="https://andreapadula.com/andrea-padula.png">
     <meta property="og:url" content="https://andreapadula.com/why-banks-keep-buying-ai-they-will-never-use.html">
     <meta property="og:type" content="article">
-    <meta name="twitter:card" content="summary_large_image">
+    <meta property="article:published_time" content="2024-10-22">
+    <meta property="article:author" content="https://andreapadula.com/about.html">
+    <meta property="article:section" content="AI in Banking">
+    <meta property="article:tag" content="Artificial Intelligence">
+    <meta property="article:tag" content="Banking">
+    <meta property="article:tag" content="Procurement">
+    <meta property="article:tag" content="Enterprise Software">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Why Banks Keep Buying AI They'll Never Use">
+    <meta name="twitter:description" content="Financial institutions spend millions on AI solutions that never leave the sandbox. The problem isn't the technology. It's the space between procurement and production.">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -78,9 +87,11 @@
         .related-link:hover { padding-left: 8px; }
         .related-link .rl-title { font-size: 16px; font-weight: 500; color: var(--text); display: block; margin-bottom: 4px; }
         .related-link .rl-meta { font-size: 13px; color: var(--text-muted); }
+        .progress-bar { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: linear-gradient(90deg, #1e3a5f, #1d4ed8); z-index: 200; transition: width 0.15s ease-out; pointer-events: none; }
     </style>
 </head>
 <body>
+<div class="progress-bar" id="progressBar"></div>
 <nav><div class="container"><a href="/" class="name">Andrea Padula</a><a href="/" class="back">Home</a></div></nav>
 
 <div class="hero-img">
@@ -110,7 +121,7 @@
         <p>There is a performance that happens at large financial institutions, and it goes like this. The board reads a McKinsey report that says AI will generate $200 billion in value for the banking sector. The CEO mentions it at the next leadership meeting. Someone is assigned to "own AI." A budget is created. Vendors are invited to pitch.</p>
         <p>What follows is a procurement process that is thorough, documented, and almost entirely disconnected from the question of whether anyone will actually use the thing being purchased.</p>
         <p>The purchase itself is the deliverable. The CTO can report to the board: we have an AI vendor. We have a pilot. We are innovating. The box is checked. The annual report gets a paragraph about digital transformation. The investor deck gets a slide with a neural network graphic on it.</p>
-        <p>I call this innovation theater. It looks like progress. It sounds like progress. But the distance between the signed contract and a working deployment is enormous, and almost nobody is accountable for closing that gap.</p>
+        <p>I call this <a href="innovation-is-not-a-department.html">innovation theater</a>. It looks like progress. It sounds like progress. But the distance between the signed contract and a working deployment is enormous, and almost nobody is accountable for closing that gap.</p>
         <p>I've seen this in Milan with mid-size private banks. I've seen it in London with global institutions. I've seen it in Doha with sovereign wealth-adjacent funds. The scale changes, the budgets change, but the choreography is identical. Buy the tool. Announce the pilot. Move on to the next quarter's priorities.</p>
 
         <h2>18 months to buy, 6 months of shelf life</h2>
@@ -129,7 +140,7 @@
         <p>These are the people who would actually use the AI tool every day. And in the vast majority of evaluations I've been part of, they are not in the room. They weren't consulted during the requirements gathering. They didn't test the prototype. They find out about the new tool when IT sends them a login link and a PDF user guide.</p>
         <p>By then it's too late. The tool doesn't fit their workflow. It adds steps instead of removing them. It requires data entry they don't have time for. They try it once, find it slower than their existing process, and go back to the spreadsheet.</p>
         <p>I sat in a meeting in Riyadh where a bank's Head of Digital proudly showed me the dashboard of their new AI analytics platform. Usage stats for the first three months. Forty-seven unique logins. The bank had 600 wealth advisors. Forty-seven logins in three months. The platform had cost them north of two million dollars.</p>
-        <p>Nobody had asked the wealth advisors what they needed.</p>
+        <p>Nobody had asked the wealth advisors what they needed. <a href="most-ai-products-fail.html">Most AI products fail</a> for exactly this reason.</p>
 
         <h2>The compliance paradox</h2>
         <p>Here is the part that makes me lose sleep.</p>
@@ -155,14 +166,14 @@
         <p>That's it. That's the entire differentiator. Not the size of the AI budget. Not the sophistication of the data infrastructure. Not whether they hired a Chief AI Officer. The single best predictor of whether a bank will actually deploy AI is whether the technology leadership and the revenue-generating business units have a functioning relationship.</p>
         <p>When the CTO understands what a relationship manager's Tuesday morning actually looks like &mdash; which systems they use, where they waste time, what information they need but can't access quickly &mdash; the AI use cases that get prioritized are the ones that will actually get adopted. When the business line understands what the technology team can realistically deliver and integrate, the expectations are grounded.</p>
         <p>When these two groups operate in silos &mdash; which is the default at most banks &mdash; the CTO buys what looks good to the board, and the business line ignores it because it doesn't solve a problem they have.</p>
-        <p>I was in San Francisco last year, talking to a former banker who now runs product at a fintech. He said something I think about often: "At my old bank, the CTO had never sat with a client-facing team for a full day. Not once in four years. He was making technology decisions for people whose jobs he'd never watched."</p>
+        <p>I was in <a href="silicon-valley-and-europe-two-planets.html">San Francisco</a> last year, talking to a former banker who now runs product at a fintech. He said something I think about often: "At my old bank, the CTO had never sat with a client-facing team for a full day. Not once in four years. He was making technology decisions for people whose jobs he'd never watched."</p>
         <p>That's the gap. Not a technology gap. A proximity gap.</p>
 
         <h2>The vendor's role in this</h2>
         <p>I should be honest about something. Vendors &mdash; including the company I work for &mdash; are part of this problem.</p>
         <p>We sell to CTOs because CTOs have budgets. We build demos that impress executives because executives sign contracts. We optimize our pitch for the boardroom because that's where procurement decisions happen.</p>
         <p>We are less good at insisting on access to end users before the deal is signed. We are less good at walking away from a deal when we can see that the internal conditions for successful deployment don't exist. We are less good at telling a CTO that buying our product right now would be a waste of their money because their compliance team hasn't been briefed and their business line hasn't been consulted.</p>
-        <p>The honest vendors &mdash; the ones who want long-term relationships instead of one-time contracts &mdash; are starting to change this. At Streetbeat, we've begun requiring discovery sessions with end users before we'll commit to a pilot timeline. Not every bank likes this. Some see it as an obstacle. A few have walked away because they just wanted to buy the product and check the box.</p>
+        <p>The honest vendors &mdash; the ones who want long-term relationships instead of one-time contracts &mdash; are starting to change this. At Streetbeat, we've begun requiring discovery sessions with end users before we'll commit to a pilot timeline. Some of the <a href="three-conversations-that-changed-how-i-sell-ai.html">most important conversations I've had</a> were with the people who would actually use the product, not the ones signing the contract. Not every bank likes this. Some see it as an obstacle. A few have walked away because they just wanted to buy the product and check the box.</p>
         <p>Those are the deals I'm glad we lost.</p>
 
         <h2>Where this goes</h2>
@@ -202,5 +213,8 @@
     </div>
 </div>
 <footer><div class="container"><p>&copy; 2026 Andrea Padula. All rights reserved.</p></div></footer>
+<script>
+window.addEventListener('scroll',function(){var e=document.documentElement,b=document.getElementById('progressBar'),s=e.scrollTop||document.body.scrollTop,h=e.scrollHeight-e.clientHeight;b.style.width=h>0?((s/h)*100)+'%':'0%'});
+</script>
 </body>
 </html>

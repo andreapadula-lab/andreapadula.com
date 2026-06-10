@@ -12,7 +12,16 @@
     <meta property="og:image" content="https://andreapadula.com/andrea-padula.png">
     <meta property="og:url" content="https://andreapadula.com/when-100-is-the-new-60.html">
     <meta property="og:type" content="article">
-    <meta name="twitter:card" content="summary_large_image">
+    <meta property="article:published_time" content="2026-03-18">
+    <meta property="article:author" content="https://andreapadula.com/about.html">
+    <meta property="article:section" content="Longevity & Finance">
+    <meta property="article:tag" content="Longevity">
+    <meta property="article:tag" content="Financial Services">
+    <meta property="article:tag" content="Pension Funds">
+    <meta property="article:tag" content="Biotech">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="When 100 Is the New 60: What Nobody in Finance Is Preparing For">
+    <meta name="twitter:description" content="GLP-1 drugs, senolytics, and gene therapy are rewriting human lifespan. Every pension fund, insurer, and wealth manager is running models that assume people die at 80. Those models are about to break.">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -78,9 +87,11 @@
         .related-link:hover { padding-left: 8px; }
         .related-link .rl-title { font-size: 16px; font-weight: 500; color: var(--text); display: block; margin-bottom: 4px; }
         .related-link .rl-meta { font-size: 13px; color: var(--text-muted); }
+        .progress-bar { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: linear-gradient(90deg, #052e16, #16a34a); z-index: 200; transition: width 0.15s ease-out; pointer-events: none; }
     </style>
 </head>
 <body>
+<div class="progress-bar" id="progressBar"></div>
 <nav><div class="container"><a href="/" class="name">Andrea Padula</a><a href="/" class="back">Home</a></div></nav>
 
 <div class="hero-img">
@@ -107,7 +118,7 @@
         <p class="subtitle">GLP-1 drugs, senolytics, and gene therapy are rewriting human lifespan. Every pension fund, insurer, and wealth manager is running models built for a world where people die at 80. That world is ending.</p>
     </div>
     <div class="article-body">
-        <p>I spend a lot of time in conversations with banks and wealth managers about AI. What models to deploy, what workflows to automate, what compliance frameworks to build. Practical stuff. Near-term stuff.</p>
+        <p>I spend a lot of time in <a href="what-i-see-selling-ai-to-european-banks.html">conversations with banks and wealth managers about AI</a>. What models to deploy, what workflows to automate, what compliance frameworks to build. Practical stuff. Near-term stuff.</p>
         <p>But there is a question I keep raising that gets blank stares from almost every financial executive I talk to: what happens to your entire business when your clients stop dying on schedule?</p>
         <p>This is not a thought experiment. It is happening right now, driven by science that has moved from speculative to clinical in under five years. And the financial services industry -- an industry that runs on actuarial assumptions about human mortality -- is almost completely unprepared.</p>
 
@@ -156,7 +167,7 @@
         <p>There is a geographic dimension to this that most Western financial institutions are missing.</p>
         <p>The Gulf states are making longevity a strategic priority. Saudi Arabia's NEOM project includes a dedicated biotech and health innovation zone. The Hevolution Foundation, which I mentioned earlier, is a Saudi sovereign commitment to longevity science that dwarfs most Western government spending on the topic. The UAE has launched multiple health and longevity initiatives, including the Dubai Future Foundation's focus on extending healthy human life.</p>
         <p>This is not philanthropy. These are countries with young populations, enormous sovereign wealth, and a strategic interest in building post-oil economies. Longevity science and longevity finance are part of that transition. The Gulf is positioning itself as a global hub for both the science and the financial products that will emerge from it.</p>
-        <p>For European and American financial institutions, this matters because it means the competition for longevity-native financial products will not come only from Silicon Valley biotech firms. It will come from sovereign-backed institutions in the Gulf with patient capital and long time horizons -- exactly the kind of capital that longevity products require.</p>
+        <p>For European and American financial institutions, this matters because it means the competition for longevity-native financial products will not come only from <a href="silicon-valley-and-europe-two-planets.html">Silicon Valley</a> biotech firms. It will come from sovereign-backed institutions in the Gulf with patient capital and long time horizons -- exactly the kind of capital that longevity products require.</p>
 
         <h2>New products for a new reality</h2>
         <p>Let me be concrete about what the financial services industry needs to build.</p>
@@ -168,7 +179,7 @@
 
         <h2>The bank that moves first wins</h2>
         <p>I have raised this topic with C-level executives at maybe forty financial institutions across Europe and the Gulf over the past two years. The responses fall into three groups.</p>
-        <p>The first says: "Interesting, but too early." These are the same people who said the same thing about AI in banking in 2022.</p>
+        <p>The first says: "Interesting, but too early." These are the same people who said the same thing about AI in banking in 2022 — caught in <a href="the-pilot-trap.html">the pilot trap</a>.</p>
         <p>The second says: "That is a product team problem." Which means nobody is working on it.</p>
         <p>The third -- the smallest group -- says: "We know. We do not know what to do yet."</p>
         <p>Here is what I tell the third group. The institution that builds longevity-native financial products first -- retirement products for 40-year horizons, health-linked insurance, biological age-indexed pricing, multi-generational wealth tools -- does not just win a product category. It wins a generational opportunity. Because once clients experience financial products designed for the way they will actually live, they will never go back to products designed for the way their grandparents died.</p>
@@ -203,5 +214,8 @@
     </div>
 </div>
 <footer><div class="container"><p>&copy; 2026 Andrea Padula</p></div></footer>
+<script>
+window.addEventListener('scroll',function(){var e=document.documentElement,b=document.getElementById('progressBar'),s=e.scrollTop||document.body.scrollTop,h=e.scrollHeight-e.clientHeight;b.style.width=h>0?((s/h)*100)+'%':'0%'});
+</script>
 </body>
 </html>

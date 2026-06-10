@@ -12,7 +12,16 @@
     <meta property="og:image" content="https://andreapadula.com/andrea-padula.png">
     <meta property="og:url" content="https://andreapadula.com/three-conversations-that-changed-how-i-sell-ai.html">
     <meta property="og:type" content="article">
-    <meta name="twitter:card" content="summary_large_image">
+    <meta property="article:published_time" content="2025-11-04">
+    <meta property="article:author" content="https://andreapadula.com/about.html">
+    <meta property="article:section" content="AI Sales">
+    <meta property="article:tag" content="Enterprise Sales">
+    <meta property="article:tag" content="Artificial Intelligence">
+    <meta property="article:tag" content="European Banking">
+    <meta property="article:tag" content="Lessons Learned">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Three Conversations That Changed How I Think About Selling AI">
+    <meta name="twitter:description" content="A CTO in Milan, a wealth manager in Doha, and an innovation officer in London taught me more about selling AI than any conference ever did. Three real conversations, three hard lessons.">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -80,9 +89,11 @@
         .related-link:hover { padding-left: 8px; }
         .related-link .rl-title { font-size: 16px; font-weight: 500; color: var(--text); display: block; margin-bottom: 4px; }
         .related-link .rl-meta { font-size: 13px; color: var(--text-muted); }
+        .progress-bar { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: linear-gradient(90deg, #3b0764, #7c3aed); z-index: 200; transition: width 0.15s ease-out; pointer-events: none; }
     </style>
 </head>
 <body>
+<div class="progress-bar" id="progressBar"></div>
 <nav><div class="container"><a href="/" class="name">Andrea Padula</a><a href="/" class="back">Home</a></div></nav>
 
 <div class="hero-img">
@@ -166,9 +177,9 @@
 
         <blockquote><p>"I'm going to be honest with you. My job is to run pilots. That's what I'm measured on. How many pilots am I running? How many startups am I talking to? How many innovation reports am I presenting to the board? Nobody has ever asked me to ship a product into production. That's someone else's problem. And that someone else doesn't report to me."</p></blockquote>
 
-        <p>He wasn't being cynical. He was being accurate. The bank had created an innovation function that was structurally disconnected from the teams that actually built and deployed technology. The innovation team found interesting things. Then they handed them to IT, who had their own priorities, their own budget cycles, their own roadmap. And the interesting things died in the handoff.</p>
+        <p>He wasn't being cynical. He was being accurate. The bank had created an innovation function that was structurally disconnected from the teams that actually built and deployed technology. The <a href="innovation-is-not-a-department.html">innovation team</a> found interesting things. Then they handed them to IT, who had their own priorities, their own budget cycles, their own roadmap. And the interesting things died in the handoff.</p>
 
-        <p>He told me that in four years, his team had launched over twenty pilots. Two had made it to production. Two out of twenty. And both of those had succeeded only because a specific executive had personally championed them through the organization, overriding the normal process.</p>
+        <p>He told me that in four years, his team had launched over twenty pilots. Two had made it to production. This is <a href="the-pilot-trap.html">the pilot trap</a> at its most honest. Two out of twenty. And both of those had succeeded only because a specific executive had personally championed them through the organization, overriding the normal process.</p>
 
         <blockquote><p>"The technology is never the problem. The org chart is the problem."</p></blockquote>
 
@@ -194,7 +205,7 @@
 
         <p>Because the answer is almost never what you expect. It's never "I need a better algorithm." It's "I need to spend less time on things that don't matter so I can spend more time on things that do." It's "I need to trust that this won't blow up in my face." It's "I need someone who understands that my world is more complicated than a demo suggests."</p>
 
-        <p>The best technology disappears. You don't notice it. It just makes the important things easier and the unimportant things go away. That's what I'm trying to build toward. Not AI that impresses people in a meeting room, but AI that a wealth manager in Doha forgets is even there, because he's too busy talking to his client.</p>
+        <p>The best technology disappears. You don't notice it. It just makes the important things easier and the unimportant things go away. That's what I'm trying to build toward. Not AI that impresses people in a meeting room, but AI that a wealth manager in Doha forgets is even there, because he's too busy talking to his client. That is what <a href="the-bank-of-2030.html">the bank of 2030</a> actually looks like.</p>
 
         <p>Three cities. Three conversations. Three lessons I carry into every meeting now.</p>
 
@@ -228,5 +239,8 @@
     </div>
 </div>
 <footer><div class="container"><p>&copy; 2026 Andrea Padula</p></div></footer>
+<script>
+window.addEventListener('scroll',function(){var e=document.documentElement,b=document.getElementById('progressBar'),s=e.scrollTop||document.body.scrollTop,h=e.scrollHeight-e.clientHeight;b.style.width=h>0?((s/h)*100)+'%':'0%'});
+</script>
 </body>
 </html>

@@ -12,7 +12,16 @@
     <meta property="og:image" content="https://andreapadula.com/andrea-padula.png">
     <meta property="og:url" content="https://andreapadula.com/why-longevity-will-be-the-next-trillion-dollar-financial-product.html">
     <meta property="og:type" content="article">
-    <meta name="twitter:card" content="summary_large_image">
+    <meta property="article:published_time" content="2025-09-22">
+    <meta property="article:author" content="https://andreapadula.com/about.html">
+    <meta property="article:section" content="Future of Finance">
+    <meta property="article:tag" content="Longevity">
+    <meta property="article:tag" content="Financial Products">
+    <meta property="article:tag" content="Insurance">
+    <meta property="article:tag" content="Wealth Management">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Why Longevity Will Be the Next Trillion-Dollar Financial Product">
+    <meta name="twitter:description" content="Every actuarial table in every bank assumes you'll die around 80. What happens when that number is wrong? The entire financial services industry needs to rethink its math.">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -78,9 +87,11 @@
         .related-link:hover { padding-left: 8px; }
         .related-link .rl-title { font-size: 16px; font-weight: 500; color: var(--text); display: block; margin-bottom: 4px; }
         .related-link .rl-meta { font-size: 13px; color: var(--text-muted); }
+        .progress-bar { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: linear-gradient(90deg, #064e3b, #059669); z-index: 200; transition: width 0.15s ease-out; pointer-events: none; }
     </style>
 </head>
 <body>
+<div class="progress-bar" id="progressBar"></div>
 <nav><div class="container"><a href="/" class="name">Andrea Padula</a><a href="/" class="back">Home</a></div></nav>
 
 <div class="hero-img">
@@ -132,7 +143,7 @@
         <p>Europe is next. Italy — where I'm based — has a median age of 48.4. We're basically Japan with better food and worse pension math.</p>
 
         <h2>What this means for wealth management</h2>
-        <p>This is my world. I sell AI to wealth managers and banks. And I can tell you: almost none of them are modeling for clients who live past 90, let alone 100.</p>
+        <p>This is my world. I <a href="what-i-see-selling-ai-to-european-banks.html">sell AI to wealth managers and banks</a>. And I can tell you: almost none of them are modeling for clients who live past 90, let alone 100.</p>
         <p>The standard retirement planning conversation goes like this: "You retire at 65. You need income for 20 years. Here's your drawdown rate." That framework assumes the client will be dead by 85. The 4% rule — the bedrock of retirement planning — was designed for a 30-year retirement horizon. What happens at year 40?</p>
         <p>The answer is: you run out of money. And that's not a hypothetical. It's already happening to people who retired in the early 2000s and are now in their late 80s and early 90s, watching their savings evaporate because the plan said they wouldn't be around this long.</p>
         <p><strong>The single biggest financial risk for the next generation of retirees isn't market volatility. It's outliving their money.</strong></p>
@@ -148,13 +159,13 @@
 
         <h2>Longevity as an asset class</h2>
         <p>Here's where it gets interesting from an investment perspective. Longevity is becoming investable.</p>
-        <p>Jim Mellon's Juvenescence and his book <em>Juvenescence: Investing in the Age of Longevity</em> laid out the investment thesis years ago. The Longevity Fund, based in San Francisco, was one of the first dedicated VC vehicles in the space. Now there are dozens.</p>
+        <p>Jim Mellon's Juvenescence and his book <em>Juvenescence: Investing in the Age of Longevity</em> laid out the investment thesis years ago. The Longevity Fund, based in <a href="silicon-valley-and-europe-two-planets.html">San Francisco</a>, was one of the first dedicated VC vehicles in the space. Now there are dozens.</p>
         <p>Apollo Global Management reportedly explored longevity-linked structured products. The Life Settlements market — where investors buy existing life insurance policies at a discount from policyholders — is a $4.5 billion annual market and growing, because policies keep paying out later than expected.</p>
         <p>For asset managers, there's a dual opportunity: invest in the companies building longevity science, and build products for the clients who will live longer because of it. The firms that see this as a single, connected thesis — not two separate verticals — are the ones that will capture the most value.</p>
 
         <h2>Why financial services is sleeping</h2>
         <p>I've raised this topic with maybe thirty C-level executives at European financial institutions over the past year. The response falls into three categories.</p>
-        <p>The first group says: "Interesting, but it's too early." These are the same people who said AI in banking was "too early" in 2022.</p>
+        <p>The first group says: "Interesting, but it's too early." These are the same people who said AI in banking was "too early" in 2022 — stuck in <a href="the-pilot-trap.html">the pilot trap</a>.</p>
         <p>The second group says: "That's a product team problem." Which means nobody is working on it.</p>
         <p>The third group — the smallest — says: "We know. We just don't know what to do about it yet." At least they're honest.</p>
         <p>The reason finance is slow on this is the same reason it's slow on everything: the existing models still work <em>today</em>, and changing them is expensive and politically difficult. Nobody gets promoted for fixing a problem that won't blow up for ten years. Ma il conto arriva sempre — the bill always comes.</p>
@@ -194,5 +205,8 @@
     </div>
 </div>
 <footer><div class="container"><p>&copy; 2026 Andrea Padula</p></div></footer>
+<script>
+window.addEventListener('scroll',function(){var e=document.documentElement,b=document.getElementById('progressBar'),s=e.scrollTop||document.body.scrollTop,h=e.scrollHeight-e.clientHeight;b.style.width=h>0?((s/h)*100)+'%':'0%'});
+</script>
 </body>
 </html>

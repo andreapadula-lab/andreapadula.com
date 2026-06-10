@@ -12,7 +12,16 @@
     <meta property="og:image" content="https://andreapadula.com/andrea-padula.png">
     <meta property="og:url" content="https://andreapadula.com/most-ai-products-fail.html">
     <meta property="og:type" content="article">
-    <meta name="twitter:card" content="summary_large_image">
+    <meta property="article:published_time" content="2026-04-08">
+    <meta property="article:author" content="https://andreapadula.com/about.html">
+    <meta property="article:section" content="AI Strategy">
+    <meta property="article:tag" content="Artificial Intelligence">
+    <meta property="article:tag" content="Product Validation">
+    <meta property="article:tag" content="European Banking">
+    <meta property="article:tag" content="Pretotyping">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Most AI Products Fail — Not Because of the Tech">
+    <meta name="twitter:description" content="85% of European banks have an AI strategy. 12% have something in production. The gap isn't technology — it's validation. Inspired by Alberto Savoia's pretotyping framework.">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -79,9 +88,11 @@
         .related-link:hover { padding-left: 8px; }
         .related-link .rl-title { font-size: 16px; font-weight: 500; color: var(--text); display: block; margin-bottom: 4px; }
         .related-link .rl-meta { font-size: 13px; color: var(--text-muted); }
+        .progress-bar { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: linear-gradient(90deg, #1c1917, #450a0a); z-index: 200; transition: width 0.15s ease-out; pointer-events: none; }
     </style>
 </head>
 <body>
+<div class="progress-bar" id="progressBar"></div>
 <nav><div class="container"><a href="/" class="name">Andrea Padula</a><a href="/" class="back">Home</a></div></nav>
 
 <div class="hero-img">
@@ -99,7 +110,7 @@
         <p class="subtitle">The problem isn't execution. It's building the wrong thing. Alberto Savoia figured this out at Google. It applies to AI in banking too.</p>
     </div>
     <div class="article-body">
-        <p>I've spent the last few years selling AI to banks. Not the TED Talk version of AI. The version that has to survive procurement, compliance reviews, a six-month pilot that nobody internally champions, and a CTO who got burned by the last vendor who promised "intelligent automation."</p>
+        <p>I've spent the last few years <a href="what-i-see-selling-ai-to-european-banks.html">selling AI to banks</a>. Not the TED Talk version of AI. The version that has to survive procurement, compliance reviews, a six-month pilot that nobody internally champions, and a CTO who got burned by the last vendor who promised "intelligent automation."</p>
         <p>Here's what I've noticed from sitting across the table from C-levels at financial institutions across Europe and the Middle East: the technology almost never kills the deal. What kills it is that nobody checked whether the thing being built was the thing anyone would actually use.</p>
         <p>This is not an original observation. A man named Alberto Savoia figured this out years ago &mdash; and he did it at Google.</p>
 
@@ -113,7 +124,7 @@
         <h2>The AI Strategy Deck Problem</h2>
         <p>Here's a number I keep coming back to. Roughly 85% of European banks have an AI strategy. About 12% have something meaningful in production. That gap &mdash; from 85 to 12 &mdash; is not a technology gap. It's not a talent gap. It's not even a budget gap.</p>
         <p>It's a validation gap.</p>
-        <p>What happens is this: a bank hires a consultancy. The consultancy produces a 90-page AI strategy deck. The deck identifies 15 use cases. Each use case gets a "feasibility score" and a "business impact estimate." The board approves three pilots. Twelve months later, two pilots are dead and the third is limping along in a sandbox that four people use.</p>
+        <p>What happens is this: a bank hires a consultancy. The consultancy produces a 90-page AI strategy deck. The deck identifies 15 use cases. Each use case gets a "feasibility score" and a "business impact estimate." The board approves three pilots. Twelve months later, two pilots are dead and the third is limping along in a sandbox that four people use. <a href="innovation-is-not-a-department.html">Innovation gets delegated to a team</a> instead of embedded in operations.</p>
         <p>Nobody pretotyped anything. Nobody tested whether the people who were supposed to benefit from the tool would actually change their behavior. The entire process skipped the most important question &mdash; will anyone use this? &mdash; and jumped straight to architecture diagrams.</p>
         <p>Savoia would recognize this instantly. It's what he calls "thoughtland" &mdash; the dangerous territory where ideas sound brilliant because nobody has tested them against reality.</p>
 
@@ -142,12 +153,12 @@
 
         <h2>Skin in the Game</h2>
         <p>Savoia insists on "skin in the game" &mdash; meaning the people in your test need to invest something real. Time, money, reputation. Not just a survey response. Not just "yeah, I'd use that."</p>
-        <p>This is where the gap between Europe and Silicon Valley gets interesting. In the Valley, the culture of rapid prototyping and user testing is embedded. It's imperfect, sometimes theatrical, but it's there. In European financial services, the default mode is still top-down. A committee decides what gets built. Users are consulted after the fact, if at all.</p>
+        <p>This is where the gap between <a href="silicon-valley-and-europe-two-planets.html">Europe and Silicon Valley</a> gets interesting. In the Valley, the culture of rapid prototyping and user testing is embedded. It's imperfect, sometimes theatrical, but it's there. In European financial services, the default mode is still top-down. A committee decides what gets built. Users are consulted after the fact, if at all.</p>
         <p>I've seen banks spend two years and seven figures building an internal AI tool that their own employees route around because it's slower than the spreadsheet it was supposed to replace. Two years. Nobody asked the people who would use it whether the spreadsheet was actually a problem.</p>
         <p>That's not a technology failure. That's an organizational failure to validate.</p>
 
         <h2>What I See From Where I Sit</h2>
-        <p>Working at the intersection of Silicon Valley AI and European banking gives you a specific vantage point. You see the American bias toward building fast and iterating. You see the European bias toward planning thoroughly and building once. Both fail, but they fail differently.</p>
+        <p>Working at the intersection of <a href="silicon-valley-and-europe-two-planets.html">Silicon Valley AI and European banking</a> gives you a specific vantage point. You see the American bias toward building fast and iterating. You see the European bias toward planning thoroughly and building once. Both fail, but they fail differently.</p>
         <p>American AI startups fail because they ship something nobody in regulated industries can actually deploy. European initiatives fail because they plan so long that by the time they ship, the market has moved.</p>
         <p>The fix for both is the same, and it's Savoia's fix: test the market hypothesis before you invest in the solution. Not with a deck. Not with a survey. With something that forces real behavior from real users with real stakes.</p>
         <p>At Streetbeat, this shapes how we think. Not because we read it in a book &mdash; though the book is good and you should read it &mdash; but because we've made these mistakes ourselves. We've built features that were technically elegant and practically ignored. We've assumed that what a Chief Innovation Officer asks for in a meeting is what their organization will actually adopt. It isn't. You have to test it.</p>
@@ -188,5 +199,8 @@
     </div>
 </div>
 <footer><div class="container"><p>&copy; 2026 Andrea Padula. All rights reserved.</p></div></footer>
+<script>
+window.addEventListener('scroll',function(){var e=document.documentElement,b=document.getElementById('progressBar'),s=e.scrollTop||document.body.scrollTop,h=e.scrollHeight-e.clientHeight;b.style.width=h>0?((s/h)*100)+'%':'0%'});
+</script>
 </body>
 </html>

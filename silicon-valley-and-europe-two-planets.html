@@ -12,7 +12,16 @@
     <meta property="og:image" content="https://andreapadula.com/andrea-padula.png">
     <meta property="og:url" content="https://andreapadula.com/silicon-valley-and-europe-two-planets.html">
     <meta property="og:type" content="article">
-    <meta name="twitter:card" content="summary_large_image">
+    <meta property="article:published_time" content="2024-12-05">
+    <meta property="article:author" content="https://andreapadula.com/about.html">
+    <meta property="article:section" content="Tech & Culture">
+    <meta property="article:tag" content="Silicon Valley">
+    <meta property="article:tag" content="Europe">
+    <meta property="article:tag" content="Innovation Culture">
+    <meta property="article:tag" content="Transatlantic">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Silicon Valley and Europe Are Two Different Planets. I Live on Both.">
+    <meta name="twitter:description" content="In Palo Alto they ship and iterate. In Milan they schedule a meeting to discuss the pilot. I live on both planets. Here's what I see.">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -77,9 +86,11 @@
         .related-link:hover { padding-left: 8px; }
         .related-link .rl-title { font-size: 16px; font-weight: 500; color: var(--text); display: block; margin-bottom: 4px; }
         .related-link .rl-meta { font-size: 13px; color: var(--text-muted); }
+        .progress-bar { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: linear-gradient(90deg, #4a1942, #831843); z-index: 200; transition: width 0.15s ease-out; pointer-events: none; }
     </style>
 </head>
 <body>
+<div class="progress-bar" id="progressBar"></div>
 <nav><div class="container"><a href="/" class="name">Andrea Padula</a><a href="/" class="back">Home</a></div></nav>
 
 <div class="hero-img">
@@ -115,12 +126,12 @@
 
         <h2>What Europe gets wrong</h2>
         <p>The problem isn't caution. The problem is that caution becomes an excuse for inaction.</p>
-        <p>I've lost count of how many times I've heard "we need to study this more" from banks that have been "studying" AI for three years without deploying anything. At some point, studying becomes procrastinating with a PowerPoint budget.</p>
-        <p>The other thing Europe gets wrong is thinking locally. The AI race is global. The bank in Milan isn't just competing with the bank in Rome — it's competing with neobanks, big tech, and financial infrastructure companies that don't care about national borders.</p>
+        <p>I've lost count of how many times I've heard "we need to study this more" from banks that have been "studying" AI for three years without deploying anything. It's <a href="the-pilot-trap.html">the pilot trap</a> in its purest form. At some point, studying becomes procrastinating with a PowerPoint budget.</p>
+        <p>The other thing Europe gets wrong is thinking locally. The AI race is global. The bank in Milan isn't just competing with the bank in Rome — it's competing with neobanks, big tech, and financial infrastructure companies that don't care about national borders. <a href="the-bank-of-2030.html">The bank of 2030</a> will serve 10x the clients with half the people &mdash; the ones who don't adapt will be left behind.</p>
 
         <h2>Where the magic happens</h2>
         <p>The most interesting things I see are happening at the intersection. European companies with Silicon Valley DNA. Or Silicon Valley companies that take European regulation seriously.</p>
-        <p>That's where I operate, and frankly, it's a pretty empty space. Most people pick a side. Most companies are either "move fast and break things" or "move slow and write a report about it."</p>
+        <p>That's where I operate, and frankly, it's a pretty empty space. Most people pick a side. Most companies are either "move fast and break things" or "move slow and write a report about it." Understanding <a href="what-silicon-valley-knows-about-failure.html">what Silicon Valley knows about failure</a> is part of bridging that gap.</p>
         <p><strong>The opportunity is in being both. Fast enough to matter. Rigorous enough to be trusted.</strong></p>
         <p>It's uncomfortable. You're always too slow for one room and too fast for the other. But I think it's where the future is being built.</p>
         <p>And from what I can see from seat 14A on the MXP-SFO flight, it's a future worth writing about.</p>
@@ -153,5 +164,8 @@
     </div>
 </div>
 <footer><div class="container"><p>&copy; 2026 Andrea Padula</p></div></footer>
+<script>
+window.addEventListener('scroll',function(){var e=document.documentElement,b=document.getElementById('progressBar'),s=e.scrollTop||document.body.scrollTop,h=e.scrollHeight-e.clientHeight;b.style.width=h>0?((s/h)*100)+'%':'0%'});
+</script>
 </body>
 </html>

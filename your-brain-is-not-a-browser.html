@@ -12,7 +12,16 @@
     <meta property="og:image" content="https://andreapadula.com/andrea-padula.png">
     <meta property="og:url" content="https://andreapadula.com/your-brain-is-not-a-browser.html">
     <meta property="og:type" content="article">
-    <meta name="twitter:card" content="summary_large_image">
+    <meta property="article:published_time" content="2026-06-10">
+    <meta property="article:author" content="https://andreapadula.com/about.html">
+    <meta property="article:section" content="Productivity">
+    <meta property="article:tag" content="Focus">
+    <meta property="article:tag" content="Productivity">
+    <meta property="article:tag" content="Context Switching">
+    <meta property="article:tag" content="Deep Work">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Your Brain Is Not a Browser — Stop Treating It Like One">
+    <meta name="twitter:description" content="Every time you switch tasks, you lose 25 minutes of deep focus. Multitasking isn't a skill — it's a tax. And most knowledge workers are paying it all day.">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -86,9 +95,11 @@
         .related-link:hover { padding-left: 8px; }
         .related-link .rl-title { font-size: 16px; font-weight: 500; color: var(--text); display: block; margin-bottom: 4px; }
         .related-link .rl-meta { font-size: 13px; color: var(--text-muted); }
+        .progress-bar { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: linear-gradient(90deg, #1e1b4b, #312e81); z-index: 200; transition: width 0.15s ease-out; pointer-events: none; }
     </style>
 </head>
 <body>
+<div class="progress-bar" id="progressBar"></div>
 <nav><div class="container"><a href="/" class="name">Andrea Padula</a><a href="/" class="back">Home</a></div></nav>
 
 <div class="hero-img">
@@ -123,7 +134,7 @@
         <p>One of the most powerful applications of AI in financial services isn't some fancy autonomous agent or predictive model. It's reducing context switches.</p>
         <p>An AI that prepares a client brief before a meeting means the banker doesn't have to pull data from four different systems. That's not just saving 20 minutes of manual work. It's saving the cognitive switching cost of opening each system, remembering where they left off, finding the relevant data, and mentally reconstructing the client's situation.</p>
         <p>The actual time saved by AI in a workflow like this is far greater than the task itself. Because the real cost was never the task. It was the switching.</p>
-        <p>Most banks that buy AI tools measure ROI in time-per-task. They should be measuring it in context-switches-eliminated. The second number is always bigger.</p>
+        <p><a href="why-banks-keep-buying-ai-they-will-never-use.html">Most banks that buy AI tools</a> measure ROI in time-per-task. They should be measuring it in context-switches-eliminated. The second number is always bigger.</p>
 
         <div class="highlight-box">
             <p>The brain is not designed for multitasking. It is designed for focus. Every tool, every process, every AI integration should be evaluated by a simple question: does this reduce or increase the number of times someone has to switch context?</p>
@@ -131,8 +142,8 @@
 
         <h2>The Open-Office, Always-On Trap</h2>
         <p>Modern work environments are designed to maximize interruptions. Open offices. Slack channels. Email notifications. Calendar invites. Each one is a context switch waiting to happen.</p>
-        <p>I work between Milan and Menlo Park, and the pattern is the same in both places. The people who produce the most meaningful work &mdash; whether it's closing a deal, building a product, or writing a strategy &mdash; are the ones who protect their focus blocks like appointments.</p>
-        <p>In Silicon Valley, this is becoming common. Engineers at serious companies block their calendars. "Focus time" is a calendar event. It's respected, or at least acknowledged.</p>
+        <p>I work between Milan and <a href="what-menlo-park-gets-wrong-about-europe.html">Menlo Park</a>, and the pattern is the same in both places. The people who produce the most meaningful work &mdash; whether it's closing a deal, building a product, or writing a strategy &mdash; are the ones who protect their focus blocks like appointments.</p>
+        <p>In <a href="silicon-valley-and-europe-two-planets.html">Silicon Valley</a>, this is becoming common. Engineers at serious companies block their calendars. "Focus time" is a calendar event. It's respected, or at least acknowledged.</p>
         <p>In European financial services, the culture is still overwhelmingly reactive. Being "always available" is treated as a virtue. Responding to emails within minutes is expected. Taking two hours to think without interruption is seen as being disconnected.</p>
         <p>This is backwards. The most valuable thing a senior professional can do is think deeply about one thing for a sustained period. Everything that prevents that &mdash; including well-intentioned Slack messages and "quick syncs" &mdash; is destroying value.</p>
 
@@ -184,5 +195,8 @@
     </div>
 </div>
 <footer><div class="container"><p>&copy; 2026 Andrea Padula. All rights reserved.</p></div></footer>
+<script>
+window.addEventListener('scroll',function(){var e=document.documentElement,b=document.getElementById('progressBar'),s=e.scrollTop||document.body.scrollTop,h=e.scrollHeight-e.clientHeight;b.style.width=h>0?((s/h)*100)+'%':'0%'});
+</script>
 </body>
 </html>

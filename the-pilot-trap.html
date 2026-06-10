@@ -12,7 +12,16 @@
     <meta property="og:image" content="https://andreapadula.com/andrea-padula.png">
     <meta property="og:url" content="https://andreapadula.com/the-pilot-trap.html">
     <meta property="og:type" content="article">
-    <meta name="twitter:card" content="summary_large_image">
+    <meta property="article:published_time" content="2025-05-06">
+    <meta property="article:author" content="https://andreapadula.com/about.html">
+    <meta property="article:section" content="Banking Innovation">
+    <meta property="article:tag" content="Pilot Purgatory">
+    <meta property="article:tag" content="Banking">
+    <meta property="article:tag" content="Innovation Programs">
+    <meta property="article:tag" content="Enterprise Sales">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="The Pilot Trap: Why 90% of Bank Innovation Programs Go Nowhere">
+    <meta name="twitter:description" content="Banks run endless pilots that never become products. A field report on pilot purgatory, incentive misalignment, and what the 10% that succeed do differently.">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -78,9 +87,11 @@
         .related-link:hover { padding-left: 8px; }
         .related-link .rl-title { font-size: 16px; font-weight: 500; color: var(--text); display: block; margin-bottom: 4px; }
         .related-link .rl-meta { font-size: 13px; color: var(--text-muted); }
+        .progress-bar { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: linear-gradient(90deg, #422006, #b45309); z-index: 200; transition: width 0.15s ease-out; pointer-events: none; }
     </style>
 </head>
 <body>
+<div class="progress-bar" id="progressBar"></div>
 <nav><div class="container"><a href="/" class="name">Andrea Padula</a><a href="/" class="back">Home</a></div></nav>
 
 <div class="hero-img">
@@ -111,7 +122,7 @@
         <p>A typical Tier 1 or Tier 2 bank in Europe has between five and fifteen active innovation pilots at any given time. These span AI, blockchain, open banking, embedded finance, whatever the current theme is. Of those pilots, <strong>fewer than 10% ever reach production.</strong> Not "fail" — that would imply someone made a decision. They just... persist. They sit in a sandbox, generating quarterly reports that say "promising results" and "further evaluation needed."</p>
         <p>In Milan, I worked with a bank that had been running an AI pilot for document processing since 2022. Three years. The pilot "worked." The accuracy was good. The compliance team had even signed off. But the product was still in a test environment because nobody in the operations team had been asked to change their workflow. The innovation team had done their job. Operations had done theirs. The two jobs never intersected.</p>
         <p>In Frankfurt, same story, different technology. A RegTech pilot that had been approved, tested, validated, and then left to die because the IT department had a two-year backlog and no mandate to prioritize innovation projects over regulatory deadlines.</p>
-        <p>In Doha, a bank had signed pilot agreements with four different AI vendors simultaneously. Four. Each one was working in isolation, each one was "going well," and none of them had a path to production because the bank hadn't decided what problem they were actually trying to solve. They were collecting pilots like stamps.</p>
+        <p>In Doha, a bank had signed pilot agreements with four different AI vendors simultaneously. Four. Each one was working in isolation, each one was "going well," and none of them had a path to production because the bank hadn't decided what problem they were actually trying to solve. They were collecting pilots like stamps. <a href="most-ai-products-fail.html">Most AI products fail</a> this way &mdash; not because the tech is broken, but because nobody validated the premise.</p>
 
         <h2>The incentive problem</h2>
         <p>Here's the thing nobody in the room wants to say: <strong>innovation teams are measured on pilots launched, not products shipped.</strong></p>
@@ -146,7 +157,7 @@
         <p><strong>First, there's a CEO or C-level mandate with a deadline.</strong> Not "explore AI" — that's a blank check for endless exploration. Instead: "By Q3, I want automated KYC remediation in production for the retail segment." Specific. Measurable. Time-bound. When the mandate comes from the top with a real deadline, the organizational barriers dissolve because nobody wants to be the person who explains to the CEO why they missed it.</p>
         <p><strong>Second, the business line owns the project, not the innovation team.</strong> The Head of Retail Banking or the Head of Wealth Management is the sponsor. They define the requirements. They allocate their own resources. They're responsible for adoption. The innovation team plays a supporting role — scouting vendors, evaluating technology — but the business line drives.</p>
         <p><strong>Third, they use a 90-day kill-or-ship framework.</strong> The pilot has ninety days. At the end, there are two options: go to production or kill it. Not "extend for further evaluation." Not "phase two exploration." Kill or ship. This forces every stakeholder — IT, compliance, operations — to engage from day one, because the clock is ticking and nobody wants to be the bottleneck.</p>
-        <p><strong>Fourth, compliance is at the table from the beginning.</strong> Not as a gate at the end that can veto everything. As a design partner from week one. The banks that succeed treat compliance as a feature, not a blocker. "This AI is compliant by design" is a competitive advantage. "We'll figure out compliance later" is a death sentence.</p>
+        <p><strong>Fourth, compliance is at the table from the beginning.</strong> Not as a gate at the end that can veto everything. As a design partner from week one. The banks that succeed treat compliance as a feature, not a blocker. "This AI is compliant by design" is a competitive advantage. The <a href="the-eu-ai-act-is-a-competitive-advantage.html">EU AI Act</a> makes this even more concrete by providing a clear regulatory checklist. "We'll figure out compliance later" is a death sentence.</p>
         <p>I saw this model work at a Gulf bank that went from zero to a fully deployed AI-driven advisory tool in four months. The CEO set the mandate. The wealth management head owned it. Compliance was embedded in the project team. And they had a hard deadline that everyone knew was real. No sandbox theater. No quarterly "progress reports." Just: build it, test it, ship it, or kill it.</p>
 
         <h2>What Streetbeat taught me about getting past the pilot</h2>
@@ -161,7 +172,7 @@
         <p>Every bank I talk to asks me the same thing: "How do we innovate faster?" They expect me to talk about technology. Better models, faster infrastructure, more data.</p>
         <p>My answer is always the same. <strong>Your technology is fine. Your operating model is broken.</strong></p>
         <p>Stop measuring pilots launched. Start measuring products shipped. Stop separating innovation from the business. Start embedding it. Stop giving pilots unlimited timelines. Start killing them when they don't convert.</p>
-        <p>The banks that figure this out in the next two years will own the decade. The ones that don't will still be running pilots in 2030, wondering why nothing ever ships.</p>
+        <p><a href="the-bank-of-2030.html">The banks that figure this out in the next two years will own the decade.</a> The ones that don't will still be running pilots in 2030, wondering why nothing ever ships.</p>
         <p>I know which group I'd rather work with.</p>
     </div>
 
@@ -192,5 +203,8 @@
     </div>
 </div>
 <footer><div class="container"><p>&copy; 2026 Andrea Padula</p></div></footer>
+<script>
+window.addEventListener('scroll',function(){var e=document.documentElement,b=document.getElementById('progressBar'),s=e.scrollTop||document.body.scrollTop,h=e.scrollHeight-e.clientHeight;b.style.width=h>0?((s/h)*100)+'%':'0%'});
+</script>
 </body>
 </html>

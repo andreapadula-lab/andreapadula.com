@@ -12,7 +12,16 @@
     <meta property="og:image" content="https://andreapadula.com/andrea-padula.png">
     <meta property="og:url" content="https://andreapadula.com/innovation-is-not-a-department.html">
     <meta property="og:type" content="article">
-    <meta name="twitter:card" content="summary_large_image">
+    <meta property="article:published_time" content="2025-02-18">
+    <meta property="article:author" content="https://andreapadula.com/about.html">
+    <meta property="article:section" content="Innovation">
+    <meta property="article:tag" content="Innovation">
+    <meta property="article:tag" content="Corporate Strategy">
+    <meta property="article:tag" content="Pilot Purgatory">
+    <meta property="article:tag" content="Enterprise">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Innovation Is Not a Department">
+    <meta name="twitter:description" content="Every large company has an innovation team. Most of them are stuck in pilot purgatory. Here's why, and what the exceptions are doing differently.">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -77,9 +86,11 @@
         .related-link:hover { padding-left: 8px; }
         .related-link .rl-title { font-size: 16px; font-weight: 500; color: var(--text); display: block; margin-bottom: 4px; }
         .related-link .rl-meta { font-size: 13px; color: var(--text-muted); }
+        .progress-bar { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: linear-gradient(90deg, #422006, #a16207); z-index: 200; transition: width 0.15s ease-out; pointer-events: none; }
     </style>
 </head>
 <body>
+<div class="progress-bar" id="progressBar"></div>
 <nav><div class="container"><a href="/" class="name">Andrea Padula</a><a href="/" class="back">Home</a></div></nav>
 
 <div class="hero-img">
@@ -100,7 +111,7 @@
     <div class="article-body">
         <p>Every large company I've worked with has an innovation team. Most of them are doing the same thing: sitting in a nice office, running pilots that never ship, and producing slide decks that make the board feel modern.</p>
         <p>I don't say this to be cruel. The people in these teams are usually smart, motivated, and genuinely frustrated. They know they're stuck. They just can't figure out why.</p>
-        <p>I can. Because I've seen it from the outside, across banks, insurers, asset managers, and large enterprises in Europe and the US. The pattern is always the same.</p>
+        <p>I can. Because I've seen it from the outside, across banks, insurers, asset managers, and large enterprises in <a href="silicon-valley-and-europe-two-planets.html">Europe and the US</a>. The pattern is always the same.</p>
 
         <h2>The innovation theater cycle</h2>
         <p>Step one: the CEO goes to a conference. Sees a demo. Gets excited. Comes back and says "we need to do AI."</p>
@@ -117,11 +128,11 @@
 
         <h2>What actually works</h2>
         <p>The companies I've seen succeed at innovation don't have innovation departments. They have business problems and the freedom to solve them.</p>
-        <p>The best example I can give: a mid-size European bank I've worked with didn't create an innovation lab. Instead, their Head of Wealth Management said: "My advisors spend three hours a day on admin. I want that to be thirty minutes by next quarter." Then they gave a team the authority to pick the tools, work with vendors, and deploy — with compliance embedded in the team from the start.</p>
+        <p>The best example I can give: a mid-size European bank I've worked with didn't create an innovation lab. Instead, their Head of Wealth Management said: "My advisors spend three hours a day on admin. I want that to be thirty minutes by next quarter." Then they gave a team the authority to pick the tools, work with vendors, and deploy — with compliance embedded in the team from the start. The <a href="the-eu-ai-act-is-a-competitive-advantage.html">EU AI Act</a> actually helps here by giving teams a clear set of requirements to build against.</p>
         <p>It took them four months to go live. No pilot purgatory. No innovation theater. Just a problem, a mandate, and a deadline.</p>
 
         <h2>The uncomfortable truth</h2>
-        <p>Most companies don't actually want innovation. They want the appearance of innovation. The press release. The partnership announcement. The booth at the conference.</p>
+        <p>Most companies don't actually want innovation. They want the appearance of innovation. The press release. The partnership announcement. This is exactly <a href="why-banks-keep-buying-ai-they-will-never-use.html">why banks keep buying AI they never use</a>. The booth at the conference.</p>
         <p>Real innovation is messy. It means changing workflows. It means some people's jobs will change. It means admitting that the way things were done for twenty years might not be the best way anymore.</p>
         <p>That's hard. It's political. And no innovation team can do it alone.</p>
         <p><strong>The companies that will win the next decade are the ones that stop treating innovation as a project and start treating it as an operating principle.</strong> Not "we have a team for that." Instead: "every team does that."</p>
@@ -155,5 +166,8 @@
     </div>
 </div>
 <footer><div class="container"><p>&copy; 2026 Andrea Padula</p></div></footer>
+<script>
+window.addEventListener('scroll',function(){var e=document.documentElement,b=document.getElementById('progressBar'),s=e.scrollTop||document.body.scrollTop,h=e.scrollHeight-e.clientHeight;b.style.width=h>0?((s/h)*100)+'%':'0%'});
+</script>
 </body>
 </html>
