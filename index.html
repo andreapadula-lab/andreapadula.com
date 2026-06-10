@@ -4,20 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Andrea Padula — Innovation, AI & Financial Services</title>
-    <meta name="description" content="Andrea Padula is Head of Partnerships & BD at Streetbeat. Based between Silicon Valley and Milan, he works at the intersection of AI, innovation, and European financial services.">
+    <meta name="description" content="Andrea Padula is Head of Partnerships & BD at Streetbeat. Based in Milan, bridging Europe and Silicon Valley. AI, innovation, and financial services.">
     <meta name="keywords" content="Andrea Padula, AI, financial services, innovation, Streetbeat, Silicon Valley, European banking, fintech">
     <meta name="author" content="Andrea Padula">
     <link rel="canonical" href="https://andreapadula.com">
 
     <meta property="og:title" content="Andrea Padula — Innovation, AI & Financial Services">
-    <meta property="og:description" content="Based between Silicon Valley and Milan. Working at the intersection of AI, innovation, and European financial services.">
+    <meta property="og:description" content="Based in Milan, bridging Europe & Silicon Valley. AI, innovation, and financial services.">
     <meta property="og:image" content="https://andreapadula.com/andrea-padula.png">
     <meta property="og:url" content="https://andreapadula.com">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Andrea Padula — Innovation, AI & Financial Services">
-    <meta name="twitter:description" content="Based between Silicon Valley and Milan. Working at the intersection of AI, innovation, and European financial services.">
-    <meta name="twitter:image" content="https://andreapadula.com/andrea-padula.png">
 
     <script type="application/ld+json">
     {
@@ -36,25 +33,26 @@
     </script>
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
             --bg: #09090b;
-            --bg-elevated: rgba(255,255,255,0.03);
             --bg-card: rgba(255,255,255,0.04);
-            --bg-card-hover: rgba(255,255,255,0.07);
+            --bg-card-hover: rgba(255,255,255,0.08);
             --text: #fafafa;
             --text-secondary: #a1a1aa;
             --text-tertiary: #52525b;
             --accent: #3b82f6;
-            --accent-glow: rgba(59, 130, 246, 0.15);
+            --accent-glow: rgba(59,130,246,0.15);
             --border: rgba(255,255,255,0.06);
-            --border-hover: rgba(255,255,255,0.12);
-            --gradient-1: #3b82f6;
-            --gradient-2: #8b5cf6;
-            --gradient-3: #06b6d4;
+            --border-hover: rgba(255,255,255,0.15);
+            --blue-500: #3b82f6;
+            --indigo-300: #a5b4fc;
+            --blue-300: #93c5fd;
+            --violet-200: #ddd6fe;
+            --blue-400: #60a5fa;
         }
 
         body {
@@ -66,70 +64,113 @@
             overflow-x: hidden;
         }
 
-        /* Dot grid background */
-        .dot-grid {
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
-            background-size: 24px 24px;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        /* Radial glow behind hero */
-        .hero-glow {
-            position: absolute;
-            top: -200px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 800px;
-            height: 600px;
-            background: radial-gradient(ellipse at center, rgba(59,130,246,0.08) 0%, rgba(139,92,246,0.04) 40%, transparent 70%);
-            pointer-events: none;
-            z-index: 0;
-        }
-
         a { color: var(--accent); text-decoration: none; transition: all 0.2s ease; }
         a:hover { opacity: 1; }
 
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 48px; position: relative; z-index: 1; }
-        .container.narrow { max-width: 740px; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 48px; position: relative; z-index: 2; }
 
-        /* Nav */
+        /* ============================================
+           AURORA BACKGROUND (from 21st.dev)
+           ============================================ */
+        .aurora-wrapper {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .aurora-bg {
+            position: absolute;
+            inset: -10px;
+            overflow: hidden;
+            pointer-events: none;
+            opacity: 0.35;
+            will-change: transform;
+            filter: blur(10px);
+            background-image:
+                repeating-linear-gradient(100deg, #09090b 0%, #09090b 7%, transparent 10%, transparent 12%, #09090b 16%),
+                repeating-linear-gradient(100deg, var(--blue-500) 10%, var(--indigo-300) 15%, var(--blue-300) 20%, var(--violet-200) 25%, var(--blue-400) 30%);
+            background-size: 300% 200%;
+            background-position: 50% 50%;
+            animation: aurora 60s linear infinite;
+            mask-image: radial-gradient(ellipse at 50% 0%, black 20%, transparent 70%);
+            -webkit-mask-image: radial-gradient(ellipse at 50% 0%, black 20%, transparent 70%);
+        }
+        .aurora-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                repeating-linear-gradient(100deg, #09090b 0%, #09090b 7%, transparent 10%, transparent 12%, #09090b 16%),
+                repeating-linear-gradient(100deg, var(--blue-500) 10%, var(--indigo-300) 15%, var(--blue-300) 20%, var(--violet-200) 25%, var(--blue-400) 30%);
+            background-size: 200% 100%;
+            animation: aurora 60s linear infinite;
+            background-attachment: fixed;
+            mix-blend-mode: difference;
+        }
+        @keyframes aurora {
+            from { background-position: 50% 50%, 50% 50%; }
+            to { background-position: 350% 50%, 350% 50%; }
+        }
+
+        /* Dot grid overlay */
+        .dot-grid {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
+            background-size: 24px 24px;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* ============================================
+           NAV
+           ============================================ */
         nav {
-            padding: 20px 0;
-            position: sticky;
-            top: 0;
-            background: rgba(9, 9, 11, 0.8);
+            position: fixed;
+            top: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 200;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 6px 8px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            background: rgba(9,9,11,0.7);
             backdrop-filter: blur(16px) saturate(180%);
             -webkit-backdrop-filter: blur(16px) saturate(180%);
-            z-index: 100;
-            border-bottom: 1px solid var(--border);
         }
-        nav .container { display: flex; justify-content: space-between; align-items: center; }
-        .nav-logo {
-            font-weight: 600;
-            font-size: 15px;
-            color: var(--text);
-            letter-spacing: -0.02em;
-        }
-        .nav-links { display: flex; gap: 8px; }
-        .nav-links a {
+        nav a {
             color: var(--text-secondary);
             font-size: 13px;
             font-weight: 500;
-            padding: 6px 12px;
-            border-radius: 6px;
-            transition: all 0.2s;
+            padding: 8px 16px;
+            border-radius: 12px;
+            transition: all 0.25s;
         }
-        .nav-links a:hover { color: var(--text); background: var(--bg-card); }
+        nav a:hover, nav a.active {
+            color: var(--text);
+            background: var(--bg-card-hover);
+        }
+        nav .sep {
+            width: 1px;
+            height: 20px;
+            background: var(--border);
+            margin: 0 4px;
+        }
 
-        /* Hero */
-        .hero-wrapper { position: relative; overflow: hidden; }
+        /* ============================================
+           HERO with Aurora
+           ============================================ */
         .hero {
-            padding: 100px 0 80px;
+            padding: 140px 0 80px;
             text-align: center;
             position: relative;
+            z-index: 2;
         }
         .hero-photo-wrapper {
             position: relative;
@@ -141,7 +182,7 @@
             height: 120px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid var(--border);
+            border: 2px solid rgba(255,255,255,0.1);
             position: relative;
             z-index: 1;
         }
@@ -149,8 +190,8 @@
             position: absolute;
             inset: -4px;
             border-radius: 50%;
-            background: conic-gradient(from 0deg, var(--gradient-1), var(--gradient-2), var(--gradient-3), var(--gradient-1));
-            opacity: 0.4;
+            background: conic-gradient(from 0deg, var(--blue-500), #8b5cf6, #06b6d4, var(--blue-500));
+            opacity: 0.5;
             animation: spin 8s linear infinite;
         }
         @keyframes spin { to { transform: rotate(360deg); } }
@@ -158,41 +199,46 @@
         .hero-badge {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            padding: 6px 14px;
+            gap: 8px;
+            padding: 8px 16px;
             border-radius: 100px;
             border: 1px solid var(--border);
-            background: var(--bg-card);
-            font-size: 12px;
+            background: rgba(255,255,255,0.03);
+            font-size: 13px;
             font-weight: 500;
             color: var(--text-secondary);
-            margin-bottom: 24px;
-            backdrop-filter: blur(8px);
+            margin-bottom: 28px;
+            backdrop-filter: blur(12px);
         }
         .hero-badge .dot {
-            width: 6px; height: 6px;
+            width: 7px; height: 7px;
             border-radius: 50%;
             background: #22c55e;
-            box-shadow: 0 0 8px rgba(34,197,94,0.5);
+            box-shadow: 0 0 10px rgba(34,197,94,0.6);
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
         }
 
         .hero h1 {
-            font-size: 48px;
-            font-weight: 700;
-            letter-spacing: -0.03em;
-            line-height: 1.1;
-            margin-bottom: 16px;
-            background: linear-gradient(135deg, var(--text) 0%, var(--text-secondary) 100%);
+            font-size: 56px;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            line-height: 1.05;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #fff 0%, var(--text-secondary) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
         .hero .tagline {
-            font-size: 18px;
+            font-size: 19px;
             color: var(--text-secondary);
             line-height: 1.6;
-            max-width: 520px;
-            margin: 0 auto 32px;
+            max-width: 540px;
+            margin: 0 auto 36px;
             font-weight: 400;
         }
 
@@ -200,23 +246,24 @@
         .btn {
             font-size: 14px;
             font-weight: 500;
-            padding: 10px 20px;
-            border-radius: 10px;
+            padding: 10px 22px;
+            border-radius: 12px;
             border: 1px solid var(--border);
             color: var(--text-secondary);
-            background: var(--bg-card);
+            background: rgba(255,255,255,0.04);
             backdrop-filter: blur(8px);
             transition: all 0.25s ease;
             display: inline-flex;
             align-items: center;
             gap: 8px;
+            cursor: pointer;
         }
         .btn:hover {
             border-color: var(--border-hover);
             color: var(--text);
             background: var(--bg-card-hover);
-            transform: translateY(-1px);
-            box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
         }
         .btn-primary {
             background: var(--accent);
@@ -226,221 +273,325 @@
         .btn-primary:hover {
             background: #2563eb;
             border-color: #2563eb;
-            box-shadow: 0 4px 24px var(--accent-glow), 0 0 0 1px var(--accent);
+            box-shadow: 0 8px 32px rgba(59,130,246,0.3), 0 0 0 1px rgba(59,130,246,0.5);
         }
         .btn svg { width: 16px; height: 16px; }
 
-        /* Stats bar */
+        /* ============================================
+           CPU ARCHITECTURE SVG (decorative)
+           ============================================ */
+        .cpu-section {
+            position: relative;
+            padding: 40px 0;
+            display: flex;
+            justify-content: center;
+            opacity: 0.6;
+        }
+        .cpu-architecture {
+            offset-anchor: 10px 0px;
+            animation: cpu-path;
+            animation-iteration-count: infinite;
+            animation-timing-function: cubic-bezier(0.75, -0.01, 0, 0.99);
+        }
+        .cpu-line-1 { offset-path: path("M 10 20 h 79.5 q 5 0 5 5 v 30"); animation-duration: 5s; animation-delay: 1s; }
+        .cpu-line-2 { offset-path: path("M 180 10 h -69.7 q -5 0 -5 5 v 40"); animation-delay: 6s; animation-duration: 2s; }
+        .cpu-line-3 { offset-path: path("M 130 20 v 21.8 q 0 5 -5 5 h -25"); animation-delay: 4s; animation-duration: 6s; }
+        .cpu-line-4 { offset-path: path("M 170 80 v -21.8 q 0 -5 -5 -5 h -65"); animation-delay: 3s; animation-duration: 3s; }
+        .cpu-line-5 { offset-path: path("M 135 65 h 15 q 5 0 5 5 v 10 q 0 5 -5 5 h -39.8 q -5 0 -5 -5 v -35"); animation-delay: 9s; animation-duration: 4s; }
+        .cpu-line-6 { offset-path: path("M 94.8 95 v -46"); animation-delay: 3s; animation-duration: 7s; }
+        .cpu-line-7 { offset-path: path("M 88 88 v -15 q 0 -5 -5 -5 h -10 q -5 0 -5 -5 v -5 q 0 -5 5 -5 h 28"); animation-delay: 4s; animation-duration: 4s; }
+        .cpu-line-8 { offset-path: path("M 30 30 h 25 q 5 0 5 5 v 6.5 q 0 5 5 5 h 35"); animation-delay: 3s; animation-duration: 3s; }
+        @keyframes cpu-path { 0% { offset-distance: 0%; } 100% { offset-distance: 100%; } }
+
+        /* ============================================
+           STATS
+           ============================================ */
         .stats {
             display: flex;
             justify-content: center;
-            gap: 48px;
-            padding: 40px 0;
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-            margin-top: 20px;
+            gap: 64px;
+            padding: 48px 0;
+            position: relative;
+            z-index: 2;
         }
         .stat { text-align: center; }
         .stat-value {
-            font-size: 28px;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+            font-size: 32px;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            background: linear-gradient(135deg, var(--blue-500), #8b5cf6);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        .stat-label { font-size: 12px; color: var(--text-tertiary); font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px; }
+        .stat-label { font-size: 11px; color: var(--text-tertiary); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 6px; }
 
-        /* Sections */
-        section { padding: 64px 0; }
+        /* ============================================
+           SECTIONS
+           ============================================ */
+        section { padding: 80px 0; position: relative; z-index: 2; }
         .section-header {
             display: flex;
             align-items: center;
-            gap: 12px;
-            margin-bottom: 32px;
+            gap: 16px;
+            margin-bottom: 40px;
         }
         .section-header h2 {
-            font-size: 13px;
-            font-weight: 600;
+            font-size: 12px;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
             color: var(--text-tertiary);
+            white-space: nowrap;
         }
-        .section-header .line {
-            flex: 1;
-            height: 1px;
-            background: var(--border);
-        }
+        .section-header .line { flex: 1; height: 1px; background: var(--border); }
 
         section p { color: var(--text-secondary); margin-bottom: 16px; font-size: 15px; line-height: 1.8; }
-        section p strong { color: var(--text); font-weight: 500; }
+        section p strong { color: var(--text); font-weight: 600; }
 
         /* Topics */
         .topics { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
         .topic {
             font-size: 12px;
             font-weight: 500;
-            padding: 6px 14px;
-            border-radius: 8px;
+            padding: 8px 16px;
+            border-radius: 10px;
             border: 1px solid var(--border);
             color: var(--text-secondary);
             background: var(--bg-card);
-            transition: all 0.2s;
+            transition: all 0.3s;
+            cursor: default;
         }
         .topic:hover {
-            border-color: var(--border-hover);
+            border-color: rgba(59,130,246,0.3);
             color: var(--text);
-            background: var(--bg-card-hover);
+            background: rgba(59,130,246,0.08);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(59,130,246,0.1);
         }
 
-        /* Article cards */
-        .articles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-        .article-card {
-            display: block;
+        /* ============================================
+           DISPLAY CARDS — Writing (from 21st.dev)
+           ============================================ */
+        .display-cards-wrapper {
+            display: grid;
+            grid-template-areas: "stack";
+            place-items: center;
+            min-height: 340px;
+            padding: 40px 0 80px;
+        }
+        .display-card {
+            grid-area: stack;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 420px;
+            height: 180px;
             padding: 24px 28px;
             border-radius: 16px;
             border: 1px solid var(--border);
-            background: var(--bg-card);
-            backdrop-filter: blur(8px);
-            transition: all 0.3s ease;
-            position: relative;
+            background: rgba(255,255,255,0.03);
+            backdrop-filter: blur(12px);
+            transform: skewY(-4deg);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            color: var(--text);
             overflow: hidden;
         }
-        .article-card::before {
+        .display-card::after {
+            content: '';
+            position: absolute;
+            right: -1px;
+            top: -5%;
+            height: 110%;
+            width: 200px;
+            background: linear-gradient(to left, var(--bg), transparent);
+            pointer-events: none;
+        }
+        .display-card:nth-child(1) {
+            filter: grayscale(100%);
+            z-index: 1;
+        }
+        .display-card:nth-child(1)::before {
             content: '';
             position: absolute;
             inset: 0;
             border-radius: 16px;
-            background: linear-gradient(135deg, var(--accent-glow), transparent 60%);
-            opacity: 0;
-            transition: opacity 0.3s;
+            background: rgba(9,9,11,0.5);
+            transition: opacity 0.5s;
+            z-index: 2;
         }
-        .article-card:hover::before { opacity: 1; }
-        .article-card:hover {
+        .display-card:nth-child(1):hover {
+            transform: skewY(-4deg) translateY(-16px);
+            filter: grayscale(0%);
+        }
+        .display-card:nth-child(1):hover::before { opacity: 0; }
+
+        .display-card:nth-child(2) {
+            transform: skewY(-4deg) translate(60px, 40px);
+            filter: grayscale(100%);
+            z-index: 2;
+        }
+        .display-card:nth-child(2)::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 16px;
+            background: rgba(9,9,11,0.5);
+            transition: opacity 0.5s;
+            z-index: 2;
+        }
+        .display-card:nth-child(2):hover {
+            transform: skewY(-4deg) translate(60px, 28px);
+            filter: grayscale(0%);
+        }
+        .display-card:nth-child(2):hover::before { opacity: 0; }
+
+        .display-card:nth-child(3) {
+            transform: skewY(-4deg) translate(120px, 80px);
+            z-index: 3;
+        }
+        .display-card:nth-child(3):hover {
+            transform: skewY(-4deg) translate(120px, 64px);
+        }
+
+        .display-card:hover {
             border-color: var(--border-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.4);
         }
-        .article-card .card-content { position: relative; z-index: 1; }
-        .article-card .meta {
-            font-size: 12px;
-            color: var(--text-tertiary);
-            font-weight: 500;
-            margin-bottom: 8px;
-        }
-        .article-card h3 {
-            font-size: 17px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--text);
-            letter-spacing: -0.01em;
-        }
-        .article-card p {
-            font-size: 14px;
-            color: var(--text-secondary);
-            margin-bottom: 0;
-            line-height: 1.6;
-        }
-        .article-card .read-more {
+
+        .display-card .card-icon {
             display: inline-flex;
             align-items: center;
-            gap: 4px;
-            font-size: 13px;
-            font-weight: 500;
-            color: var(--accent);
-            margin-top: 12px;
-            transition: gap 0.2s;
+            gap: 8px;
         }
-        .article-card:hover .read-more { gap: 8px; }
+        .display-card .card-icon span {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: rgba(59,130,246,0.2);
+        }
+        .display-card .card-icon span svg { width: 14px; height: 14px; color: var(--blue-300); }
+        .display-card .card-title { font-size: 15px; font-weight: 600; color: var(--accent); position: relative; z-index: 3; }
+        .display-card .card-desc { font-size: 15px; color: var(--text-secondary); position: relative; z-index: 3; line-height: 1.5; }
+        .display-card .card-meta { font-size: 12px; color: var(--text-tertiary); position: relative; z-index: 3; }
 
-        /* Experience timeline */
+        /* Also keep a flat grid for mobile */
+        .articles-flat { display: none; }
+
+        /* ============================================
+           EXPERIENCE
+           ============================================ */
         .experience { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
         .exp-item {
-            padding: 24px;
+            padding: 28px;
             border-radius: 16px;
             border: 1px solid var(--border);
             background: var(--bg-card);
-            transition: all 0.2s;
+            transition: all 0.3s;
         }
         .exp-item:hover {
             border-color: var(--border-hover);
             background: var(--bg-card-hover);
-            transform: translateY(-2px);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.3);
         }
-        .exp-year {
-            font-size: 12px;
-            font-weight: 500;
-            color: var(--text-tertiary);
-            margin-bottom: 12px;
-        }
-        .exp-content h3 { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
-        .exp-content p { font-size: 13px; color: var(--text-secondary); margin-bottom: 0; }
+        .exp-year { font-size: 12px; font-weight: 600; color: var(--accent); margin-bottom: 14px; letter-spacing: 0.02em; }
+        .exp-content h3 { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+        .exp-content p { font-size: 13px; color: var(--text-secondary); margin-bottom: 0; line-height: 1.6; }
 
-        /* Contact */
+        /* ============================================
+           CONTACT
+           ============================================ */
         .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 600px; }
         .contact-card {
             display: flex;
             align-items: center;
-            gap: 12px;
-            padding: 20px;
-            border-radius: 12px;
+            gap: 14px;
+            padding: 22px;
+            border-radius: 16px;
             border: 1px solid var(--border);
             background: var(--bg-card);
-            transition: all 0.2s;
+            transition: all 0.3s;
         }
         .contact-card:hover {
             border-color: var(--border-hover);
             background: var(--bg-card-hover);
-            transform: translateY(-1px);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
         }
         .contact-card .icon {
-            width: 40px; height: 40px;
-            border-radius: 10px;
+            width: 44px; height: 44px;
+            border-radius: 12px;
             background: var(--accent-glow);
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
         }
-        .contact-card .icon svg { width: 18px; height: 18px; color: var(--accent); }
-        .contact-card .label { font-size: 12px; color: var(--text-tertiary); font-weight: 500; }
-        .contact-card .value { font-size: 14px; color: var(--text); font-weight: 500; }
+        .contact-card .icon svg { width: 20px; height: 20px; color: var(--accent); }
+        .contact-card .label { font-size: 11px; color: var(--text-tertiary); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+        .contact-card .value { font-size: 14px; color: var(--text); font-weight: 500; margin-top: 2px; }
 
-        /* Footer */
+        /* ============================================
+           FOOTER
+           ============================================ */
         footer {
-            padding: 40px 0;
+            padding: 48px 0;
             border-top: 1px solid var(--border);
             text-align: center;
+            position: relative;
+            z-index: 2;
         }
         footer p { color: var(--text-tertiary); font-size: 12px; }
 
-        /* Responsive */
-        @media (max-width: 640px) {
-            .hero { padding: 64px 0 48px; }
-            .hero h1 { font-size: 32px; }
-            .hero .tagline { font-size: 16px; }
-            .stats { gap: 24px; }
-            .stat-value { font-size: 22px; }
-            .container { padding: 0 20px; }
-            .articles-grid { grid-template-columns: 1fr; }
-            .contact-grid { grid-template-columns: 1fr; }
-            .experience { grid-template-columns: 1fr; }
-            .exp-item { flex-direction: column; gap: 4px; }
-        }
-
-        /* Fade-in animation */
+        /* ============================================
+           FADE IN
+           ============================================ */
         .fade-in {
             opacity: 0;
-            transform: translateY(20px);
-            animation: fadeIn 0.6s ease forwards;
+            transform: translateY(24px);
+            animation: fadeIn 0.7s ease forwards;
         }
-        .fade-in:nth-child(1) { animation-delay: 0s; }
-        .fade-in:nth-child(2) { animation-delay: 0.1s; }
-        .fade-in:nth-child(3) { animation-delay: 0.2s; }
-        .fade-in:nth-child(4) { animation-delay: 0.3s; }
-        @keyframes fadeIn {
-            to { opacity: 1; transform: translateY(0); }
+        .fade-in:nth-child(1) { animation-delay: 0.1s; }
+        .fade-in:nth-child(2) { animation-delay: 0.2s; }
+        .fade-in:nth-child(3) { animation-delay: 0.3s; }
+        .fade-in:nth-child(4) { animation-delay: 0.4s; }
+        .fade-in:nth-child(5) { animation-delay: 0.5s; }
+        @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 768px) {
+            .container { padding: 0 20px; }
+            .hero { padding: 120px 0 48px; }
+            .hero h1 { font-size: 36px; }
+            .hero .tagline { font-size: 16px; }
+            .stats { gap: 24px; flex-wrap: wrap; }
+            .stat-value { font-size: 24px; }
+            .display-cards-wrapper { display: none; }
+            .articles-flat { display: flex; flex-direction: column; gap: 12px; }
+            .articles-flat a {
+                display: block;
+                padding: 20px 24px;
+                border-radius: 16px;
+                border: 1px solid var(--border);
+                background: var(--bg-card);
+                color: var(--text);
+                transition: all 0.2s;
+            }
+            .articles-flat a:hover { background: var(--bg-card-hover); border-color: var(--border-hover); }
+            .articles-flat h3 { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+            .articles-flat p { font-size: 13px; color: var(--text-secondary); margin: 0; }
+            .experience { grid-template-columns: 1fr; }
+            .contact-grid { grid-template-columns: 1fr; }
+            nav { top: 10px; padding: 4px 6px; }
+            nav a { font-size: 12px; padding: 6px 10px; }
         }
     </style>
 </head>
@@ -448,19 +599,17 @@
 
 <div class="dot-grid"></div>
 
+<!-- Floating pill nav (inspired by expandable-tabs) -->
 <nav>
-    <div class="container">
-        <span class="nav-logo">AP</span>
-        <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#writing">Writing</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </div>
+    <a href="#about">About</a>
+    <a href="#writing">Writing</a>
+    <div class="sep"></div>
+    <a href="#contact">Contact</a>
 </nav>
 
-<div class="hero-wrapper">
-    <div class="hero-glow"></div>
+<!-- Hero with Aurora Background -->
+<div class="aurora-wrapper">
+    <div class="aurora-bg"></div>
     <div class="container">
         <div class="hero">
             <div class="hero-photo-wrapper fade-in">
@@ -480,23 +629,76 @@
             </div>
         </div>
 
+        <!-- CPU Architecture decoration -->
+        <div class="cpu-section">
+            <svg width="400" height="100" viewBox="0 0 200 100" style="color: #3f3f46;">
+                <g stroke="currentColor" fill="none" stroke-width="0.3" stroke-dasharray="100 100" pathLength="100" marker-start="url(#cpu-circle-marker)">
+                    <path d="M 10 20 h 79.5 q 5 0 5 5 v 30"/>
+                    <path d="M 180 10 h -69.7 q -5 0 -5 5 v 30"/>
+                    <path d="M 130 20 v 21.8 q 0 5 -5 5 h -10"/>
+                    <path d="M 170 80 v -21.8 q 0 -5 -5 -5 h -50"/>
+                    <path d="M 135 65 h 15 q 5 0 5 5 v 10 q 0 5 -5 5 h -39.8 q -5 0 -5 -5 v -20"/>
+                    <path d="M 94.8 95 v -36"/>
+                    <path d="M 88 88 v -15 q 0 -5 -5 -5 h -10 q -5 0 -5 -5 v -5 q 0 -5 5 -5 h 14"/>
+                    <path d="M 30 30 h 25 q 5 0 5 5 v 6.5 q 0 5 5 5 h 20"/>
+                    <animate attributeName="stroke-dashoffset" from="100" to="0" dur="1s" fill="freeze" calcMode="spline" keySplines="0.25,0.1,0.5,1" keyTimes="0; 1"/>
+                </g>
+                <g mask="url(#cpu-mask-1)"><circle class="cpu-architecture cpu-line-1" cx="0" cy="0" r="8" fill="url(#cpu-blue-grad)"/></g>
+                <g mask="url(#cpu-mask-2)"><circle class="cpu-architecture cpu-line-2" cx="0" cy="0" r="8" fill="url(#cpu-yellow-grad)"/></g>
+                <g mask="url(#cpu-mask-3)"><circle class="cpu-architecture cpu-line-3" cx="0" cy="0" r="8" fill="url(#cpu-pinkish-grad)"/></g>
+                <g mask="url(#cpu-mask-4)"><circle class="cpu-architecture cpu-line-4" cx="0" cy="0" r="8" fill="url(#cpu-white-grad)"/></g>
+                <g mask="url(#cpu-mask-5)"><circle class="cpu-architecture cpu-line-5" cx="0" cy="0" r="8" fill="url(#cpu-green-grad)"/></g>
+                <g mask="url(#cpu-mask-6)"><circle class="cpu-architecture cpu-line-6" cx="0" cy="0" r="8" fill="url(#cpu-orange-grad)"/></g>
+                <g mask="url(#cpu-mask-7)"><circle class="cpu-architecture cpu-line-7" cx="0" cy="0" r="8" fill="url(#cpu-cyan-grad)"/></g>
+                <g mask="url(#cpu-mask-8)"><circle class="cpu-architecture cpu-line-8" cx="0" cy="0" r="8" fill="url(#cpu-rose-grad)"/></g>
+                <g>
+                    <g fill="url(#cpu-connection-gradient)">
+                        <rect x="93" y="37" width="2.5" height="5" rx="0.7"/>
+                        <rect x="104" y="37" width="2.5" height="5" rx="0.7"/>
+                        <rect x="116.3" y="44" width="2.5" height="5" rx="0.7" transform="rotate(90 116.25 45.5)"/>
+                        <rect x="122.8" y="44" width="2.5" height="5" rx="0.7" transform="rotate(90 116.25 45.5)"/>
+                        <rect x="104" y="16" width="2.5" height="5" rx="0.7" transform="rotate(180 105.25 39.5)"/>
+                        <rect x="114.5" y="16" width="2.5" height="5" rx="0.7" transform="rotate(180 105.25 39.5)"/>
+                        <rect x="80" y="-13.6" width="2.5" height="5" rx="0.7" transform="rotate(270 115.25 19.5)"/>
+                        <rect x="87" y="-13.6" width="2.5" height="5" rx="0.7" transform="rotate(270 115.25 19.5)"/>
+                    </g>
+                    <rect x="85" y="40" width="30" height="20" rx="2" fill="#181818" filter="url(#cpu-light-shadow)"/>
+                    <text x="92" y="52.5" font-size="7" fill="url(#cpu-text-gradient)" font-weight="600" letter-spacing="0.05em">AI</text>
+                </g>
+                <defs>
+                    <mask id="cpu-mask-1"><path d="M 10 20 h 79.5 q 5 0 5 5 v 24" stroke-width="0.5" stroke="white"/></mask>
+                    <mask id="cpu-mask-2"><path d="M 180 10 h -69.7 q -5 0 -5 5 v 24" stroke-width="0.5" stroke="white"/></mask>
+                    <mask id="cpu-mask-3"><path d="M 130 20 v 21.8 q 0 5 -5 5 h -10" stroke-width="0.5" stroke="white"/></mask>
+                    <mask id="cpu-mask-4"><path d="M 170 80 v -21.8 q 0 -5 -5 -5 h -50" stroke-width="0.5" stroke="white"/></mask>
+                    <mask id="cpu-mask-5"><path d="M 135 65 h 15 q 5 0 5 5 v 10 q 0 5 -5 5 h -39.8 q -5 0 -5 -5 v -20" stroke-width="0.5" stroke="white"/></mask>
+                    <mask id="cpu-mask-6"><path d="M 94.8 95 v -36" stroke-width="0.5" stroke="white"/></mask>
+                    <mask id="cpu-mask-7"><path d="M 88 88 v -15 q 0 -5 -5 -5 h -10 q -5 0 -5 -5 v -5 q 0 -5 5 -5 h 14" stroke-width="0.5" stroke="white"/></mask>
+                    <mask id="cpu-mask-8"><path d="M 30 30 h 25 q 5 0 5 5 v 6.5 q 0 5 5 5 h 20" stroke-width="0.5" stroke="white"/></mask>
+                    <radialGradient id="cpu-blue-grad" fx="1"><stop offset="0%" stop-color="#00E8ED"/><stop offset="50%" stop-color="#08F"/><stop offset="100%" stop-color="transparent"/></radialGradient>
+                    <radialGradient id="cpu-yellow-grad" fx="1"><stop offset="0%" stop-color="#FFD800"/><stop offset="50%" stop-color="#FFD800"/><stop offset="100%" stop-color="transparent"/></radialGradient>
+                    <radialGradient id="cpu-pinkish-grad" fx="1"><stop offset="0%" stop-color="#830CD1"/><stop offset="50%" stop-color="#FF008B"/><stop offset="100%" stop-color="transparent"/></radialGradient>
+                    <radialGradient id="cpu-white-grad" fx="1"><stop offset="0%" stop-color="white"/><stop offset="100%" stop-color="transparent"/></radialGradient>
+                    <radialGradient id="cpu-green-grad" fx="1"><stop offset="0%" stop-color="#22c55e"/><stop offset="100%" stop-color="transparent"/></radialGradient>
+                    <radialGradient id="cpu-orange-grad" fx="1"><stop offset="0%" stop-color="#f97316"/><stop offset="100%" stop-color="transparent"/></radialGradient>
+                    <radialGradient id="cpu-cyan-grad" fx="1"><stop offset="0%" stop-color="#06b6d4"/><stop offset="100%" stop-color="transparent"/></radialGradient>
+                    <radialGradient id="cpu-rose-grad" fx="1"><stop offset="0%" stop-color="#f43f5e"/><stop offset="100%" stop-color="transparent"/></radialGradient>
+                    <filter id="cpu-light-shadow" x="-50%" y="-50%" width="200%" height="200%"><feDropShadow dx="1.5" dy="1.5" stdDeviation="1" flood-color="black" flood-opacity="0.1"/></filter>
+                    <marker id="cpu-circle-marker" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="18" markerHeight="18"><circle cx="5" cy="5" r="2" fill="black" stroke="#232323" stroke-width="0.5"><animate attributeName="r" values="0; 3; 2" dur="0.5s"/></circle></marker>
+                    <linearGradient id="cpu-connection-gradient" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#4F4F4F"/><stop offset="60%" stop-color="#121214"/></linearGradient>
+                    <linearGradient id="cpu-text-gradient" x1="0" y1="0" x2="1" y2="0">
+                        <stop offset="0%" stop-color="#666666"><animate attributeName="offset" values="-2; -1; 0" dur="5s" repeatCount="indefinite" calcMode="spline" keyTimes="0; 0.5; 1" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"/></stop>
+                        <stop offset="25%" stop-color="white"><animate attributeName="offset" values="-1; 0; 1" dur="5s" repeatCount="indefinite" calcMode="spline" keyTimes="0; 0.5; 1" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"/></stop>
+                        <stop offset="50%" stop-color="#666666"><animate attributeName="offset" values="0; 1; 2" dur="5s" repeatCount="indefinite" calcMode="spline" keyTimes="0; 0.5; 1" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"/></stop>
+                    </linearGradient>
+                </defs>
+            </svg>
+        </div>
+
         <div class="stats">
-            <div class="stat">
-                <div class="stat-value">10+</div>
-                <div class="stat-label">Years in BD</div>
-            </div>
-            <div class="stat">
-                <div class="stat-value">2</div>
-                <div class="stat-label">Continents</div>
-            </div>
-            <div class="stat">
-                <div class="stat-value">4</div>
-                <div class="stat-label">Languages</div>
-            </div>
-            <div class="stat">
-                <div class="stat-value">$15M</div>
-                <div class="stat-label">Series A</div>
-            </div>
+            <div class="stat"><div class="stat-value">10+</div><div class="stat-label">Years in BD</div></div>
+            <div class="stat"><div class="stat-value">2</div><div class="stat-label">Continents</div></div>
+            <div class="stat"><div class="stat-value">4</div><div class="stat-label">Languages</div></div>
+            <div class="stat"><div class="stat-value">$15M</div><div class="stat-label">Series A</div></div>
         </div>
     </div>
 </div>
@@ -504,10 +706,7 @@
 <div class="container">
 
     <section id="about">
-        <div class="section-header">
-            <h2>About</h2>
-            <div class="line"></div>
-        </div>
+        <div class="section-header"><h2>About</h2><div class="line"></div></div>
         <p><strong>Head of Partnerships & Business Development at Streetbeat</strong> — an AI platform for financial services based in Menlo Park, California. Backed by CDP Venture Capital and Azimut.</p>
         <p>I'm based in Milan and work for a company headquartered in Menlo Park. My job is to bring AI into European banks and financial institutions — which means I spend most of my days in conversations with C-level executives about what AI can actually do for them, beyond the slide deck.</p>
         <p>Before Streetbeat: ESCP Business School (110/110), roles across Milan, Paris, Doha, Riyadh, and Taipei.</p>
@@ -524,10 +723,7 @@
     </section>
 
     <section>
-        <div class="section-header">
-            <h2>Experience</h2>
-            <div class="line"></div>
-        </div>
+        <div class="section-header"><h2>Experience</h2><div class="line"></div></div>
         <div class="experience">
             <div class="exp-item">
                 <div class="exp-year">2023 — Present</div>
@@ -553,63 +749,56 @@
         </div>
     </section>
 
+    <!-- Writing: Display Cards layout (from 21st.dev) -->
     <section id="writing">
-        <div class="section-header">
-            <h2>Writing</h2>
-            <div class="line"></div>
+        <div class="section-header"><h2>Writing</h2><div class="line"></div></div>
+
+        <div class="display-cards-wrapper">
+            <a href="what-i-see-selling-ai-to-european-banks.html" class="display-card">
+                <div class="card-icon">
+                    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><path d="M14 2v6h6"/></svg></span>
+                    <span class="card-title">Field Report</span>
+                </div>
+                <p class="card-desc">What I See Selling AI to European Banks</p>
+                <p class="card-meta">June 2026 &middot; 7 min read</p>
+            </a>
+            <a href="silicon-valley-and-europe-two-planets.html" class="display-card">
+                <div class="card-icon">
+                    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></span>
+                    <span class="card-title">Perspective</span>
+                </div>
+                <p class="card-desc">Silicon Valley and Europe Are Two Different Planets</p>
+                <p class="card-meta">June 2026 &middot; 7 min read</p>
+            </a>
+            <a href="innovation-is-not-a-department.html" class="display-card">
+                <div class="card-icon">
+                    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="10"/></svg></span>
+                    <span class="card-title">Opinion</span>
+                </div>
+                <p class="card-desc">Innovation Is Not a Department</p>
+                <p class="card-meta">June 2026 &middot; 6 min read</p>
+            </a>
         </div>
-        <div class="articles-grid">
-            <a href="what-i-see-selling-ai-to-european-banks.html" class="article-card">
-                <div class="card-content">
-                    <div class="meta">June 2026 &middot; 7 min read</div>
-                    <h3>What I See Selling AI to European Banks</h3>
-                    <p>The gap between AI strategy and AI in production is enormous. And it's getting wider. A field report from someone who's in these conversations every day.</p>
-                    <span class="read-more">Read article &rarr;</span>
-                </div>
-            </a>
-            <a href="silicon-valley-and-europe-two-planets.html" class="article-card">
-                <div class="card-content">
-                    <div class="meta">June 2026 &middot; 7 min read</div>
-                    <h3>Silicon Valley and Europe Are Two Different Planets. I Live on Both.</h3>
-                    <p>In Palo Alto they ship and iterate. In Milan they schedule a meeting to discuss the pilot. The truth — and the opportunity — is somewhere in the middle.</p>
-                    <span class="read-more">Read article &rarr;</span>
-                </div>
-            </a>
-            <a href="innovation-is-not-a-department.html" class="article-card">
-                <div class="card-content">
-                    <div class="meta">June 2026 &middot; 6 min read</div>
-                    <h3>Innovation Is Not a Department</h3>
-                    <p>Every large company has an innovation team. Most of them are stuck in pilot purgatory. Here's why — and what the exceptions are doing differently.</p>
-                    <span class="read-more">Read article &rarr;</span>
-                </div>
-            </a>
+
+        <!-- Mobile fallback -->
+        <div class="articles-flat">
+            <a href="what-i-see-selling-ai-to-european-banks.html"><h3>What I See Selling AI to European Banks</h3><p>The gap between AI strategy and production is enormous.</p></a>
+            <a href="silicon-valley-and-europe-two-planets.html"><h3>Silicon Valley and Europe Are Two Different Planets</h3><p>The truth is somewhere in the middle.</p></a>
+            <a href="innovation-is-not-a-department.html"><h3>Innovation Is Not a Department</h3><p>Most companies are stuck in pilot purgatory.</p></a>
         </div>
     </section>
 
     <section id="contact">
-        <div class="section-header">
-            <h2>Get in touch</h2>
-            <div class="line"></div>
-        </div>
+        <div class="section-header"><h2>Get in touch</h2><div class="line"></div></div>
         <p style="margin-bottom: 24px;">I'm always happy to talk about AI in financial services, innovation, or anything at the intersection of technology and the real world.</p>
         <div class="contact-grid">
             <a href="mailto:andreapadula@streetbeat.com" class="contact-card">
-                <div class="icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                </div>
-                <div>
-                    <div class="label">Email</div>
-                    <div class="value">andreapadula@streetbeat.com</div>
-                </div>
+                <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
+                <div><div class="label">Email</div><div class="value">andreapadula@streetbeat.com</div></div>
             </a>
             <a href="https://www.linkedin.com/in/andreapadula/" target="_blank" class="contact-card">
-                <div class="icon">
-                    <svg viewBox="0 0 24 24" fill="currentColor" style="color: var(--accent);"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                </div>
-                <div>
-                    <div class="label">LinkedIn</div>
-                    <div class="value">linkedin.com/in/andreapadula</div>
-                </div>
+                <div class="icon"><svg viewBox="0 0 24 24" fill="currentColor" style="color: var(--accent);"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
+                <div><div class="label">LinkedIn</div><div class="value">linkedin.com/in/andreapadula</div></div>
             </a>
         </div>
     </section>
@@ -617,9 +806,7 @@
 </div>
 
 <footer>
-    <div class="container">
-        <p>&copy; 2026 Andrea Padula. All rights reserved.</p>
-    </div>
+    <div class="container"><p>&copy; 2026 Andrea Padula. All rights reserved.</p></div>
 </footer>
 
 </body>
