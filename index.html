@@ -92,7 +92,8 @@
         a { color: var(--accent); text-decoration: none; transition: all 0.2s ease; }
         a:hover { opacity: 1; }
 
-        .container { max-width: 740px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 48px; position: relative; z-index: 1; }
+        .container.narrow { max-width: 740px; }
 
         /* Nav */
         nav {
@@ -294,7 +295,7 @@
         }
 
         /* Article cards */
-        .articles-grid { display: flex; flex-direction: column; gap: 12px; }
+        .articles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
         .article-card {
             display: block;
             padding: 24px 28px;
@@ -354,26 +355,30 @@
         .article-card:hover .read-more { gap: 8px; }
 
         /* Experience timeline */
-        .experience { display: flex; flex-direction: column; gap: 0; }
+        .experience { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
         .exp-item {
-            display: flex;
-            gap: 20px;
-            padding: 20px 0;
-            border-bottom: 1px solid var(--border);
+            padding: 24px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            transition: all 0.2s;
         }
-        .exp-item:last-child { border-bottom: none; }
+        .exp-item:hover {
+            border-color: var(--border-hover);
+            background: var(--bg-card-hover);
+            transform: translateY(-2px);
+        }
         .exp-year {
             font-size: 12px;
             font-weight: 500;
             color: var(--text-tertiary);
-            min-width: 100px;
-            padding-top: 2px;
+            margin-bottom: 12px;
         }
         .exp-content h3 { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
         .exp-content p { font-size: 13px; color: var(--text-secondary); margin-bottom: 0; }
 
         /* Contact */
-        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 600px; }
         .contact-card {
             display: flex;
             align-items: center;
@@ -417,7 +422,10 @@
             .hero .tagline { font-size: 16px; }
             .stats { gap: 24px; }
             .stat-value { font-size: 22px; }
+            .container { padding: 0 20px; }
+            .articles-grid { grid-template-columns: 1fr; }
             .contact-grid { grid-template-columns: 1fr; }
+            .experience { grid-template-columns: 1fr; }
             .exp-item { flex-direction: column; gap: 4px; }
         }
 
