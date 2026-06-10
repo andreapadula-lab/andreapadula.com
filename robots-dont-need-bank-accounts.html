@@ -51,11 +51,41 @@
         .author-box .info .name { font-weight: 600; color: var(--text); font-size: 15px; }
         footer { padding: 40px 0; border-top: 1px solid var(--border); text-align: center; }
         footer p { color: var(--text-muted); font-size: 13px; }
-        @media (max-width: 600px) { .article-header h1 { font-size: 28px; } .author-box { flex-direction: column; text-align: center; } }
+        .hero-img {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(135deg, #0f172a 0%, #431407 40%, #c2410c 60%, #0f172a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-img::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 40%, rgba(249,115,22,0.2) 0%, transparent 50%),
+                        radial-gradient(circle at 20% 70%, rgba(234,88,12,0.12) 0%, transparent 40%);
+        }
+        .hero-img svg { width: 100px; height: 100px; opacity: 0.12; }
+        @media (max-width: 600px) { .article-header h1 { font-size: 28px; } .author-box { flex-direction: column; text-align: center; } .hero-img { height: 200px; } }
     </style>
 </head>
 <body>
 <nav><div class="container"><a href="/" class="name">Andrea Padula</a><a href="/" class="back">Home</a></div></nav>
+
+<div class="hero-img">
+    <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1">
+        <rect x="5" y="2" width="14" height="10" rx="2"/>
+        <circle cx="9" cy="7" r="1.5"/>
+        <circle cx="15" cy="7" r="1.5"/>
+        <path d="M8 12v4h2v4h4v-4h2v-4"/>
+        <path d="M3 7h2"/>
+        <path d="M19 7h2"/>
+    </svg>
+</div>
+
 <div class="container">
     <div class="article-header">
         <div class="meta">June 2026 &middot; 9 min read</div>
