@@ -372,72 +372,96 @@
         }
 
         /* ============================================
-           WRITING — Clean vertical list
+           WRITING — Macro theme cards
            ============================================ */
-        .writing-list { display: flex; flex-direction: column; gap: 0; }
-        .writing-item {
-            display: flex;
-            align-items: flex-start;
+        .themes-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
             gap: 20px;
-            padding: 24px 0;
-            border-bottom: 1px solid var(--border);
+        }
+        .theme-card {
+            padding: 28px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            transition: all 0.3s;
+        }
+        .theme-card:hover {
+            border-color: var(--border-hover);
+            background: var(--bg-card-hover);
+        }
+        .theme-head {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 14px;
+        }
+        .theme-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .theme-icon svg { width: 22px; height: 22px; }
+        .theme-name {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--text);
+            line-height: 1.2;
+        }
+        .theme-take {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 18px;
+            font-style: italic;
+        }
+        .theme-articles {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+        .theme-article {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 10px 0;
+            border-top: 1px solid var(--border);
             text-decoration: none;
             color: var(--text);
             transition: all 0.2s;
         }
-        .writing-item:first-child { padding-top: 0; }
-        .writing-item:last-child { border-bottom: none; }
-        .writing-item:hover .wi-title { color: var(--accent); }
-        .writing-item:hover .wi-arrow { transform: translateX(4px); opacity: 1; }
-        .wi-bar {
-            width: 4px;
-            border-radius: 4px;
-            flex-shrink: 0;
-            align-self: stretch;
-        }
-        .wi-body { flex: 1; min-width: 0; }
-        .wi-tag {
-            display: inline-block;
-            font-size: 10px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            padding: 3px 8px;
-            border-radius: 4px;
-            margin-bottom: 8px;
-        }
-        .wi-title {
-            font-size: 19px;
-            font-weight: 700;
-            line-height: 1.3;
-            margin-bottom: 6px;
-            transition: color 0.2s;
-        }
-        .wi-desc {
+        .theme-article:hover { color: var(--accent); }
+        .theme-article:hover .ta-arrow { transform: translateX(3px); opacity: 1; }
+        .ta-title {
             font-size: 14px;
-            color: var(--text-secondary);
-            line-height: 1.6;
-            margin: 0;
+            font-weight: 600;
+            line-height: 1.4;
+            flex: 1;
+            min-width: 0;
         }
-        .wi-side {
-            flex-shrink: 0;
+        .ta-meta {
             display: flex;
             align-items: center;
-            gap: 12px;
-            align-self: center;
+            gap: 8px;
+            flex-shrink: 0;
         }
-        .wi-time {
-            font-size: 12px;
+        .ta-time {
+            font-size: 11px;
             color: var(--text-tertiary);
             font-weight: 500;
             white-space: nowrap;
         }
-        .wi-arrow {
+        .ta-arrow {
             color: var(--text-tertiary);
             opacity: 0;
             transition: all 0.2s;
         }
-        .wi-arrow svg { width: 16px; height: 16px; }
+        .ta-arrow svg { width: 14px; height: 14px; }
 
         /* ============================================
            EXPERIENCE
@@ -578,9 +602,8 @@
             .hero .tagline { font-size: 16px; }
             .stats { gap: 24px; flex-wrap: wrap; }
             .stat-value { font-size: 24px; }
-            .writing-item { gap: 12px; }
-            .wi-title { font-size: 16px; }
-            .wi-side { display: none; }
+            .themes-grid { grid-template-columns: 1fr; }
+            .ta-meta { display: none; }
             .experience { grid-template-columns: 1fr; }
             .thoughts-grid { grid-template-columns: 1fr; }
             .contact-grid { grid-template-columns: 1fr; }
@@ -807,131 +830,131 @@
         <p style="margin-top: 24px; text-align: center;"><a href="https://www.linkedin.com/in/andreapadula/" target="_blank" class="btn" style="display: inline-flex;">See all on LinkedIn <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;margin-left:4px;"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></a></p>
     </section>
 
-    <!-- Writing: Display Cards layout (from 21st.dev) -->
+    <!-- Writing: Macro theme cards -->
     <section id="writing">
         <div class="section-header"><h2>Writing</h2><div class="line"></div></div>
+        <p style="margin-bottom: 28px; color: var(--text-secondary); font-size: 15px;">Topics I think about, write about, and work on every day. Not theory &mdash; field notes from someone who lives between worlds.</p>
 
-        <div class="writing-list">
-            <a href="the-bank-of-2030.html" class="writing-item">
-                <div class="wi-bar" style="background:#3b82f6;"></div>
-                <div class="wi-body">
-                    <div class="wi-tag" style="background:rgba(59,130,246,0.15);color:#93c5fd;">AI in Banking</div>
-                    <div class="wi-title">The Bank of 2030 Has 10x the Clients and Half the People</div>
-                    <p class="wi-desc">AI agents are not chatbots. They're autonomous systems that will reshape how banks operate.</p>
+        <div class="themes-grid">
+
+            <!-- AI & Financial Services -->
+            <div class="theme-card">
+                <div class="theme-head">
+                    <div class="theme-icon" style="background:rgba(59,130,246,0.12);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M2 8h20"/><circle cx="12" cy="15" r="3"/></svg>
+                    </div>
+                    <div class="theme-name">AI & Financial Services</div>
                 </div>
-                <div class="wi-side">
-                    <span class="wi-time">9 min</span>
-                    <span class="wi-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                <p class="theme-take">"I sell AI to people who don't trust AI yet. Every week I sit across from bank executives who have a 90-page strategy and zero products in production. That gap is where I live."</p>
+                <div class="theme-articles">
+                    <a href="the-bank-of-2030.html" class="theme-article">
+                        <span class="ta-title">The Bank of 2030 Has 10x the Clients and Half the People</span>
+                        <span class="ta-meta"><span class="ta-time">9 min</span><span class="ta-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></span>
+                    </a>
+                    <a href="what-i-see-selling-ai-to-european-banks.html" class="theme-article">
+                        <span class="ta-title">What I See Selling AI to European Banks</span>
+                        <span class="ta-meta"><span class="ta-time">7 min</span><span class="ta-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></span>
+                    </a>
+                    <a href="most-ai-products-fail.html" class="theme-article">
+                        <span class="ta-title">Most AI Products Fail &mdash; Not Because of the Tech</span>
+                        <span class="ta-meta"><span class="ta-time">8 min</span><span class="ta-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></span>
+                    </a>
                 </div>
-            </a>
-            <a href="why-longevity-will-be-the-next-trillion-dollar-financial-product.html" class="writing-item">
-                <div class="wi-bar" style="background:#22c55e;"></div>
-                <div class="wi-body">
-                    <div class="wi-tag" style="background:rgba(34,197,94,0.15);color:#86efac;">Longevity</div>
-                    <div class="wi-title">Why Longevity Will Be the Next Trillion-Dollar Financial Product</div>
-                    <p class="wi-desc">Every actuarial table assumes you'll die around 80. What happens when that number is wrong?</p>
+            </div>
+
+            <!-- Innovation & Startups -->
+            <div class="theme-card">
+                <div class="theme-head">
+                    <div class="theme-icon" style="background:rgba(6,182,212,0.12);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                    </div>
+                    <div class="theme-name">Innovation & Startups</div>
                 </div>
-                <div class="wi-side">
-                    <span class="wi-time">9 min</span>
-                    <span class="wi-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                <p class="theme-take">"Europe builds cathedrals. Silicon Valley builds cardboard boxes. The cardboard box tells you more. I've watched both ecosystems fail &mdash; they just fail differently."</p>
+                <div class="theme-articles">
+                    <a href="what-silicon-valley-knows-about-failure.html" class="theme-article">
+                        <span class="ta-title">What Silicon Valley Knows About Failure That Europe Doesn't</span>
+                        <span class="ta-meta"><span class="ta-time">8 min</span><span class="ta-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></span>
+                    </a>
+                    <a href="innovation-is-not-a-department.html" class="theme-article">
+                        <span class="ta-title">Innovation Is Not a Department</span>
+                        <span class="ta-meta"><span class="ta-time">6 min</span><span class="ta-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></span>
+                    </a>
                 </div>
-            </a>
-            <a href="robots-dont-need-bank-accounts.html" class="writing-item">
-                <div class="wi-bar" style="background:#f97316;"></div>
-                <div class="wi-body">
-                    <div class="wi-tag" style="background:rgba(249,115,22,0.15);color:#fdba74;">Robotics</div>
-                    <div class="wi-title">Robots Don't Need Bank Accounts &mdash; But Their Owners Will</div>
-                    <p class="wi-desc">Who finances a fleet of warehouse bots? Who insures a household robot? The financial products don't exist yet.</p>
+            </div>
+
+            <!-- Europe vs Silicon Valley -->
+            <div class="theme-card">
+                <div class="theme-head">
+                    <div class="theme-icon" style="background:rgba(236,72,153,0.12);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#ec4899" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    </div>
+                    <div class="theme-name">Europe vs Silicon Valley</div>
                 </div>
-                <div class="wi-side">
-                    <span class="wi-time">9 min</span>
-                    <span class="wi-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                <p class="theme-take">"I live on both planets. Milan and Menlo Park. 9 hours of time difference, 9 years of mindset difference. The truth is somewhere in the middle, but the speed gap is real."</p>
+                <div class="theme-articles">
+                    <a href="silicon-valley-and-europe-two-planets.html" class="theme-article">
+                        <span class="ta-title">Silicon Valley and Europe Are Two Different Planets</span>
+                        <span class="ta-meta"><span class="ta-time">7 min</span><span class="ta-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></span>
+                    </a>
                 </div>
-            </a>
-            <a href="space-is-open-for-business.html" class="writing-item">
-                <div class="wi-bar" style="background:#8b5cf6;"></div>
-                <div class="wi-body">
-                    <div class="wi-tag" style="background:rgba(139,92,246,0.15);color:#c4b5fd;">Space Economy</div>
-                    <div class="wi-title">Space Is Open for Business &mdash; And Finance Isn't Ready</div>
-                    <p class="wi-desc">$1.8 trillion by 2035. The Gulf is already investing. European finance is watching from the ground.</p>
+            </div>
+
+            <!-- Space & Robotics -->
+            <div class="theme-card">
+                <div class="theme-head">
+                    <div class="theme-icon" style="background:rgba(139,92,246,0.12);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/></svg>
+                    </div>
+                    <div class="theme-name">Space & Robotics</div>
                 </div>
-                <div class="wi-side">
-                    <span class="wi-time">10 min</span>
-                    <span class="wi-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                <p class="theme-take">"$1.8 trillion space economy by 2035. Humanoid robots shipping at scale by 2028. Finance has no playbook for either. I worked in the Gulf and saw sovereign funds betting on this before anyone else."</p>
+                <div class="theme-articles">
+                    <a href="space-is-open-for-business.html" class="theme-article">
+                        <span class="ta-title">Space Is Open for Business &mdash; And Finance Isn't Ready</span>
+                        <span class="ta-meta"><span class="ta-time">10 min</span><span class="ta-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></span>
+                    </a>
+                    <a href="robots-dont-need-bank-accounts.html" class="theme-article">
+                        <span class="ta-title">Robots Don't Need Bank Accounts &mdash; But Their Owners Will</span>
+                        <span class="ta-meta"><span class="ta-time">9 min</span><span class="ta-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></span>
+                    </a>
                 </div>
-            </a>
-            <a href="your-brain-is-not-a-browser.html" class="writing-item">
-                <div class="wi-bar" style="background:#f97316;"></div>
-                <div class="wi-body">
-                    <div class="wi-tag" style="background:rgba(249,115,22,0.15);color:#fdba74;">Productivity</div>
-                    <div class="wi-title">Your Brain Is Not a Browser &mdash; Stop Treating It Like One</div>
-                    <p class="wi-desc">Every time you switch tasks, you lose 25 minutes of deep focus. Multitasking isn't a skill — it's a tax.</p>
+            </div>
+
+            <!-- Longevity -->
+            <div class="theme-card">
+                <div class="theme-head">
+                    <div class="theme-icon" style="background:rgba(34,197,94,0.12);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 2v10l7-7"/><circle cx="12" cy="12" r="3"/></svg>
+                    </div>
+                    <div class="theme-name">Longevity</div>
                 </div>
-                <div class="wi-side">
-                    <span class="wi-time">7 min</span>
-                    <span class="wi-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                <p class="theme-take">"Every pension fund, insurance policy, and retirement plan assumes you'll die around 80. Science is rewriting that number. Finance hasn't noticed yet. This will be the biggest repricing event in a generation."</p>
+                <div class="theme-articles">
+                    <a href="why-longevity-will-be-the-next-trillion-dollar-financial-product.html" class="theme-article">
+                        <span class="ta-title">Why Longevity Will Be the Next Trillion-Dollar Financial Product</span>
+                        <span class="ta-meta"><span class="ta-time">9 min</span><span class="ta-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></span>
+                    </a>
                 </div>
-            </a>
-            <a href="most-ai-products-fail.html" class="writing-item">
-                <div class="wi-bar" style="background:#ef4444;"></div>
-                <div class="wi-body">
-                    <div class="wi-tag" style="background:rgba(239,68,68,0.15);color:#fca5a5;">Pretotyping</div>
-                    <div class="wi-title">Most AI Products Fail &mdash; Not Because of the Tech</div>
-                    <p class="wi-desc">85% of European banks have an AI strategy. 12% have something in production. The gap isn't technology — it's validation.</p>
+            </div>
+
+            <!-- Productivity -->
+            <div class="theme-card">
+                <div class="theme-head">
+                    <div class="theme-icon" style="background:rgba(249,115,22,0.12);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2"><path d="M12 2a7 7 0 0 1 7 7c0 2.5-1.5 4.5-3 6v2H8v-2c-1.5-1.5-3-3.5-3-6a7 7 0 0 1 7-7z"/><path d="M9 21h6"/></svg>
+                    </div>
+                    <div class="theme-name">Productivity</div>
                 </div>
-                <div class="wi-side">
-                    <span class="wi-time">8 min</span>
-                    <span class="wi-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                <p class="theme-take">"I manage calls across 3 time zones every day. The most productive people I know aren't the ones who do the most things &mdash; they're the ones who switch the least. Context switching is the silent killer."</p>
+                <div class="theme-articles">
+                    <a href="your-brain-is-not-a-browser.html" class="theme-article">
+                        <span class="ta-title">Your Brain Is Not a Browser &mdash; Stop Treating It Like One</span>
+                        <span class="ta-meta"><span class="ta-time">7 min</span><span class="ta-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></span>
+                    </a>
                 </div>
-            </a>
-            <a href="what-silicon-valley-knows-about-failure.html" class="writing-item">
-                <div class="wi-bar" style="background:#06b6d4;"></div>
-                <div class="wi-body">
-                    <div class="wi-tag" style="background:rgba(6,182,212,0.15);color:#67e8f9;">Startups</div>
-                    <div class="wi-title">What Silicon Valley Knows About Failure That European Startups Don't</div>
-                    <p class="wi-desc">The business plan is dead. What should replace it fits on a napkin. Inspired by Alberto Savoia's pretotyping.</p>
-                </div>
-                <div class="wi-side">
-                    <span class="wi-time">8 min</span>
-                    <span class="wi-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-                </div>
-            </a>
-            <a href="what-i-see-selling-ai-to-european-banks.html" class="writing-item">
-                <div class="wi-bar" style="background:#3b82f6;"></div>
-                <div class="wi-body">
-                    <div class="wi-tag" style="background:rgba(59,130,246,0.15);color:#93c5fd;">Field Report</div>
-                    <div class="wi-title">What I See Selling AI to European Banks</div>
-                    <p class="wi-desc">The gap between AI strategy and production is enormous. And it's getting wider, not smaller.</p>
-                </div>
-                <div class="wi-side">
-                    <span class="wi-time">7 min</span>
-                    <span class="wi-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-                </div>
-            </a>
-            <a href="silicon-valley-and-europe-two-planets.html" class="writing-item">
-                <div class="wi-bar" style="background:#ec4899;"></div>
-                <div class="wi-body">
-                    <div class="wi-tag" style="background:rgba(236,72,153,0.15);color:#f9a8d4;">Perspective</div>
-                    <div class="wi-title">Silicon Valley and Europe Are Two Different Planets</div>
-                    <p class="wi-desc">The truth is somewhere in the middle. But the speed gap is real.</p>
-                </div>
-                <div class="wi-side">
-                    <span class="wi-time">7 min</span>
-                    <span class="wi-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-                </div>
-            </a>
-            <a href="innovation-is-not-a-department.html" class="writing-item">
-                <div class="wi-bar" style="background:#eab308;"></div>
-                <div class="wi-body">
-                    <div class="wi-tag" style="background:rgba(234,179,8,0.15);color:#fde047;">Opinion</div>
-                    <div class="wi-title">Innovation Is Not a Department</div>
-                    <p class="wi-desc">Most companies are stuck in pilot purgatory. The innovation lab is where ideas go to die.</p>
-                </div>
-                <div class="wi-side">
-                    <span class="wi-time">6 min</span>
-                    <span class="wi-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-                </div>
-            </a>
+            </div>
+
         </div>
     </section>
 
