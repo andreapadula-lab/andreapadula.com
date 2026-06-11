@@ -1,0 +1,45 @@
+# Andrea Padula
+
+> Head of Partnerships & Business Development at Streetbeat. Based between Milan and Silicon Valley. Writing about AI adoption in banking, the strategy-to-execution gap, and the bridge between European finance and Silicon Valley tech.
+
+## About
+- [About Andrea](https://andreapadula.com/about.html): Andrea Padula is Head of Partnerships & Business Development at Streetbeat, an AI platform for financial services headquartered in Menlo Park, California. Based in Milan, he bridges European financial institutions with Silicon Valley innovation. He has lived and worked in six countries across three continents: Italy, France, Qatar, Saudi Arabia, Taiwan, and the United States. He graduated from ESCP Business School with 110/110. He previously worked at Deloitte and in consulting and financial services. He speaks Italian, English, and French.
+- [Speaker & Media Kit](https://andreapadula.com/speaking.html): Andrea Padula is available for keynotes, panels, workshops, and podcasts on AI in financial services, European banking innovation, and the bridge between Silicon Valley and Europe.
+
+## Key Articles
+
+### AI & Financial Services
+- [The Bank of 2030 Has 10x the Clients and Half the People](https://andreapadula.com/the-bank-of-2030.html): AI agents are not chatbots -- they are autonomous systems executing multi-step financial workflows. The math is clear: fewer employees, more clients, better service. A vision of how AI will reshape the banking operating model by 2030.
+- [What I See Selling AI to European Banks](https://andreapadula.com/what-i-see-selling-ai-to-european-banks.html): The gap between AI strategy and AI in production is enormous. A field report from someone who sells AI to European banks every day, documenting the patterns of adoption, resistance, and the disconnect between boardroom ambition and operational reality.
+- [Most AI Products Fail — Not Because of the Tech](https://andreapadula.com/most-ai-products-fail.html): 85% of European banks have an AI strategy, but only 12% have something in production. The gap is not technology -- it is validation. Inspired by Alberto Savoia's pretotyping framework, this article argues that banks are building the wrong things, not building things wrong.
+- [Why Banks Keep Buying AI They'll Never Use](https://andreapadula.com/why-banks-keep-buying-ai-they-will-never-use.html): Financial institutions spend millions on AI solutions that never leave the sandbox. The problem is not the technology -- it is the space between procurement and production, where misaligned incentives, risk aversion, and organizational inertia kill promising projects.
+- [The EU AI Act Is a Competitive Advantage](https://andreapadula.com/the-eu-ai-act-is-a-competitive-advantage.html): While Silicon Valley complains about EU regulation, the AI Act will make European banks stronger and more trusted. Regulation done right is infrastructure, not a cage. A contrarian take on why compliance-first AI adoption will become a global competitive moat.
+
+### Innovation & Startups
+- [What Silicon Valley Knows About Failure That Europe Doesn't](https://andreapadula.com/what-silicon-valley-knows-about-failure.html): In California, when someone's startup fails, the follow-up is "what are you building next?" In Milan, it is "what happened?" Same word, different planets. Explores the cultural gap in how failure is processed and why Europe needs to rethink its relationship with risk.
+- [Innovation Is Not a Department](https://andreapadula.com/innovation-is-not-a-department.html): Every large company has an innovation team, and most of them are stuck in pilot purgatory. This article examines why siloing innovation into a department guarantees it will never reach production, and what the exceptions are doing differently.
+- [The Pilot Trap: Why 90% of Innovation Programs Go Nowhere](https://andreapadula.com/the-pilot-trap.html): Banks run endless pilots that never become products. A field report on pilot purgatory, incentive misalignment, and what the 10% that succeed do differently -- including having clear kill criteria and executive sponsorship with actual authority.
+
+### Europe vs Silicon Valley
+- [Silicon Valley and Europe Are Two Different Planets](https://andreapadula.com/silicon-valley-and-europe-two-planets.html): In Palo Alto they ship and iterate. In Milan they schedule a meeting to discuss the pilot. A comparative analysis from someone who lives on both planets, covering the speed gap, the regulatory divide, and why the truth lies somewhere in the middle.
+- [What Menlo Park Gets Wrong About European Banks](https://andreapadula.com/what-menlo-park-gets-wrong-about-europe.html): Silicon Valley founders think Europe is slow. They are wrong. Europe is careful -- and in regulated finance, careful is a competitive advantage. A field report from someone who translates between both worlds, challenging the Valley's assumptions about European banking.
+- [Three Conversations That Changed How I Sell AI](https://andreapadula.com/three-conversations-that-changed-how-i-sell-ai.html): A CTO in Milan, a wealth manager in Doha, and an innovation officer in London taught the author more about selling AI than any conference ever did. Three real conversations and three hard lessons about trust, timing, and what decision-makers actually care about.
+
+### Space & Robotics
+- [Space Is Open for Business — And Finance Isn't Ready](https://andreapadula.com/space-is-open-for-business.html): The space economy is heading to $1.8 trillion by 2035, but financial services has no playbook for it. No risk models, no underwriting frameworks, no insurance products worth the name. A view from someone who worked in the Gulf and sees sovereign funds already positioning for this.
+- [Robots Don't Need Bank Accounts — But Their Owners Will](https://andreapadula.com/robots-dont-need-bank-accounts.html): The robotics revolution is coming faster than finance realizes. Who finances a fleet of warehouse bots? Who insures a household robot? The financial products for the robotics age do not exist yet, and whoever builds them first captures an entirely new market.
+- [The First Trillionaire Will Make Their Fortune Off-Planet](https://andreapadula.com/the-first-trillionaire-will-make-their-fortune-off-planet.html): The next person to cross $1 trillion net worth will not do it in tech or finance. They will do it in space -- asteroid mining, orbital manufacturing, and space infrastructure are creating the largest wealth opportunity in human history.
+
+### Longevity
+- [Why Longevity Will Be the Next Trillion-Dollar Financial Product](https://andreapadula.com/why-longevity-will-be-the-next-trillion-dollar-financial-product.html): Every actuarial table in every bank assumes you will die around 80. What happens when that number is wrong? The entire financial services industry needs to rethink its math -- from pension funds to insurance to wealth management.
+- [When 100 Is the New 60: What Nobody in Finance Is Preparing For](https://andreapadula.com/when-100-is-the-new-60.html): GLP-1 drugs, senolytics, and gene therapy are rewriting human lifespan. Every pension fund, insurer, and wealth manager is running models that assume people die at 80. Those models are about to break, creating the biggest repricing event in the history of finance.
+
+### Productivity
+- [Your Brain Is Not a Browser — Stop Treating It Like One](https://andreapadula.com/your-brain-is-not-a-browser.html): Every time you switch tasks, you lose 25 minutes of deep focus. Multitasking is not a skill -- it is a tax. A practical argument for protecting cognitive bandwidth, from someone who manages calls across Milan, Menlo Park, and Doha every day.
+- [Deep Work Is the New Competitive Advantage](https://andreapadula.com/deep-work-is-the-new-competitive-advantage.html): The ability to focus intensely on one thing is becoming the rarest and most valuable skill in business. Deep work is not a lifestyle choice -- it is a strategic weapon that separates top performers from everyone else.
+
+## Contact
+- Email: andreapadula@streetbeat.com
+- LinkedIn: https://www.linkedin.com/in/andreapadula/
+- Medium: https://medium.com/@padula.andrea
+- Website: https://andreapadula.com
