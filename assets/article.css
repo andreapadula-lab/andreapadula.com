@@ -202,7 +202,6 @@ h1 {
 
 .article-body h2[id='sources'] { border-top: 1px solid var(--line); font-size: 20px; margin-top: 58px; padding-top: 36px; }
 .article-body h2[id='sources'] + ul { font-size: 14px; line-height: 1.55; }
-.article-body .sources-list { margin-bottom: 26px; }
 .article-body .source-item { color: var(--muted); font-size: 14px; line-height: 1.55; margin-bottom: 10px; padding-left: 18px; position: relative; }
 .article-body .source-item::first-letter { color: var(--accent); }
 
