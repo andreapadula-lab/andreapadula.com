@@ -8,6 +8,19 @@
 
 ## Key Articles
 
+### AI in Financial Services — 2026 Series
+- [AI in Financial Services: What Works, What Doesn't, and What Comes Next](https://andreapadula.com/ai-financial-services.html)
+- [The Model Is the Cheapest Part of Enterprise AI](https://andreapadula.com/the-model-is-the-cheapest-part-of-enterprise-ai.html)
+- [The First Banking AI Winners Will Be Invisible](https://andreapadula.com/the-first-banking-ai-winners-will-be-invisible.html)
+- ["Human in the Loop" Is Not a Governance Model](https://andreapadula.com/human-in-the-loop-is-not-a-governance-model.html)
+- [When Every Bank Has the Same AI, What Still Matters?](https://andreapadula.com/when-every-bank-has-the-same-ai-what-still-matters.html)
+- [Your AI Agent Needs a Job Description](https://andreapadula.com/your-ai-agent-needs-a-job-description.html)
+- [Your Bank Doesn't Have a Data Problem. It Has a Permission Problem.](https://andreapadula.com/your-bank-doesnt-have-a-data-problem-it-has-a-permission-problem.html)
+- [The First Wealth-Management AI Scandal Won't Be a Hallucination](https://andreapadula.com/the-first-wealth-management-ai-scandal-wont-be-a-hallucination.html)
+- [Banks Are Buying AI With Contracts Written for 2015](https://andreapadula.com/banks-are-buying-ai-with-contracts-written-for-2015.html)
+- [AI Will Make the Mass Affluent Worth Advising](https://andreapadula.com/ai-will-make-the-mass-affluent-worth-advising.html)
+- [Banks Are Still Buying Software. AI Is Selling Them Labor.](https://andreapadula.com/banks-are-still-buying-software-ai-is-selling-them-labor.html)
+
 ### AI & Financial Services
 - [The Bank of 2030 Has 10x the Clients and Half the People](https://andreapadula.com/the-bank-of-2030.html)
 - [What I See Selling AI to European Banks](https://andreapadula.com/what-i-see-selling-ai-to-european-banks.html)

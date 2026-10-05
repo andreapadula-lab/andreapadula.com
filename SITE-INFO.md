@@ -5,8 +5,8 @@
 - **Repo:** andreapadula-lab/andreapadula.com
 - **Hosting:** GitHub Pages
 - **Domain registrar:** Namecheap (registrar-servers.com DNS)
-- **HTTPS:** Let's Encrypt, expires 2026-09-08
-- **Deploy date:** 2026-06-10
+- **HTTPS:** Let's Encrypt via GitHub Pages, auto-renewing (verified 2026-10-05; current certificate expires 2027-01-03)
+- **Last content deploy:** 2026-10-05
 - **Google Search Console:** Verified (DNS TXT), sitemap submitted
 - **DNS records:**
   - 4x A records: 185.199.108-111.153

@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://andreapadula.com/</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -14,7 +14,7 @@
   </url>
   <url>
     <loc>https://andreapadula.com/about.html</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -25,7 +25,7 @@
   </url>
   <url>
     <loc>https://andreapadula.com/the-bank-of-2030.html</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -49,7 +49,7 @@
   </url>
   <url>
     <loc>https://andreapadula.com/what-i-see-selling-ai-to-european-banks.html</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -73,7 +73,7 @@
   </url>
   <url>
     <loc>https://andreapadula.com/most-ai-products-fail.html</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -85,31 +85,31 @@
   </url>
   <url>
     <loc>https://andreapadula.com/why-banks-keep-buying-ai-they-will-never-use.html</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://andreapadula.com/the-eu-ai-act-is-a-competitive-advantage.html</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://andreapadula.com/the-pilot-trap.html</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://andreapadula.com/what-menlo-park-gets-wrong-about-europe.html</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://andreapadula.com/three-conversations-that-changed-how-i-sell-ai.html</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -128,6 +128,72 @@
   <url>
     <loc>https://andreapadula.com/deep-work-is-the-new-competitive-advantage.html</loc>
     <lastmod>2026-06-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://andreapadula.com/ai-financial-services.html</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://andreapadula.com/the-model-is-the-cheapest-part-of-enterprise-ai.html</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://andreapadula.com/the-first-banking-ai-winners-will-be-invisible.html</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://andreapadula.com/human-in-the-loop-is-not-a-governance-model.html</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://andreapadula.com/when-every-bank-has-the-same-ai-what-still-matters.html</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://andreapadula.com/your-ai-agent-needs-a-job-description.html</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://andreapadula.com/your-bank-doesnt-have-a-data-problem-it-has-a-permission-problem.html</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://andreapadula.com/the-first-wealth-management-ai-scandal-wont-be-a-hallucination.html</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://andreapadula.com/banks-are-buying-ai-with-contracts-written-for-2015.html</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://andreapadula.com/ai-will-make-the-mass-affluent-worth-advising.html</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://andreapadula.com/banks-are-still-buying-software-ai-is-selling-them-labor.html</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

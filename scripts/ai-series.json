@@ -1,0 +1,75 @@
+{
+  "published": "2026-10-05",
+  "articles": [
+    {
+      "slug": "the-model-is-the-cheapest-part-of-enterprise-ai",
+      "title": "The Model Is the Cheapest Part of Enterprise AI",
+      "description": "Why model access is the smallest cost in enterprise AI—and why workflow redesign, permissions, controls, and adoption determine banking ROI.",
+      "keywords": ["enterprise AI banking", "AI ROI banking", "financial services AI", "banking transformation"],
+      "related": ["the-first-banking-ai-winners-will-be-invisible", "why-banks-keep-buying-ai-they-will-never-use", "the-pilot-trap"]
+    },
+    {
+      "slug": "the-first-banking-ai-winners-will-be-invisible",
+      "title": "The First Banking AI Winners Will Be Invisible",
+      "description": "Banking AI creates durable wins first in fraud, operations, engineering, and advisor workflows—the valuable work that customers never need to see.",
+      "keywords": ["banking AI use cases", "AI banking operations", "financial services AI", "bank automation"],
+      "related": ["the-model-is-the-cheapest-part-of-enterprise-ai", "what-i-see-selling-ai-to-european-banks", "most-ai-products-fail"]
+    },
+    {
+      "slug": "human-in-the-loop-is-not-a-governance-model",
+      "title": "\"Human in the Loop\" Is Not a Governance Model",
+      "description": "Why a person in an AI workflow is not enough: effective human oversight requires defined authority, context, triggers, and response time at scale.",
+      "keywords": ["AI governance banking", "human in the loop", "AI risk management", "EU AI Act oversight"],
+      "related": ["your-ai-agent-needs-a-job-description", "the-eu-ai-act-is-a-competitive-advantage", "the-model-is-the-cheapest-part-of-enterprise-ai"]
+    },
+    {
+      "slug": "when-every-bank-has-the-same-ai-what-still-matters",
+      "title": "When Every Bank Has the Same AI, What Still Matters?",
+      "description": "As AI models commoditize, banks will compete on context, permissions, workflow design, trust, and the institutional ability to learn faster.",
+      "keywords": ["AI competitive advantage banking", "bank AI strategy", "financial services AI", "AI commoditization"],
+      "related": ["banks-are-still-buying-software-ai-is-selling-them-labor", "the-bank-of-2030", "the-model-is-the-cheapest-part-of-enterprise-ai"]
+    },
+    {
+      "slug": "your-ai-agent-needs-a-job-description",
+      "title": "Your AI Agent Needs a Job Description",
+      "description": "AI agents in banking need explicit goals, authority, tools, escalation rules, and accountability before they can be trusted to perform real work safely.",
+      "keywords": ["AI agents banking", "agentic AI financial services", "AI agent governance", "bank automation"],
+      "related": ["human-in-the-loop-is-not-a-governance-model", "the-bank-of-2030", "the-first-banking-ai-winners-will-be-invisible"]
+    },
+    {
+      "slug": "your-bank-doesnt-have-a-data-problem-it-has-a-permission-problem",
+      "title": "Your Bank Doesn’t Have a Data Problem. It Has a Permission Problem.",
+      "description": "The hardest bank data problem is often controlled access: who and what may see which information, for what purpose, and under which conditions.",
+      "keywords": ["bank AI data readiness", "AI permissions banking", "financial data governance", "enterprise AI access"],
+      "related": ["the-model-is-the-cheapest-part-of-enterprise-ai", "banks-are-buying-ai-with-contracts-written-for-2015", "most-ai-products-fail"]
+    },
+    {
+      "slug": "the-first-wealth-management-ai-scandal-wont-be-a-hallucination",
+      "title": "The First Wealth-Management AI Scandal Won’t Be a Hallucination",
+      "description": "The first wealth-management AI failure is more likely to be a suitability, incentive, or accountability problem than a spectacular hallucination.",
+      "keywords": ["AI wealth management", "financial advisor AI", "AI suitability risk", "wealth technology"],
+      "related": ["ai-will-make-the-mass-affluent-worth-advising", "human-in-the-loop-is-not-a-governance-model", "the-eu-ai-act-is-a-competitive-advantage"]
+    },
+    {
+      "slug": "banks-are-buying-ai-with-contracts-written-for-2015",
+      "title": "Banks Are Buying AI With Contracts Written for 2015",
+      "description": "Conventional software contracts miss AI model drift, data rights, agent authority, exit plans, fourth parties, and provider concentration risk.",
+      "keywords": ["AI procurement banking", "AI vendor risk", "financial services contracts", "third party AI risk"],
+      "related": ["your-bank-doesnt-have-a-data-problem-it-has-a-permission-problem", "why-banks-keep-buying-ai-they-will-never-use", "human-in-the-loop-is-not-a-governance-model"]
+    },
+    {
+      "slug": "ai-will-make-the-mass-affluent-worth-advising",
+      "title": "AI Will Make the Mass Affluent Worth Advising",
+      "description": "AI can make quality advice economical for mass-affluent clients—if firms redesign the advisor workflow without weakening suitability or trust.",
+      "keywords": ["AI wealth management", "mass affluent advice", "financial advisor AI", "wealth management technology"],
+      "related": ["the-first-wealth-management-ai-scandal-wont-be-a-hallucination", "the-bank-of-2030", "the-first-banking-ai-winners-will-be-invisible"]
+    },
+    {
+      "slug": "banks-are-still-buying-software-ai-is-selling-them-labor",
+      "title": "Banks Are Still Buying Software. AI Is Selling Them Labor.",
+      "description": "AI is changing enterprise software from seats and features into units of work. Banks must learn to buy outcomes without surrendering control.",
+      "keywords": ["future of AI in banking", "AI labor financial services", "agentic AI banking", "enterprise software banking"],
+      "related": ["when-every-bank-has-the-same-ai-what-still-matters", "your-ai-agent-needs-a-job-description", "the-bank-of-2030"]
+    }
+  ]
+}
