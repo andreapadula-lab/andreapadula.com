@@ -215,20 +215,30 @@ def render_article(
     <script type="application/ld+json">
 {ld_json}
     </script>
+    <link rel="stylesheet" href="assets/site.css">
     <link rel="stylesheet" href="assets/article.css">
 </head>
 <body class="{html.escape(series.get('body_class', ''), quote=True)}">
+<a class="skip-link" href="#main">Skip to content</a>
 <div class="progress-bar" id="progressBar"></div>
-<nav class="site-nav" aria-label="Primary navigation">
-    <div class="nav-inner">
-        <a class="brand" href="/">Andrea Padula</a>
+<header class="site-header">
+    <nav class="nav-shell" aria-label="Primary navigation">
+        <a class="wordmark" href="/" aria-label="Andrea Padula, home">Andrea Padula</a>
         <div class="nav-links">
-            <a href="{html.escape(series['slug'])}.html">{html.escape(series['short_label'])}</a>
-            <a href="about.html">About</a>
-            <a href="https://www.linkedin.com/in/andreapadula/" rel="me">LinkedIn</a>
+            <a class="nav-link" href="writing.html" aria-current="page">Writing</a>
+            <a class="nav-link" href="about.html">About</a>
+            <a class="nav-link" href="speaking.html">Speaking</a>
         </div>
-    </div>
-</nav>
+        <a class="nav-cta" href="mailto:andreapadula@streetbeat.com">Contact</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Open navigation"><span></span></button>
+        <div class="nav-drawer" id="site-menu" hidden>
+            <a class="drawer-link" href="writing.html" aria-current="page">Writing <span aria-hidden="true">→</span></a>
+            <a class="drawer-link" href="about.html">About <span aria-hidden="true">→</span></a>
+            <a class="drawer-link" href="speaking.html">Speaking <span aria-hidden="true">→</span></a>
+            <a class="drawer-link" href="mailto:andreapadula@streetbeat.com">Contact <span aria-hidden="true">→</span></a>
+        </div>
+    </nav>
+</header>
 
 <header class="article-hero">
     <div class="hero-inner">
@@ -243,7 +253,7 @@ def render_article(
     </div>
 </header>
 
-<main>
+<main id="main">
     <div class="article-shell">
         <article class="article-body">
 {body_html}
@@ -266,7 +276,7 @@ def render_article(
 
     <section class="author-box" aria-label="About the author">
         <div class="author-inner">
-            <a href="about.html"><img src="andrea-padula.png" alt="Andrea Padula" width="66" height="66"></a>
+            <a href="about.html"><img src="assets/andrea-padula-192.jpg" alt="Andrea Padula" width="66" height="66" loading="lazy"></a>
             <div class="author-copy">
                 <h2><a href="about.html">Andrea Padula</a></h2>
                 <p>Head of Partnerships &amp; Business Development at Streetbeat. Writing from Milan about AI, financial services, and the bridge between European banking and Silicon Valley technology.</p>
@@ -276,10 +286,14 @@ def render_article(
     </section>
 </main>
 
-<footer class="site-footer">
-    <p>© 2026 Andrea Padula · <a href="{html.escape(series['slug'])}.html">{html.escape(series['short_label'])}</a> · <a href="mailto:andreapadula@streetbeat.com">Contact</a></p>
+<footer class="article-footer">
+    <div class="article-footer-inner">
+        <p>© 2026 Andrea Padula</p>
+        <nav aria-label="Footer navigation"><a href="writing.html">All writing</a><a href="{html.escape(series['slug'])}.html">{html.escape(series['short_label'])}</a><a href="about.html">About</a><a href="mailto:andreapadula@streetbeat.com">Contact</a></nav>
+    </div>
 </footer>
 <script src="assets/article.js" defer></script>
+<script src="assets/site.js" defer></script>
 </body>
 </html>
 '''
@@ -412,19 +426,29 @@ def render_series(manifest: dict, drafts: dict[str, dict], series: dict) -> str:
     <script type="application/ld+json">
 {ld_json}
     </script>
+    <link rel="stylesheet" href="assets/site.css">
     <link rel="stylesheet" href="assets/article.css">
 </head>
 <body class="{html.escape(series.get('body_class', ''), quote=True)}">
-<nav class="site-nav" aria-label="Primary navigation">
-    <div class="nav-inner">
-        <a class="brand" href="/">Andrea Padula</a>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+    <nav class="nav-shell" aria-label="Primary navigation">
+        <a class="wordmark" href="/" aria-label="Andrea Padula, home">Andrea Padula</a>
         <div class="nav-links">
-            <a href="/">Home</a>
-            <a href="about.html">About</a>
-            <a href="https://medium.com/@padula.andrea" rel="me">Medium</a>
+            <a class="nav-link" href="writing.html" aria-current="page">Writing</a>
+            <a class="nav-link" href="about.html">About</a>
+            <a class="nav-link" href="speaking.html">Speaking</a>
         </div>
-    </div>
-</nav>
+        <a class="nav-cta" href="mailto:andreapadula@streetbeat.com">Contact</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Open navigation"><span></span></button>
+        <div class="nav-drawer" id="site-menu" hidden>
+            <a class="drawer-link" href="writing.html" aria-current="page">Writing <span aria-hidden="true">→</span></a>
+            <a class="drawer-link" href="about.html">About <span aria-hidden="true">→</span></a>
+            <a class="drawer-link" href="speaking.html">Speaking <span aria-hidden="true">→</span></a>
+            <a class="drawer-link" href="mailto:andreapadula@streetbeat.com">Contact <span aria-hidden="true">→</span></a>
+        </div>
+    </nav>
+</header>
 
 <header class="series-hero">
     <div class="hero-inner">
@@ -434,7 +458,7 @@ def render_series(manifest: dict, drafts: dict[str, dict], series: dict) -> str:
     </div>
 </header>
 
-<main>
+<main id="main">
     <section class="series-intro" aria-label="About the series">
         <div class="series-copy">
 {intro_html}
@@ -456,9 +480,13 @@ def render_series(manifest: dict, drafts: dict[str, dict], series: dict) -> str:
     </section>
 </main>
 
-<footer class="site-footer">
-    <p>© 2026 Andrea Padula · <a href="about.html">About</a> · <a href="https://www.linkedin.com/in/andreapadula/">LinkedIn</a> · <a href="https://medium.com/@padula.andrea">Medium</a></p>
+<footer class="article-footer">
+    <div class="article-footer-inner">
+        <p>© 2026 Andrea Padula</p>
+        <nav aria-label="Footer navigation"><a href="writing.html">All writing</a><a href="about.html">About</a><a href="speaking.html">Speaking</a><a href="mailto:andreapadula@streetbeat.com">Contact</a></nav>
+    </div>
 </footer>
+<script src="assets/site.js" defer></script>
 </body>
 </html>
 '''
