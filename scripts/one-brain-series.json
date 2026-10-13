@@ -1,0 +1,115 @@
+{
+  "series": {
+    "slug": "one-brain-many-minds",
+    "short_label": "One Brain, Many Minds",
+    "section": "AI, Meaning & Finance",
+    "title": "One Brain, Many Minds: AI, Meaning, and the Future of Finance",
+    "description": "Ten evidence-led essays on collective intelligence, conscience, attention, memory, meaning, trust, and dissent in an AI-shaped financial system.",
+    "hero_label": "A ten-essay inquiry",
+    "hero_subtitle": "Finance is becoming a connected intelligence. The question is whether it will also develop restraint, conscience, memory, and room for dissent.",
+    "intro": [
+      "AI is connecting the senses, memory, decisions, and actions of financial institutions. Data moves faster, models see more, and agents can increasingly act across the organization.",
+      "That may create something like a shared brain. It must not create a single mind. Intelligence grows through connection; wisdom still requires limits, plurality, attention, and a clear answer to a profoundly human question: what is all this optimization for?",
+      "These essays treat spirituality as an operating discipline—not mysticism. They examine dignity, conscience, memory, meaning, trust, interdependence, and the right to dissent through current evidence from regulators, central banks, standards bodies, and primary research."
+    ],
+    "intro_emphasis": 1,
+    "editorial_standard": "Primary, regulatory, or peer-reviewed sources. Metaphor is translated into operating design. No claims of machine consciousness, invented neuroscience, or anonymous client stories. Current as of October 2026.",
+    "aside_copy": "Ten essays on collective intelligence—and the conscience, attention, memory, meaning, and dissent it needs.",
+    "cta_title": "Designing AI people can trust?",
+    "cta_copy": "I speak with financial institutions and technology teams about how intelligent systems can create value without weakening judgment, agency, or accountability.",
+    "keywords": ["collective intelligence finance", "human centered AI banking", "AI ethics financial services", "AI and financial wellbeing", "responsible AI banking", "future of finance"],
+    "schema_about": ["Collective intelligence", "Artificial intelligence in financial services", "Human-centred artificial intelligence", "Financial well-being"],
+    "og_subtitle": "Collective intelligence, conscience, attention, memory, meaning—and the right to dissent.",
+    "body_class": "one-brain-series",
+    "chapters": [
+      {
+        "title": "The connected institution",
+        "description": "What changes when banks and markets begin to perceive, remember, and react as linked cognitive systems.",
+        "slugs": ["one-brain-not-one-mind", "finance-needs-conscientious-institutions", "when-finance-thinks-alike"]
+      },
+      {
+        "title": "Attention, memory, and meaning",
+        "description": "Why a more intelligent financial system must also learn to pause, protect attention, forget, and ask what wealth is for.",
+        "slugs": ["intelligent-financial-ai-knows-when-to-wait", "attention-is-the-new-fiduciary-asset", "intelligent-bank-must-learn-to-forget", "financial-advice-meaning-not-money"]
+      },
+      {
+        "title": "Trust and the shared mind",
+        "description": "How institutions can collaborate, earn trust, and preserve independent judgment inside increasingly connected AI systems.",
+        "slugs": ["financial-crime-shared-mind", "trust-is-not-a-model-score", "a-shared-mind-needs-dissent"]
+      }
+    ]
+  },
+  "published": "2026-10-13",
+  "articles": [
+    {
+      "slug": "one-brain-not-one-mind",
+      "title": "The Bank Is Becoming One Brain—But It Must Not Become One Mind",
+      "description": "Banks are linking data, memory, models, and agents into collective intelligence. The challenge is shared cognition without enforced sameness.",
+      "keywords": ["collective intelligence banking", "enterprise AI", "financial services AI", "future of banking"],
+      "related": ["when-finance-thinks-alike", "financial-crime-shared-mind", "when-every-bank-has-the-same-ai-what-still-matters"]
+    },
+    {
+      "slug": "finance-needs-conscientious-institutions",
+      "title": "Finance Does Not Need Conscious AI. It Needs Conscientious Institutions.",
+      "description": "The useful question is not whether AI becomes conscious, but whether financial institutions preserve dignity, accountability, appeal, and moral judgment.",
+      "keywords": ["AI ethics finance", "responsible AI banking", "human centred AI", "AI governance"],
+      "related": ["a-shared-mind-needs-dissent", "trust-is-not-a-model-score", "human-in-the-loop-is-not-a-governance-model"]
+    },
+    {
+      "slug": "when-finance-thinks-alike",
+      "title": "When Finance Thinks Alike, It Fails Together",
+      "description": "Shared models, data, and providers can synchronize financial behavior. Cognitive diversity and dissent are stability controls, not cultural luxuries.",
+      "keywords": ["AI financial stability", "model concentration risk", "financial AI systemic risk", "banking AI"],
+      "related": ["a-shared-mind-needs-dissent", "one-brain-not-one-mind", "when-every-bank-has-the-same-ai-what-still-matters"]
+    },
+    {
+      "slug": "intelligent-financial-ai-knows-when-to-wait",
+      "title": "The Most Intelligent Financial AI Will Know When to Wait",
+      "description": "In high-impact financial decisions, delay and abstention can be safety features. Intelligent AI needs temporal controls, escalation, and reversibility.",
+      "keywords": ["human centred financial AI", "AI decision making", "financial consumer protection", "responsible AI"],
+      "related": ["attention-is-the-new-fiduciary-asset", "financial-advice-meaning-not-money", "human-in-the-loop-is-not-a-governance-model"]
+    },
+    {
+      "slug": "attention-is-the-new-fiduciary-asset",
+      "title": "Attention Is the New Fiduciary Asset",
+      "description": "Personalized AI can guide or manipulate every customer in real time. Financial firms should protect attention and autonomy, not maximize engagement.",
+      "keywords": ["AI personalization finance", "behavioral finance", "financial consumer protection", "AI ethics"],
+      "related": ["intelligent-financial-ai-knows-when-to-wait", "financial-advice-meaning-not-money", "the-first-wealth-management-ai-scandal-wont-be-a-hallucination"]
+    },
+    {
+      "slug": "intelligent-bank-must-learn-to-forget",
+      "title": "An Intelligent Bank Must Learn to Forget",
+      "description": "Unlimited AI memory can trap customers inside outdated identities. Purpose limits, expiry, correction, and intentional forgetting are signs of intelligence.",
+      "keywords": ["AI memory banking", "data privacy banking", "right to erasure AI", "financial data governance"],
+      "related": ["your-bank-doesnt-have-a-data-problem-it-has-a-permission-problem", "trust-is-not-a-model-score", "one-brain-not-one-mind"]
+    },
+    {
+      "slug": "financial-advice-meaning-not-money",
+      "title": "The Best Financial Advice Will Optimize for Meaning, Not Money",
+      "description": "AI can optimize portfolios and scenarios, but only people can define enough, freedom, family, legacy, and what a financial life is for.",
+      "keywords": ["AI financial advice", "financial wellbeing", "wealth management AI", "human centred finance"],
+      "related": ["ai-will-make-the-mass-affluent-worth-advising", "attention-is-the-new-fiduciary-asset", "trust-is-not-a-model-score"]
+    },
+    {
+      "slug": "financial-crime-shared-mind",
+      "title": "Financial Crime Has a Network. Defenders Need a Shared Mind.",
+      "description": "Privacy-enhancing technology and shared learning can help institutions detect networked financial crime without building a central surveillance database.",
+      "keywords": ["AI financial crime", "collective intelligence AML", "privacy enhancing technology", "banking AI"],
+      "related": ["one-brain-not-one-mind", "trust-is-not-a-model-score", "the-first-banking-ai-winners-will-be-invisible"]
+    },
+    {
+      "slug": "trust-is-not-a-model-score",
+      "title": "Trust Is Not a Model Score. It Is a Relationship.",
+      "description": "Accuracy demonstrates capability, not trustworthiness. Financial trust grows through aligned intent, transparency, contestability, consistency, and remedy.",
+      "keywords": ["trustworthy AI finance", "AI explainability banking", "responsible AI", "financial services trust"],
+      "related": ["finance-needs-conscientious-institutions", "financial-advice-meaning-not-money", "human-in-the-loop-is-not-a-governance-model"]
+    },
+    {
+      "slug": "a-shared-mind-needs-dissent",
+      "title": "A Shared Mind Needs Dissent",
+      "description": "Collective intelligence collapses when one model supplies the analysis and the consensus. A shared mind needs independent evidence and protected disagreement.",
+      "keywords": ["collective intelligence AI", "AI groupthink banking", "AI governance", "decision making finance"],
+      "related": ["when-finance-thinks-alike", "one-brain-not-one-mind", "finance-needs-conscientious-institutions"]
+    }
+  ]
+}

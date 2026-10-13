@@ -8,6 +8,8 @@
 
 ## Key Articles
 
+The 2026 AI collection comprises 20 evidence-led essays across two ten-part volumes.
+
 ### AI in Financial Services — 2026 Series
 - [AI in Financial Services: What Works, What Doesn't, and What Comes Next](https://andreapadula.com/ai-financial-services.html): A ten-essay, evidence-led field guide to AI adoption, governance, agents, wealth management, procurement, and the future of banking. Sources include the ECB, Bank of England, FCA, BIS, EBA, FSB, European legislation, and financial institutions deploying AI at scale.
 - [The Model Is the Cheapest Part of Enterprise AI](https://andreapadula.com/the-model-is-the-cheapest-part-of-enterprise-ai.html): Model access is a small part of enterprise AI cost. Workflow redesign, permissions, integration, controls, adoption, and measurement determine whether a bank creates value.
@@ -20,6 +22,19 @@
 - [Banks Are Buying AI With Contracts Written for 2015](https://andreapadula.com/banks-are-buying-ai-with-contracts-written-for-2015.html): Conventional software contracts often miss AI-specific risks including model change, data rights, agent authority, exit plans, fourth parties, and provider concentration.
 - [AI Will Make the Mass Affluent Worth Advising](https://andreapadula.com/ai-will-make-the-mass-affluent-worth-advising.html): AI can reduce the cost to serve mass-affluent clients by redesigning advisor preparation and follow-through while keeping suitability and trust with accountable people.
 - [Banks Are Still Buying Software. AI Is Selling Them Labor.](https://andreapadula.com/banks-are-still-buying-software-ai-is-selling-them-labor.html): AI shifts enterprise software from seats and features toward units of work, forcing banks to rethink pricing, controls, operating models, and what they should own.
+
+### One Brain, Many Minds — 2026 Series
+- [One Brain, Many Minds: AI, Meaning, and the Future of Finance](https://andreapadula.com/one-brain-many-minds.html): Ten evidence-led essays on collective intelligence, conscience, attention, memory, meaning, trust, and dissent in an AI-shaped financial system.
+- [The Bank Is Becoming One Brain—But It Must Not Become One Mind](https://andreapadula.com/one-brain-not-one-mind.html): Banks are linking data, memory, models, and agents into collective intelligence. The challenge is shared cognition without enforced sameness.
+- [Finance Does Not Need Conscious AI. It Needs Conscientious Institutions.](https://andreapadula.com/finance-needs-conscientious-institutions.html): The useful question is not whether AI becomes conscious, but whether financial institutions preserve dignity, accountability, appeal, and moral judgment.
+- [When Finance Thinks Alike, It Fails Together](https://andreapadula.com/when-finance-thinks-alike.html): Shared models, data, and providers can synchronize financial behavior. Cognitive diversity and dissent are stability controls, not cultural luxuries.
+- [The Most Intelligent Financial AI Will Know When to Wait](https://andreapadula.com/intelligent-financial-ai-knows-when-to-wait.html): In high-impact financial decisions, delay and abstention can be safety features. Intelligent AI needs temporal controls, escalation, and reversibility.
+- [Attention Is the New Fiduciary Asset](https://andreapadula.com/attention-is-the-new-fiduciary-asset.html): Personalized AI can guide or manipulate every customer in real time. Financial firms should protect attention and autonomy, not maximize engagement.
+- [An Intelligent Bank Must Learn to Forget](https://andreapadula.com/intelligent-bank-must-learn-to-forget.html): Unlimited AI memory can trap customers inside outdated identities. Purpose limits, expiry, correction, and intentional forgetting are signs of intelligence.
+- [The Best Financial Advice Will Optimize for Meaning, Not Money](https://andreapadula.com/financial-advice-meaning-not-money.html): AI can optimize portfolios and scenarios, but only people can define enough, freedom, family, legacy, and what a financial life is for.
+- [Financial Crime Has a Network. Defenders Need a Shared Mind.](https://andreapadula.com/financial-crime-shared-mind.html): Privacy-enhancing technology and shared learning can help institutions detect networked financial crime without building a central surveillance database.
+- [Trust Is Not a Model Score. It Is a Relationship.](https://andreapadula.com/trust-is-not-a-model-score.html): Accuracy demonstrates capability, not trustworthiness. Financial trust grows through aligned intent, transparency, contestability, consistency, and remedy.
+- [A Shared Mind Needs Dissent](https://andreapadula.com/a-shared-mind-needs-dissent.html): Collective intelligence collapses when one model supplies the analysis and the consensus. A shared mind needs independent evidence and protected disagreement.
 
 ### AI & Financial Services
 - [The Bank of 2030 Has 10x the Clients and Half the People](https://andreapadula.com/the-bank-of-2030.html): AI agents are not chatbots -- they are autonomous systems executing multi-step financial workflows. The math is clear: fewer employees, more clients, better service. A vision of how AI will reshape the banking operating model by 2030.

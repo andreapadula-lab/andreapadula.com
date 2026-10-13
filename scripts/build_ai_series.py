@@ -16,8 +16,6 @@ import markdown
 
 SITE_URL = "https://andreapadula.com"
 AUTHOR_ID = f"{SITE_URL}/#person"
-SERIES_SLUG = "ai-financial-services"
-SERIES_URL = f"{SITE_URL}/{SERIES_SLUG}.html"
 AUTHOR_IMAGE_URL = f"{SITE_URL}/andrea-padula.png"
 
 LEGACY_ARTICLES = {
@@ -71,9 +69,7 @@ def read_draft(path: Path) -> tuple[str, str, str, int]:
     body_html = markdown.markdown(body, extensions=["sane_lists", "toc"])
     source_match = re.search(r'(<h2 id="sources">Sources</h2>)\s*<ul>(.*?)</ul>', body_html, flags=re.DOTALL)
     if source_match:
-        source_items = re.findall(r"<li>(.*?)</li>", source_match.group(2), flags=re.DOTALL)
-        source_rows = "\n".join(f'<p class="source-item">• {item}</p>' for item in source_items)
-        replacement = f'{source_match.group(1)}\n{source_rows}'
+        replacement = f'{source_match.group(1)}\n<ul class="source-list">{source_match.group(2)}</ul>'
         body_html = body_html[: source_match.start()] + replacement + body_html[source_match.end() :]
     plain = re.sub(r"https?://\S+", " ", body)
     plain = re.sub(r"[#*_>`\[\]()—–-]", " ", plain)
@@ -87,17 +83,23 @@ def title_key(value: str) -> str:
     return re.sub(r"\s+", " ", value).strip().casefold()
 
 
-def article_lookup(manifest: dict) -> dict[str, tuple[str, str]]:
-    published = date.fromisoformat(manifest["published"]).strftime("%B %Y")
+def article_lookup(site: Path) -> dict[str, tuple[str, str]]:
     lookup = dict(LEGACY_ARTICLES)
-    for article in manifest["articles"]:
-        lookup[article["slug"]] = (article["title"], published)
+    for manifest_path in sorted((site / "scripts").glob("*-series.json")):
+        candidate = json.loads(manifest_path.read_text(encoding="utf-8"))
+        published = date.fromisoformat(candidate["published"]).strftime("%B %Y")
+        for article in candidate["articles"]:
+            slug = article["slug"]
+            if slug in lookup:
+                raise ValueError(f"Duplicate article slug across manifests: {slug}")
+            lookup[slug] = (article["title"], published)
     return lookup
 
 
-def json_ld_article(article: dict, word_count: int, published: str) -> str:
+def json_ld_article(article: dict, word_count: int, published: str, series: dict) -> str:
     url = f"{SITE_URL}/{article['slug']}.html"
     article_image = f"{SITE_URL}/assets/articles/{article['slug']}.png"
+    series_url = f"{SITE_URL}/{series['slug']}.html"
     graph = {
         "@context": "https://schema.org",
         "@graph": [
@@ -114,11 +116,8 @@ def json_ld_article(article: dict, word_count: int, published: str) -> str:
                 "author": {"@id": AUTHOR_ID},
                 "publisher": {"@id": AUTHOR_ID},
                 "mainEntityOfPage": {"@type": "WebPage", "@id": url},
-                "isPartOf": {"@type": "CollectionPage", "@id": SERIES_URL},
-                "about": [
-                    {"@type": "Thing", "name": "Artificial intelligence in financial services"},
-                    {"@type": "Thing", "name": "Banking"},
-                ],
+                "isPartOf": {"@type": "CollectionPage", "@id": series_url},
+                "about": [{"@type": "Thing", "name": item} for item in series["schema_about"]],
                 "keywords": article["keywords"],
             },
             {
@@ -138,7 +137,7 @@ def json_ld_article(article: dict, word_count: int, published: str) -> str:
                 "@type": "BreadcrumbList",
                 "itemListElement": [
                     {"@type": "ListItem", "position": 1, "name": "Home", "item": f"{SITE_URL}/"},
-                    {"@type": "ListItem", "position": 2, "name": "AI & Financial Services", "item": SERIES_URL},
+                    {"@type": "ListItem", "position": 2, "name": series["short_label"], "item": series_url},
                     {"@type": "ListItem", "position": 3, "name": article["title"], "item": url},
                 ],
             },
@@ -159,7 +158,17 @@ def render_related(article: dict, lookup: dict[str, tuple[str, str]]) -> str:
     return "\n".join(rows)
 
 
-def render_article(article: dict, index: int, total: int, subtitle: str, body_html: str, word_count: int, published: str, lookup: dict[str, tuple[str, str]]) -> str:
+def render_article(
+    article: dict,
+    index: int,
+    total: int,
+    subtitle: str,
+    body_html: str,
+    word_count: int,
+    published: str,
+    lookup: dict[str, tuple[str, str]],
+    series: dict,
+) -> str:
     title = html.escape(article["title"])
     description = html.escape(article["description"], quote=True)
     url = f"{SITE_URL}/{article['slug']}.html"
@@ -169,7 +178,7 @@ def render_article(article: dict, index: int, total: int, subtitle: str, body_ht
         f'    <meta property="article:tag" content="{html.escape(keyword, quote=True)}">'
         for keyword in article["keywords"]
     )
-    ld_json = json_ld_article(article, word_count, published)
+    ld_json = json_ld_article(article, word_count, published, series)
     related = render_related(article, lookup)
     visible_date = date.fromisoformat(published).strftime("%B %d, %Y").replace(" 0", " ")
 
@@ -195,7 +204,7 @@ def render_article(article: dict, index: int, total: int, subtitle: str, body_ht
     <meta property="article:published_time" content="{published}">
     <meta property="article:modified_time" content="{published}">
     <meta property="article:author" content="{SITE_URL}/about.html">
-    <meta property="article:section" content="AI &amp; Financial Services">
+    <meta property="article:section" content="{html.escape(series['section'], quote=True)}">
 {tags}
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{title}">
@@ -206,13 +215,13 @@ def render_article(article: dict, index: int, total: int, subtitle: str, body_ht
     </script>
     <link rel="stylesheet" href="assets/article.css">
 </head>
-<body>
+<body class="{html.escape(series.get('body_class', ''), quote=True)}">
 <div class="progress-bar" id="progressBar"></div>
 <nav class="site-nav" aria-label="Primary navigation">
     <div class="nav-inner">
         <a class="brand" href="/">Andrea Padula</a>
         <div class="nav-links">
-            <a href="{SERIES_SLUG}.html">AI Series</a>
+            <a href="{html.escape(series['slug'])}.html">{html.escape(series['short_label'])}</a>
             <a href="about.html">About</a>
             <a href="https://www.linkedin.com/in/andreapadula/" rel="me">LinkedIn</a>
         </div>
@@ -221,12 +230,12 @@ def render_article(article: dict, index: int, total: int, subtitle: str, body_ht
 
 <header class="article-hero">
     <div class="hero-inner">
-        <div class="eyebrow">AI &amp; Financial Services · Essay {index:02d}/{total:02d}</div>
+        <div class="eyebrow">{html.escape(series['short_label'])} · Essay {index:02d}/{total:02d}</div>
         <h1>{title}</h1>
         <p class="hero-subtitle">{html.escape(subtitle)}</p>
         <div class="article-meta">
             <a href="about.html" rel="author">Andrea Padula</a>
-            <span class="meta-dot">{visible_date}</span>
+            <time class="meta-dot" datetime="{published}">{visible_date}</time>
             <span class="meta-dot">{reading_time} min read</span>
         </div>
     </div>
@@ -240,8 +249,8 @@ def render_article(article: dict, index: int, total: int, subtitle: str, body_ht
         <aside class="article-aside" aria-label="About this series">
             <div class="aside-card">
                 <div class="aside-label">The series</div>
-                <p>Ten evidence-led essays on what works, what fails, and where AI in financial services is going next.</p>
-                <a href="{SERIES_SLUG}.html">Explore all ten →</a>
+                <p>{html.escape(series['aside_copy'])}</p>
+                <a href="{html.escape(series['slug'])}.html">Explore all ten →</a>
             </div>
         </aside>
     </div>
@@ -266,7 +275,7 @@ def render_article(article: dict, index: int, total: int, subtitle: str, body_ht
 </main>
 
 <footer class="site-footer">
-    <p>© 2026 Andrea Padula · <a href="{SERIES_SLUG}.html">AI &amp; Financial Services</a> · <a href="mailto:andreapadula@streetbeat.com">Contact</a></p>
+    <p>© 2026 Andrea Padula · <a href="{html.escape(series['slug'])}.html">{html.escape(series['short_label'])}</a> · <a href="mailto:andreapadula@streetbeat.com">Contact</a></p>
 </footer>
 <script src="assets/article.js" defer></script>
 </body>
@@ -274,7 +283,8 @@ def render_article(article: dict, index: int, total: int, subtitle: str, body_ht
 '''
 
 
-def json_ld_series(manifest: dict) -> str:
+def json_ld_series(manifest: dict, series: dict) -> str:
+    series_url = f"{SITE_URL}/{series['slug']}.html"
     items = [
         {
             "@type": "ListItem",
@@ -289,10 +299,10 @@ def json_ld_series(manifest: dict) -> str:
         "@graph": [
             {
                 "@type": "CollectionPage",
-                "@id": SERIES_URL,
-                "url": SERIES_URL,
-                "name": "AI in Financial Services: What Works, What Doesn’t, and What Comes Next",
-                "description": "Ten evidence-led essays by Andrea Padula on AI adoption, governance, agents, wealth management, procurement, and the future of banking.",
+                "@id": series_url,
+                "url": series_url,
+                "name": series["title"],
+                "description": series["description"],
                 "inLanguage": "en",
                 "datePublished": manifest["published"],
                 "dateModified": manifest["published"],
@@ -313,53 +323,96 @@ def json_ld_series(manifest: dict) -> str:
     return json.dumps(graph, ensure_ascii=False, indent=8)
 
 
-def render_series(manifest: dict, drafts: dict[str, dict]) -> str:
-    cards = []
+def render_series(manifest: dict, drafts: dict[str, dict], series: dict) -> str:
+    cards_by_slug = {}
+    cards_h2_by_slug = {}
     for index, article in enumerate(manifest["articles"], start=1):
         draft = drafts[article["slug"]]
         reading_time = max(1, math.ceil(draft["word_count"] / 220))
-        cards.append(
+        card = (
             f'''        <a class="series-card" href="{html.escape(article['slug'])}.html">
             <div class="card-number">ESSAY {index:02d}</div>
-            <h2>{html.escape(article['title'])}</h2>
+            <h3>{html.escape(article['title'])}</h3>
             <p>{html.escape(article['description'])}</p>
             <div class="card-meta">{reading_time} min read · Primary sources</div>
             <span class="card-arrow" aria-hidden="true">→</span>
         </a>'''
         )
-    cards_html = "\n".join(cards)
-    ld_json = json_ld_series(manifest)
-    description = "Ten evidence-led essays on AI in financial services: what creates value, what fails in production, and where banking and wealth management go next."
+        cards_by_slug[article["slug"]] = card
+        cards_h2_by_slug[article["slug"]] = card.replace("<h3>", "<h2>").replace("</h3>", "</h2>")
+
+    chapters = series.get("chapters", [])
+    if chapters:
+        rendered_chapters = []
+        seen = []
+        for chapter_index, chapter in enumerate(chapters, start=1):
+            for slug in chapter["slugs"]:
+                if slug not in cards_by_slug:
+                    raise ValueError(f"Unknown chapter article slug: {slug}")
+                if slug in seen:
+                    raise ValueError(f"Article appears in more than one chapter: {slug}")
+                seen.append(slug)
+            chapter_cards = "\n".join(cards_by_slug[slug] for slug in chapter["slugs"])
+            rendered_chapters.append(
+                f'''    <section class="series-chapter" aria-labelledby="chapter-{chapter_index}">
+        <div class="chapter-heading">
+            <h2 id="chapter-{chapter_index}">{html.escape(chapter['title'])}</h2>
+            <p>{html.escape(chapter['description'])}</p>
+        </div>
+        <div class="series-grid">
+{chapter_cards}
+        </div>
+    </section>'''
+            )
+        missing = sorted(set(cards_by_slug) - set(seen))
+        if missing:
+            raise ValueError(f"Chapter configuration does not cover every article: {missing}")
+        collection_html = "\n".join(rendered_chapters)
+    else:
+        collection_html = f'''    <section class="series-grid" aria-label="Ten essays">
+{chr(10).join(cards_h2_by_slug[article['slug']] for article in manifest['articles'])}
+    </section>'''
+
+    intro_rows = []
+    for index, paragraph in enumerate(series["intro"]):
+        copy = html.escape(paragraph)
+        if index == series.get("intro_emphasis"):
+            copy = f"<strong>{copy}</strong>"
+        intro_rows.append(f"            <p>{copy}</p>")
+    intro_html = "\n".join(intro_rows)
+    ld_json = json_ld_series(manifest, series)
+    description = series["description"]
+    series_url = f"{SITE_URL}/{series['slug']}.html"
 
     return f'''<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI in Financial Services: What Works and What Comes Next — Andrea Padula</title>
+    <title>{html.escape(series['title'])} — Andrea Padula</title>
     <meta name="description" content="{html.escape(description, quote=True)}">
     <meta name="author" content="Andrea Padula">
-    <meta name="keywords" content="AI in financial services, AI in banking, banking AI use cases, AI governance, agentic AI banking, wealth management AI">
-    <link rel="canonical" href="{SERIES_URL}">
+    <meta name="keywords" content="{html.escape(', '.join(series['keywords']), quote=True)}">
+    <link rel="canonical" href="{series_url}">
     <meta property="og:site_name" content="Andrea Padula">
-    <meta property="og:title" content="AI in Financial Services: What Works, What Doesn’t, and What Comes Next">
+    <meta property="og:title" content="{html.escape(series['title'], quote=True)}">
     <meta property="og:description" content="{html.escape(description, quote=True)}">
-    <meta property="og:image" content="{SITE_URL}/assets/articles/{SERIES_SLUG}.png">
-    <meta property="og:image:alt" content="AI in Financial Services — a ten-essay field guide by Andrea Padula">
+    <meta property="og:image" content="{SITE_URL}/assets/articles/{html.escape(series['slug'])}.png">
+    <meta property="og:image:alt" content="{html.escape(series['title'], quote=True)} — a ten-essay series by Andrea Padula">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:url" content="{SERIES_URL}">
+    <meta property="og:url" content="{series_url}">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="AI in Financial Services: What Works and What Comes Next">
+    <meta name="twitter:title" content="{html.escape(series['title'], quote=True)}">
     <meta name="twitter:description" content="{html.escape(description, quote=True)}">
-    <meta name="twitter:image" content="{SITE_URL}/assets/articles/{SERIES_SLUG}.png">
+    <meta name="twitter:image" content="{SITE_URL}/assets/articles/{html.escape(series['slug'])}.png">
     <script type="application/ld+json">
 {ld_json}
     </script>
     <link rel="stylesheet" href="assets/article.css">
 </head>
-<body>
+<body class="{html.escape(series.get('body_class', ''), quote=True)}">
 <nav class="site-nav" aria-label="Primary navigation">
     <div class="nav-inner">
         <a class="brand" href="/">Andrea Padula</a>
@@ -373,33 +426,29 @@ def render_series(manifest: dict, drafts: dict[str, dict]) -> str:
 
 <header class="series-hero">
     <div class="hero-inner">
-        <div class="eyebrow">A ten-essay field guide</div>
-        <h1>AI in Financial Services: What Works, What Doesn’t, and What Comes Next</h1>
-        <p class="hero-subtitle">The model is only the beginning. The real questions are about workflows, authority, economics, trust, and who learns fastest.</p>
+        <div class="eyebrow">{html.escape(series['hero_label'])}</div>
+        <h1>{html.escape(series['title'])}</h1>
+        <p class="hero-subtitle">{html.escape(series['hero_subtitle'])}</p>
     </div>
 </header>
 
 <main>
     <section class="series-intro" aria-label="About the series">
         <div class="series-copy">
-            <p>Financial institutions are no longer asking whether AI will matter. They are trying to separate useful systems from convincing demos—and move from experiments to accountable work.</p>
-            <p>This series examines that transition from the operator’s side: <strong>what reaches production, what breaks, how governance must change, and where durable advantage will remain when capable models are available to everyone.</strong></p>
-            <p>The essays draw on current evidence from the ECB, Bank of England, FCA, BIS, EBA, FSB, European legislation, and financial institutions deploying AI at scale.</p>
+{intro_html}
         </div>
         <aside class="series-note">
             <div class="label">Editorial standard</div>
-            <p>Primary or first-party sources. Company figures identified as company-reported. No invented client stories or anonymous quotations. Current as of October 2026.</p>
+            <p>{html.escape(series['editorial_standard'])}</p>
         </aside>
     </section>
 
-    <section class="series-grid" aria-label="Ten essays">
-{cards_html}
-    </section>
+{collection_html}
 
     <section class="series-cta">
         <div class="series-cta-inner">
-            <h2>Working on AI inside a financial institution?</h2>
-            <p>I speak with banks, wealth managers, and technology teams about adoption, partnerships, and the gap between a promising model and a working process.</p>
+            <h2>{html.escape(series['cta_title'])}</h2>
+            <p>{html.escape(series['cta_copy'])}</p>
             <a class="button" href="mailto:andreapadula@streetbeat.com">Start a conversation</a>
         </div>
     </section>
@@ -416,8 +465,9 @@ def render_series(manifest: dict, drafts: dict[str, dict]) -> str:
 def main() -> None:
     args = parse_args()
     manifest = json.loads(args.manifest.read_text(encoding="utf-8"))
+    series = manifest["series"]
     published = manifest["published"]
-    lookup = article_lookup(manifest)
+    lookup = article_lookup(args.site)
     parsed: dict[str, dict] = {}
 
     for article in manifest["articles"]:
@@ -448,11 +498,13 @@ def main() -> None:
             draft["word_count"],
             published,
             lookup,
+            series,
         )
         (args.site / f"{article['slug']}.html").write_text(page, encoding="utf-8")
 
-    (args.site / f"{SERIES_SLUG}.html").write_text(render_series(manifest, parsed), encoding="utf-8")
-    print(f"Built {len(manifest['articles'])} articles and {SERIES_SLUG}.html")
+    series_slug = series["slug"]
+    (args.site / f"{series_slug}.html").write_text(render_series(manifest, parsed, series), encoding="utf-8")
+    print(f"Built {len(manifest['articles'])} articles and {series_slug}.html")
 
 
 if __name__ == "__main__":

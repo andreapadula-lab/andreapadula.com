@@ -1,4 +1,27 @@
 {
+  "series": {
+    "slug": "ai-financial-services",
+    "short_label": "AI & Financial Services",
+    "section": "AI & Financial Services",
+    "title": "AI in Financial Services: What Works, What Doesn’t, and What Comes Next",
+    "description": "Ten evidence-led essays on AI in financial services: what creates value, what fails in production, and where banking and wealth management go next.",
+    "hero_label": "A ten-essay field guide",
+    "hero_subtitle": "The model is only the beginning. The real questions are about workflows, authority, economics, trust, and who learns fastest.",
+    "intro": [
+      "Financial institutions are no longer asking whether AI will matter. They are trying to separate useful systems from convincing demos—and move from experiments to accountable work.",
+      "This series examines that transition from the operator’s side: what reaches production, what breaks, how governance must change, and where durable advantage will remain when capable models are available to everyone.",
+      "The essays draw on current evidence from the ECB, Bank of England, FCA, BIS, EBA, FSB, European legislation, and financial institutions deploying AI at scale."
+    ],
+    "intro_emphasis": 1,
+    "editorial_standard": "Primary or first-party sources. Company figures identified as company-reported. No invented client stories or anonymous quotations. Current as of October 2026.",
+    "aside_copy": "Ten evidence-led essays on what works, what fails, and where AI in financial services is going next.",
+    "cta_title": "Working on AI inside a financial institution?",
+    "cta_copy": "I speak with banks, wealth managers, and technology teams about adoption, partnerships, and the gap between a promising model and a working process.",
+    "keywords": ["AI in financial services", "AI in banking", "banking AI use cases", "AI governance", "agentic AI banking", "wealth management AI"],
+    "schema_about": ["Artificial intelligence in financial services", "Banking"],
+    "og_subtitle": "Workflows, authority, economics, trust—and who learns fastest.",
+    "body_class": "ai-operations-series"
+  },
   "published": "2026-10-05",
   "articles": [
     {

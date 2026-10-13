@@ -8,7 +8,7 @@
     --surface-soft: rgba(255, 255, 255, 0.035);
     --text: #f4f4f5;
     --muted: #a1a1aa;
-    --quiet: #71717a;
+    --quiet: #8b8b95;
     --line: rgba(255, 255, 255, 0.09);
     --accent: #60a5fa;
     --accent-strong: #3b82f6;
@@ -27,8 +27,16 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+body.one-brain-series {
+    --accent: #a78bfa;
+    --accent-strong: #8b5cf6;
+    --accent-soft: rgba(139, 92, 246, 0.13);
+}
+
 a { color: var(--accent); text-decoration: none; }
 a:hover { color: #93c5fd; }
+.one-brain-series a:hover { color: #c4b5fd; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 
 .progress-bar {
     background: linear-gradient(90deg, #2563eb, #7dd3fc);
@@ -104,7 +112,22 @@ a:hover { color: #93c5fd; }
 }
 
 .article-hero .hero-inner { max-width: 900px; }
-.eyebrow { color: #93c5fd; font-size: 12px; font-weight: 700; letter-spacing: .13em; margin-bottom: 18px; text-transform: uppercase; }
+.eyebrow { color: var(--muted); font-size: 12px; font-weight: 700; letter-spacing: .13em; margin-bottom: 18px; text-transform: uppercase; }
+
+.one-brain-series .series-hero::before,
+.one-brain-series .article-hero::before {
+    background:
+        radial-gradient(circle at 82% 48%, transparent 0 68px, rgba(196,181,253,.23) 69px 71px, transparent 72px 126px, rgba(125,211,252,.16) 127px 129px, transparent 130px 198px, rgba(251,191,36,.09) 199px 201px, transparent 202px),
+        radial-gradient(circle at 16% 52%, rgba(99,102,241,.24), transparent 37%);
+}
+
+.one-brain-series .article-hero::after {
+    background-image: radial-gradient(circle, rgba(255,255,255,.14) 0 2px, transparent 3px);
+    background-size: 84px 84px;
+    opacity: .28;
+}
+
+.one-brain-series .progress-bar { background: linear-gradient(90deg, #8b5cf6, #7dd3fc, #fbbf24); }
 
 h1 {
     font-size: clamp(38px, 6vw, 68px);
@@ -148,7 +171,7 @@ h1 {
 .series-copy p { color: var(--muted); font-size: 18px; margin-bottom: 20px; }
 .series-copy strong { color: var(--text); }
 .series-note { background: var(--surface-soft); border: 1px solid var(--line); border-radius: 16px; padding: 24px; }
-.series-note .label { color: #93c5fd; font-size: 11px; font-weight: 700; letter-spacing: .11em; margin-bottom: 12px; text-transform: uppercase; }
+.series-note .label { color: var(--quiet); font-size: 11px; font-weight: 700; letter-spacing: .11em; margin-bottom: 12px; text-transform: uppercase; }
 .series-note p { color: var(--muted); font-size: 14px; }
 
 .article-shell {
@@ -201,9 +224,8 @@ h1 {
 .article-body a { text-decoration: underline; text-decoration-color: rgba(96,165,250,.4); text-underline-offset: 3px; }
 
 .article-body h2[id='sources'] { border-top: 1px solid var(--line); font-size: 20px; margin-top: 58px; padding-top: 36px; }
-.article-body h2[id='sources'] + ul { font-size: 14px; line-height: 1.55; }
-.article-body .source-item { color: var(--muted); font-size: 14px; line-height: 1.55; margin-bottom: 10px; padding-left: 18px; position: relative; }
-.article-body .source-item::first-letter { color: var(--accent); }
+.article-body .source-list { color: var(--muted); font-size: 14px; line-height: 1.55; margin-bottom: 10px; }
+.article-body .source-list li { margin-bottom: 10px; }
 
 .article-aside { align-self: start; position: sticky; top: 100px; }
 .aside-card { border-left: 1px solid var(--line); padding-left: 22px; }
@@ -220,6 +242,13 @@ h1 {
     padding: 28px 28px 80px;
 }
 
+.series-chapter { margin: 0 auto; max-width: var(--max); }
+.chapter-heading { max-width: 760px; padding: 70px 28px 0; }
+.chapter-heading h2 { font-size: clamp(28px, 4vw, 42px); letter-spacing: -.035em; line-height: 1.12; margin-bottom: 12px; }
+.chapter-heading p { color: var(--muted); font-size: 16px; max-width: 660px; }
+.series-chapter .series-grid { padding-bottom: 24px; padding-left: 28px; padding-right: 28px; }
+.series-chapter:last-of-type .series-grid { padding-bottom: 80px; }
+
 .series-card {
     background: var(--surface-soft);
     border: 1px solid var(--line);
@@ -235,8 +264,10 @@ h1 {
 }
 
 .series-card:hover { background: rgba(255,255,255,.055); border-color: rgba(96,165,250,.35); color: inherit; transform: translateY(-3px); }
-.card-number { color: #60a5fa; font-size: 12px; font-weight: 700; letter-spacing: .08em; margin-bottom: 36px; }
-.series-card h2 { font-size: 25px; letter-spacing: -.025em; line-height: 1.25; margin-bottom: 15px; }
+.one-brain-series .series-card:hover { border-color: rgba(167,139,250,.4); }
+.card-number { color: var(--accent); font-size: 12px; font-weight: 700; letter-spacing: .08em; margin-bottom: 36px; }
+.series-card h2,
+.series-card h3 { font-size: 25px; letter-spacing: -.025em; line-height: 1.25; margin-bottom: 15px; }
 .series-card p { color: var(--muted); font-size: 15px; line-height: 1.6; }
 .card-meta { color: var(--quiet); font-size: 12px; margin-top: auto; padding-top: 24px; }
 .card-arrow { bottom: 25px; color: var(--accent); font-size: 21px; position: absolute; right: 28px; }
@@ -269,6 +300,8 @@ h1 {
 .series-cta p { color: var(--muted); font-size: 15px; margin-bottom: 20px; }
 .button { background: #f4f4f5; border-radius: 8px; color: #09090b; display: inline-flex; font-size: 13px; font-weight: 700; padding: 10px 15px; }
 .button:hover { background: #fff; color: #09090b; }
+.button:active { transform: scale(.98); }
+.one-brain-series .series-cta-inner { background: radial-gradient(circle at 90% 20%, rgba(251,191,36,.08), transparent 32%), rgba(139,92,246,.1); border-color: rgba(167,139,250,.25); }
 
 .site-footer { border-top: 1px solid var(--line); color: var(--quiet); font-size: 12px; padding: 30px 28px; text-align: center; }
 .site-footer a { color: var(--muted); }
@@ -286,6 +319,8 @@ h1 {
     .hero-inner { padding: 54px 20px 48px; }
     .series-intro { padding: 48px 20px 18px; }
     .series-grid { grid-template-columns: 1fr; padding: 22px 20px 60px; }
+    .chapter-heading { padding: 54px 20px 0; }
+    .series-chapter .series-grid { padding-left: 20px; padding-right: 20px; }
     .series-card { min-height: 280px; }
     .article-shell { padding: 46px 20px 12px; }
     .article-body > p { font-size: 17px; }

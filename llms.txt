@@ -8,6 +8,8 @@
 
 ## Key Articles
 
+The 2026 AI collection comprises 20 evidence-led essays across two ten-part volumes.
+
 ### AI in Financial Services — 2026 Series
 - [AI in Financial Services: What Works, What Doesn't, and What Comes Next](https://andreapadula.com/ai-financial-services.html)
 - [The Model Is the Cheapest Part of Enterprise AI](https://andreapadula.com/the-model-is-the-cheapest-part-of-enterprise-ai.html)
@@ -20,6 +22,19 @@
 - [Banks Are Buying AI With Contracts Written for 2015](https://andreapadula.com/banks-are-buying-ai-with-contracts-written-for-2015.html)
 - [AI Will Make the Mass Affluent Worth Advising](https://andreapadula.com/ai-will-make-the-mass-affluent-worth-advising.html)
 - [Banks Are Still Buying Software. AI Is Selling Them Labor.](https://andreapadula.com/banks-are-still-buying-software-ai-is-selling-them-labor.html)
+
+### One Brain, Many Minds — 2026 Series
+- [One Brain, Many Minds: AI, Meaning, and the Future of Finance](https://andreapadula.com/one-brain-many-minds.html)
+- [The Bank Is Becoming One Brain—But It Must Not Become One Mind](https://andreapadula.com/one-brain-not-one-mind.html)
+- [Finance Does Not Need Conscious AI. It Needs Conscientious Institutions.](https://andreapadula.com/finance-needs-conscientious-institutions.html)
+- [When Finance Thinks Alike, It Fails Together](https://andreapadula.com/when-finance-thinks-alike.html)
+- [The Most Intelligent Financial AI Will Know When to Wait](https://andreapadula.com/intelligent-financial-ai-knows-when-to-wait.html)
+- [Attention Is the New Fiduciary Asset](https://andreapadula.com/attention-is-the-new-fiduciary-asset.html)
+- [An Intelligent Bank Must Learn to Forget](https://andreapadula.com/intelligent-bank-must-learn-to-forget.html)
+- [The Best Financial Advice Will Optimize for Meaning, Not Money](https://andreapadula.com/financial-advice-meaning-not-money.html)
+- [Financial Crime Has a Network. Defenders Need a Shared Mind.](https://andreapadula.com/financial-crime-shared-mind.html)
+- [Trust Is Not a Model Score. It Is a Relationship.](https://andreapadula.com/trust-is-not-a-model-score.html)
+- [A Shared Mind Needs Dissent](https://andreapadula.com/a-shared-mind-needs-dissent.html)
 
 ### AI & Financial Services
 - [The Bank of 2030 Has 10x the Clients and Half the People](https://andreapadula.com/the-bank-of-2030.html)
