@@ -224,8 +224,8 @@ h1 {
 .article-body a { text-decoration: underline; text-decoration-color: rgba(96,165,250,.4); text-underline-offset: 3px; }
 
 .article-body h2[id='sources'] { border-top: 1px solid var(--line); font-size: 20px; margin-top: 58px; padding-top: 36px; }
-.article-body .source-list { color: var(--muted); font-size: 14px; line-height: 1.55; margin-bottom: 10px; }
-.article-body .source-list li { margin-bottom: 10px; }
+.article-body .source-item { color: var(--muted); font-size: 14px; line-height: 1.55; margin-bottom: 10px; padding-left: 18px; position: relative; }
+.article-body .source-item::first-letter { color: var(--accent); }
 
 .article-aside { align-self: start; position: sticky; top: 100px; }
 .aside-card { border-left: 1px solid var(--line); padding-left: 22px; }

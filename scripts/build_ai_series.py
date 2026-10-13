@@ -69,7 +69,9 @@ def read_draft(path: Path) -> tuple[str, str, str, int]:
     body_html = markdown.markdown(body, extensions=["sane_lists", "toc"])
     source_match = re.search(r'(<h2 id="sources">Sources</h2>)\s*<ul>(.*?)</ul>', body_html, flags=re.DOTALL)
     if source_match:
-        replacement = f'{source_match.group(1)}\n<ul class="source-list">{source_match.group(2)}</ul>'
+        source_items = re.findall(r"<li>(.*?)</li>", source_match.group(2), flags=re.DOTALL)
+        source_rows = "\n".join(f'<p class="source-item">• {item}</p>' for item in source_items)
+        replacement = f'{source_match.group(1)}\n{source_rows}'
         body_html = body_html[: source_match.start()] + replacement + body_html[source_match.end() :]
     plain = re.sub(r"https?://\S+", " ", body)
     plain = re.sub(r"[#*_>`\[\]()—–-]", " ", plain)
