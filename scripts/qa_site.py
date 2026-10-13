@@ -77,6 +77,10 @@ def main() -> None:
                 expect(page.locator(".site-header .wordmark").count() == 1, f"{prefix}: shared navigation missing")
                 expect(page.locator("a[href='writing.html']").count() >= 1, f"{prefix}: Writing navigation missing")
                 expect(
+                    page.locator(".nav-links > a").all_inner_texts() == ["Home", "About", "Writing", "Speaking"],
+                    f"{prefix}: primary navigation order is incorrect",
+                )
+                expect(
                     page.evaluate("document.documentElement.scrollWidth <= window.innerWidth + 1"),
                     f"{prefix}: horizontal overflow",
                 )
@@ -90,10 +94,25 @@ def main() -> None:
                 )
                 for script in page.locator("script[type='application/ld+json']").all_text_contents():
                     json.loads(script)
+
+                if path in {"", "speaking.html"}:
+                    expect(page.locator("main img").count() == 0, f"{prefix}: portrait should not appear in this page")
+                if path == "speaking.html":
+                    expect("One Brain" not in page.locator("main").inner_text(), f"{prefix}: series concept is still a primary speaking theme")
+                if path == "about.html":
+                    portrait = page.locator(".v2-about-portrait")
+                    expect(portrait.count() == 1, f"{prefix}: about portrait missing")
+                    portrait_width = portrait.bounding_box()["width"]
+                    width_limit = 320 if viewport["width"] > 760 else 210
+                    expect(portrait_width <= width_limit, f"{prefix}: about portrait is too large ({portrait_width}px)")
+                if path == "writing.html":
+                    latest_top = page.locator("#latest").bounding_box()["y"]
+                    series_top = page.locator("#featured-series").bounding_box()["y"]
+                    expect(latest_top < series_top, f"{prefix}: writing should lead with essays, not series")
                 checked += 1
 
                 if (
-                    (viewport_name == "desktop" and path in {"", "writing.html", "one-brain-many-minds.html"})
+                    (viewport_name == "desktop" and path in {"", "writing.html", "about.html", "speaking.html", "one-brain-many-minds.html"})
                     or (viewport_name == "mobile" and path in {"", "writing.html", "about.html", "speaking.html", "trust-is-not-a-model-score.html", "deep-work-is-the-new-competitive-advantage.html"})
                 ):
                     page.screenshot(

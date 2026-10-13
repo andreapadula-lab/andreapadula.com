@@ -23,15 +23,17 @@ SHARED_NAV = '''<header class="site-header">
     <nav class="nav-shell" aria-label="Primary navigation">
         <a class="wordmark" href="/" aria-label="Andrea Padula, home">Andrea Padula</a>
         <div class="nav-links">
-            <a class="nav-link" href="writing.html" aria-current="page">Writing</a>
+            <a class="nav-link" href="/">Home</a>
             <a class="nav-link" href="about.html">About</a>
+            <a class="nav-link" href="writing.html" aria-current="page">Writing</a>
             <a class="nav-link" href="speaking.html">Speaking</a>
         </div>
         <a class="nav-cta" href="mailto:andreapadula@streetbeat.com">Contact</a>
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Open navigation"><span></span></button>
         <div class="nav-drawer" id="site-menu" hidden>
-            <a class="drawer-link" href="writing.html" aria-current="page">Writing <span aria-hidden="true">→</span></a>
+            <a class="drawer-link" href="/">Home <span aria-hidden="true">→</span></a>
             <a class="drawer-link" href="about.html">About <span aria-hidden="true">→</span></a>
+            <a class="drawer-link" href="writing.html" aria-current="page">Writing <span aria-hidden="true">→</span></a>
             <a class="drawer-link" href="speaking.html">Speaking <span aria-hidden="true">→</span></a>
             <a class="drawer-link" href="mailto:andreapadula@streetbeat.com">Contact <span aria-hidden="true">→</span></a>
         </div>
@@ -63,7 +65,17 @@ def is_legacy_article(path: Path, text: str) -> bool:
 
 def modernize(text: str, path: Path) -> str:
     if 'assets/legacy-article.css' in text:
-        return text.replace('class="footer-inner"', 'class="article-footer-inner"')
+        text = text.replace('class="footer-inner"', 'class="article-footer-inner"')
+        text, nav_count = re.subn(
+            r'<header class="site-header">.*?</header>',
+            SHARED_NAV,
+            text,
+            count=1,
+            flags=re.DOTALL,
+        )
+        if nav_count != 1:
+            raise ValueError(f"Expected one shared navigation in {path.name}")
+        return text
 
     original = text
     style_close = '    </style>\n</head>'
