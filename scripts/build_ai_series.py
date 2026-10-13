@@ -18,6 +18,32 @@ SITE_URL = "https://andreapadula.com"
 AUTHOR_ID = f"{SITE_URL}/#person"
 AUTHOR_IMAGE_URL = f"{SITE_URL}/andrea-padula.png"
 
+SHARED_NAV = '''<header class="site-header">
+    <nav class="nav-shell" aria-label="Primary navigation">
+        <a class="wordmark" href="/" aria-label="Andrea Padula, home">Andrea Padula</a>
+        <div class="nav-links">
+            <a class="nav-link" href="/">Home</a>
+            <a class="nav-link" href="about.html">Journey</a>
+            <a class="nav-link" href="writing.html" aria-current="page">Writing</a>
+        </div>
+        <a class="nav-cta" href="contact.html">Contact</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Open navigation"><span></span></button>
+        <div class="nav-drawer" id="site-menu" hidden>
+            <a class="drawer-link" href="/">Home <span aria-hidden="true">→</span></a>
+            <a class="drawer-link" href="about.html">Journey <span aria-hidden="true">→</span></a>
+            <a class="drawer-link" href="writing.html" aria-current="page">Writing <span aria-hidden="true">→</span></a>
+            <a class="drawer-link" href="contact.html">Contact <span aria-hidden="true">→</span></a>
+        </div>
+    </nav>
+</header>'''
+
+SHARED_FOOTER = '''<footer class="article-footer">
+    <div class="article-footer-inner">
+        <p>© 2026 Andrea Padula · AI, technology, choices, and the inner life.</p>
+        <nav aria-label="Footer navigation"><a href="about.html">Journey</a><a href="writing.html">Writing</a><a href="speaking.html">Speaking</a><a href="contact.html">Contact</a></nav>
+    </div>
+</footer>'''
+
 LEGACY_ARTICLES = {
     "the-bank-of-2030": ("The Bank of 2030 Has 10x the Clients and Half the People", "June 2025"),
     "what-i-see-selling-ai-to-european-banks": ("What I See Selling AI to European Banks", "October 2024"),
@@ -85,6 +111,12 @@ def title_key(value: str) -> str:
     return re.sub(r"\s+", " ", value).strip().casefold()
 
 
+def editorial_type(series: dict) -> str:
+    """Map the two collections to the public editorial taxonomy."""
+    identity = f"{series.get('body_class', '')} {series.get('slug', '')}".casefold()
+    return "Reflection" if "one-brain" in identity else "Analysis"
+
+
 def article_lookup(site: Path) -> dict[str, tuple[str, str]]:
     lookup = dict(LEGACY_ARTICLES)
     for manifest_path in sorted((site / "scripts").glob("*-series.json")):
@@ -120,6 +152,7 @@ def json_ld_article(article: dict, word_count: int, published: str, series: dict
                 "mainEntityOfPage": {"@type": "WebPage", "@id": url},
                 "isPartOf": {"@type": "CollectionPage", "@id": series_url},
                 "about": [{"@type": "Thing", "name": item} for item in series["schema_about"]],
+                "genre": editorial_type(series),
                 "keywords": article["keywords"],
             },
             {
@@ -183,6 +216,7 @@ def render_article(
     ld_json = json_ld_article(article, word_count, published, series)
     related = render_related(article, lookup)
     visible_date = date.fromisoformat(published).strftime("%B %d, %Y").replace(" 0", " ")
+    article_type = editorial_type(series)
 
     return f'''<!DOCTYPE html>
 <html lang="en">
@@ -221,30 +255,11 @@ def render_article(
 <body class="{html.escape(series.get('body_class', ''), quote=True)}">
 <a class="skip-link" href="#main">Skip to content</a>
 <div class="progress-bar" id="progressBar"></div>
-<header class="site-header">
-    <nav class="nav-shell" aria-label="Primary navigation">
-        <a class="wordmark" href="/" aria-label="Andrea Padula, home">Andrea Padula</a>
-        <div class="nav-links">
-            <a class="nav-link" href="/">Home</a>
-            <a class="nav-link" href="about.html">About</a>
-            <a class="nav-link" href="writing.html" aria-current="page">Writing</a>
-            <a class="nav-link" href="speaking.html">Speaking</a>
-        </div>
-        <a class="nav-cta" href="mailto:andreapadula@streetbeat.com">Contact</a>
-        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Open navigation"><span></span></button>
-        <div class="nav-drawer" id="site-menu" hidden>
-            <a class="drawer-link" href="/">Home <span aria-hidden="true">→</span></a>
-            <a class="drawer-link" href="about.html">About <span aria-hidden="true">→</span></a>
-            <a class="drawer-link" href="writing.html" aria-current="page">Writing <span aria-hidden="true">→</span></a>
-            <a class="drawer-link" href="speaking.html">Speaking <span aria-hidden="true">→</span></a>
-            <a class="drawer-link" href="mailto:andreapadula@streetbeat.com">Contact <span aria-hidden="true">→</span></a>
-        </div>
-    </nav>
-</header>
+{SHARED_NAV}
 
 <header class="article-hero">
     <div class="hero-inner">
-        <div class="eyebrow">{html.escape(series['short_label'])} · Essay {index:02d}/{total:02d}</div>
+        <div class="eyebrow">{article_type} · {html.escape(series['short_label'])} · Essay {index:02d}/{total:02d}</div>
         <h1>{title}</h1>
         <p class="hero-subtitle">{html.escape(subtitle)}</p>
         <div class="article-meta">
@@ -288,12 +303,7 @@ def render_article(
     </section>
 </main>
 
-<footer class="article-footer">
-    <div class="article-footer-inner">
-        <p>© 2026 Andrea Padula</p>
-        <nav aria-label="Footer navigation"><a href="writing.html">All writing</a><a href="{html.escape(series['slug'])}.html">{html.escape(series['short_label'])}</a><a href="about.html">About</a><a href="mailto:andreapadula@streetbeat.com">Contact</a></nav>
-    </div>
-</footer>
+{SHARED_FOOTER}
 <script src="assets/article.js" defer></script>
 <script src="assets/site.js" defer></script>
 </body>
@@ -321,6 +331,7 @@ def json_ld_series(manifest: dict, series: dict) -> str:
                 "url": series_url,
                 "name": series["title"],
                 "description": series["description"],
+                "genre": editorial_type(series),
                 "inLanguage": "en",
                 "datePublished": manifest["published"],
                 "dateModified": manifest["published"],
@@ -342,6 +353,7 @@ def json_ld_series(manifest: dict, series: dict) -> str:
 
 
 def render_series(manifest: dict, drafts: dict[str, dict], series: dict) -> str:
+    series_type = editorial_type(series)
     cards_by_slug = {}
     cards_h2_by_slug = {}
     for index, article in enumerate(manifest["articles"], start=1):
@@ -349,7 +361,7 @@ def render_series(manifest: dict, drafts: dict[str, dict], series: dict) -> str:
         reading_time = max(1, math.ceil(draft["word_count"] / 220))
         card = (
             f'''        <a class="series-card" href="{html.escape(article['slug'])}.html">
-            <div class="card-number">ESSAY {index:02d}</div>
+            <div class="card-number">{series_type.upper()} {index:02d}</div>
             <h3>{html.escape(article['title'])}</h3>
             <p>{html.escape(article['description'])}</p>
             <div class="card-meta">{reading_time} min read · Primary sources</div>
@@ -433,30 +445,11 @@ def render_series(manifest: dict, drafts: dict[str, dict], series: dict) -> str:
 </head>
 <body class="{html.escape(series.get('body_class', ''), quote=True)}">
 <a class="skip-link" href="#main">Skip to content</a>
-<header class="site-header">
-    <nav class="nav-shell" aria-label="Primary navigation">
-        <a class="wordmark" href="/" aria-label="Andrea Padula, home">Andrea Padula</a>
-        <div class="nav-links">
-            <a class="nav-link" href="/">Home</a>
-            <a class="nav-link" href="about.html">About</a>
-            <a class="nav-link" href="writing.html" aria-current="page">Writing</a>
-            <a class="nav-link" href="speaking.html">Speaking</a>
-        </div>
-        <a class="nav-cta" href="mailto:andreapadula@streetbeat.com">Contact</a>
-        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Open navigation"><span></span></button>
-        <div class="nav-drawer" id="site-menu" hidden>
-            <a class="drawer-link" href="/">Home <span aria-hidden="true">→</span></a>
-            <a class="drawer-link" href="about.html">About <span aria-hidden="true">→</span></a>
-            <a class="drawer-link" href="writing.html" aria-current="page">Writing <span aria-hidden="true">→</span></a>
-            <a class="drawer-link" href="speaking.html">Speaking <span aria-hidden="true">→</span></a>
-            <a class="drawer-link" href="mailto:andreapadula@streetbeat.com">Contact <span aria-hidden="true">→</span></a>
-        </div>
-    </nav>
-</header>
+{SHARED_NAV}
 
 <header class="series-hero">
     <div class="hero-inner">
-        <div class="eyebrow">{html.escape(series['hero_label'])}</div>
+        <div class="eyebrow">{series_type} · {html.escape(series['hero_label'])}</div>
         <h1>{html.escape(series['title'])}</h1>
         <p class="hero-subtitle">{html.escape(series['hero_subtitle'])}</p>
     </div>
@@ -479,17 +472,12 @@ def render_series(manifest: dict, drafts: dict[str, dict], series: dict) -> str:
         <div class="series-cta-inner">
             <h2>{html.escape(series['cta_title'])}</h2>
             <p>{html.escape(series['cta_copy'])}</p>
-            <a class="button" href="mailto:andreapadula@streetbeat.com">Start a conversation</a>
+            <a class="button" href="contact.html">Start a conversation</a>
         </div>
     </section>
 </main>
 
-<footer class="article-footer">
-    <div class="article-footer-inner">
-        <p>© 2026 Andrea Padula</p>
-        <nav aria-label="Footer navigation"><a href="writing.html">All writing</a><a href="about.html">About</a><a href="speaking.html">Speaking</a><a href="mailto:andreapadula@streetbeat.com">Contact</a></nav>
-    </div>
-</footer>
+{SHARED_FOOTER}
 <script src="assets/site.js" defer></script>
 </body>
 </html>

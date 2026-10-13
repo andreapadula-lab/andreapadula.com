@@ -5,19 +5,22 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlparse
+from xml.etree import ElementTree
 
 from playwright.sync_api import sync_playwright
 
 
 BASE_URL = "http://127.0.0.1:4173/"
 SCREENSHOT_DIR = Path("/tmp/andrea-site-qa")
+ROOT = Path(__file__).resolve().parents[1]
 
 PAGES = [
     "",
     "writing.html",
     "about.html",
     "speaking.html",
+    "contact.html",
     "ai-financial-services.html",
     "one-brain-many-minds.html",
     "trust-is-not-a-model-score.html",
@@ -42,6 +45,27 @@ def label(path: str) -> str:
     return path.removesuffix(".html") or "home"
 
 
+def sitemap_paths() -> list[str]:
+    locations = [
+        element.text.strip()
+        for url in ElementTree.parse(ROOT / "sitemap.xml").findall("{*}url")
+        for element in url.findall("{*}loc")
+        if element.text and element.text.strip()
+    ]
+    expect(locations, "sitemap.xml contains no URLs")
+
+    paths: list[str] = []
+    for location in locations:
+        parsed = urlparse(location)
+        expect(parsed.scheme == "https", f"Sitemap URL must use HTTPS: {location}")
+        expect(parsed.netloc in {"andreapadula.com", "www.andreapadula.com"}, f"Unexpected sitemap host: {location}")
+        expect(not parsed.query and not parsed.fragment, f"Sitemap URL must not contain query or fragment: {location}")
+        paths.append(parsed.path.lstrip("/") or "")
+
+    expect(len(paths) == len(set(paths)), "sitemap.xml contains duplicate URLs")
+    return paths
+
+
 def main() -> None:
     SCREENSHOT_DIR.mkdir(parents=True, exist_ok=True)
     console_errors: list[str] = []
@@ -50,6 +74,13 @@ def main() -> None:
     checked = 0
 
     with sync_playwright() as playwright:
+        request = playwright.request.new_context(base_url=BASE_URL)
+        sitemap_routes = sitemap_paths()
+        for path in sitemap_routes:
+            response = request.get(path or "/")
+            expect(response.status == 200, f"sitemap/{label(path)}: expected HTTP 200, got {response.status}")
+        request.dispose()
+
         browser = playwright.chromium.launch(headless=True)
 
         for viewport_name, viewport in VIEWPORTS.items():
@@ -77,8 +108,25 @@ def main() -> None:
                 expect(page.locator(".site-header .wordmark").count() == 1, f"{prefix}: shared navigation missing")
                 expect(page.locator("a[href='writing.html']").count() >= 1, f"{prefix}: Writing navigation missing")
                 expect(
-                    page.locator(".nav-links > a").all_inner_texts() == ["Home", "About", "Writing", "Speaking"],
+                    page.locator(".nav-links > a").all_inner_texts() == ["Home", "Journey", "Writing"],
                     f"{prefix}: primary navigation order is incorrect",
+                )
+                expect(
+                    page.locator(".nav-cta[href='contact.html']").count() == 1,
+                    f"{prefix}: Contact CTA is missing or does not use contact.html",
+                )
+                expect(
+                    [text.replace("→", "").strip() for text in page.locator("#site-menu > a").all_inner_texts()]
+                    == ["Home", "Journey", "Writing", "Contact"],
+                    f"{prefix}: mobile navigation order is incorrect",
+                )
+                expect(
+                    page.locator("footer a[href='speaking.html']").count() >= 1,
+                    f"{prefix}: Speaking must remain available in the footer",
+                )
+                expect(
+                    page.locator(".site-header a[href='speaking.html']").count() == 0,
+                    f"{prefix}: Speaking must not appear in the primary navigation",
                 )
                 expect(
                     page.evaluate("document.documentElement.scrollWidth <= window.innerWidth + 1"),
@@ -100,20 +148,30 @@ def main() -> None:
                 if path == "speaking.html":
                     expect("One Brain" not in page.locator("main").inner_text(), f"{prefix}: series concept is still a primary speaking theme")
                 if path == "about.html":
-                    portrait = page.locator(".v2-about-portrait")
+                    portrait = page.locator(".ed-portrait img")
                     expect(portrait.count() == 1, f"{prefix}: about portrait missing")
                     portrait_width = portrait.bounding_box()["width"]
                     width_limit = 320 if viewport["width"] > 760 else 210
                     expect(portrait_width <= width_limit, f"{prefix}: about portrait is too large ({portrait_width}px)")
                 if path == "writing.html":
-                    latest_top = page.locator("#latest").bounding_box()["y"]
-                    series_top = page.locator("#featured-series").bounding_box()["y"]
+                    latest_top = page.locator("#start-here").bounding_box()["y"]
+                    series_top = page.locator(".ed-series").bounding_box()["y"]
                     expect(latest_top < series_top, f"{prefix}: writing should lead with essays, not series")
+                if path == "ai-financial-services.html":
+                    expect(
+                        page.locator(".eyebrow").inner_text().casefold().startswith("analysis ·"),
+                        f"{prefix}: AI series must use the Analysis editorial type",
+                    )
+                if path in {"one-brain-many-minds.html", "trust-is-not-a-model-score.html"}:
+                    expect(
+                        page.locator(".eyebrow").inner_text().casefold().startswith("reflection ·"),
+                        f"{prefix}: One Brain series must use the Reflection editorial type",
+                    )
                 checked += 1
 
                 if (
-                    (viewport_name == "desktop" and path in {"", "writing.html", "about.html", "speaking.html", "one-brain-many-minds.html"})
-                    or (viewport_name == "mobile" and path in {"", "writing.html", "about.html", "speaking.html", "trust-is-not-a-model-score.html", "deep-work-is-the-new-competitive-advantage.html"})
+                    (viewport_name == "desktop" and path in {"", "writing.html", "about.html", "speaking.html", "contact.html", "one-brain-many-minds.html"})
+                    or (viewport_name == "mobile" and path in {"", "writing.html", "about.html", "speaking.html", "contact.html", "trust-is-not-a-model-score.html", "deep-work-is-the-new-competitive-advantage.html"})
                 ):
                     page.screenshot(
                         path=str(SCREENSHOT_DIR / f"{viewport_name}-{page_name}.png"),
@@ -149,7 +207,7 @@ def main() -> None:
     expect(not filtered_console, f"Browser console errors: {filtered_console}")
     expect(not page_errors, f"Page errors: {page_errors}")
     expect(not filtered_failures, f"Failed requests: {filtered_failures}")
-    print(f"QA passed: {checked} page/viewport combinations")
+    print(f"QA passed: {checked} page/viewport combinations and {len(sitemap_routes)} sitemap URLs")
     print(f"Screenshots: {SCREENSHOT_DIR}")
 
 

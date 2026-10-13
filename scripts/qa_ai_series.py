@@ -47,10 +47,13 @@ def main() -> None:
 
         response = page.goto(base_url, wait_until="networkidle")
         expect(response is not None and response.status == 200, "Homepage did not return HTTP 200")
-        expect(page.locator(f"a[href='{hub}']").count() >= 1, "Homepage does not link to the series")
         expect(page.locator("main h1").count() == 1, "Homepage must have exactly one H1")
         expect(page.locator("a[href='writing.html']").count() >= 1, "Homepage does not link to the writing archive")
         expect(page.evaluate("document.documentElement.scrollWidth <= window.innerWidth + 1"), "Homepage has horizontal overflow on desktop")
+
+        response = page.goto(urljoin(base_url, "writing.html"), wait_until="networkidle")
+        expect(response is not None and response.status == 200, "Writing archive did not return HTTP 200")
+        expect(page.locator(f"a[href='{hub}']").count() >= 1, "Writing archive does not link to the series")
 
         response = page.goto(urljoin(base_url, hub), wait_until="networkidle")
         expect(response is not None and response.status == 200, "Series hub did not return HTTP 200")

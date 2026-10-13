@@ -24,33 +24,29 @@ SHARED_NAV = '''<header class="site-header">
         <a class="wordmark" href="/" aria-label="Andrea Padula, home">Andrea Padula</a>
         <div class="nav-links">
             <a class="nav-link" href="/">Home</a>
-            <a class="nav-link" href="about.html">About</a>
+            <a class="nav-link" href="about.html">Journey</a>
             <a class="nav-link" href="writing.html" aria-current="page">Writing</a>
-            <a class="nav-link" href="speaking.html">Speaking</a>
         </div>
-        <a class="nav-cta" href="mailto:andreapadula@streetbeat.com">Contact</a>
+        <a class="nav-cta" href="contact.html">Contact</a>
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Open navigation"><span></span></button>
         <div class="nav-drawer" id="site-menu" hidden>
             <a class="drawer-link" href="/">Home <span aria-hidden="true">→</span></a>
-            <a class="drawer-link" href="about.html">About <span aria-hidden="true">→</span></a>
+            <a class="drawer-link" href="about.html">Journey <span aria-hidden="true">→</span></a>
             <a class="drawer-link" href="writing.html" aria-current="page">Writing <span aria-hidden="true">→</span></a>
-            <a class="drawer-link" href="speaking.html">Speaking <span aria-hidden="true">→</span></a>
-            <a class="drawer-link" href="mailto:andreapadula@streetbeat.com">Contact <span aria-hidden="true">→</span></a>
+            <a class="drawer-link" href="contact.html">Contact <span aria-hidden="true">→</span></a>
         </div>
     </nav>
 </header>'''
 
-SHARED_FOOTER = '''</main>
-<footer class="site-footer article-footer">
+SHARED_FOOTER = '''<footer class="site-footer article-footer">
     <div class="article-footer-inner">
-        <a class="footer-name" href="/">Andrea Padula</a>
-        <p>AI, financial services, and the systems around them.</p>
-        <div class="footer-links">
+        <p>© 2026 Andrea Padula · AI, technology, choices, and the inner life.</p>
+        <nav class="footer-links" aria-label="Footer navigation">
+            <a href="about.html">Journey</a>
             <a href="writing.html">Writing</a>
-            <a href="about.html">About</a>
-            <a href="https://medium.com/@padula.andrea" rel="me">Medium</a>
-            <a href="https://www.linkedin.com/in/andreapadula/" rel="me">LinkedIn</a>
-        </div>
+            <a href="speaking.html">Speaking</a>
+            <a href="contact.html">Contact</a>
+        </nav>
     </div>
 </footer>'''
 
@@ -64,6 +60,15 @@ def is_legacy_article(path: Path, text: str) -> bool:
 
 
 def modernize(text: str, path: Path) -> str:
+    # Inter is bundled with the site. Keep every essay independent from a
+    # third-party font request, including pages modernized by an earlier run.
+    text = re.sub(
+        r"^[ \t]*@import url\(['\"]https://fonts\.googleapis\.com/[^\n]+\);[ \t]*\n?",
+        "",
+        text,
+        flags=re.MULTILINE,
+    )
+
     if 'assets/legacy-article.css' in text:
         text = text.replace('class="footer-inner"', 'class="article-footer-inner"')
         text, nav_count = re.subn(
@@ -75,6 +80,15 @@ def modernize(text: str, path: Path) -> str:
         )
         if nav_count != 1:
             raise ValueError(f"Expected one shared navigation in {path.name}")
+        text, footer_count = re.subn(
+            r'<footer class="site-footer article-footer">.*?</footer>',
+            SHARED_FOOTER,
+            text,
+            count=1,
+            flags=re.DOTALL,
+        )
+        if footer_count != 1:
+            raise ValueError(f"Expected one shared footer in {path.name}")
         return text
 
     original = text
@@ -112,7 +126,7 @@ def modernize(text: str, path: Path) -> str:
 
     text, footer_count = re.subn(
         r'<footer><div class="container"><p>&copy; 2026 Andrea Padula(?:\. All rights reserved\.)?</p></div></footer>',
-        SHARED_FOOTER,
+        f'</main>\n{SHARED_FOOTER}',
         text,
         count=1,
     )

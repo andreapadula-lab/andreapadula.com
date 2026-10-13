@@ -35,7 +35,6 @@
     }
     </script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root { --bg: #0a0a0b; --bg-card: #111113; --text: #e4e4e7; --text-muted: #a1a1aa; --accent: #3b82f6; --border: #27272a; }
         body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.8; -webkit-font-smoothing: antialiased; }
@@ -100,18 +99,16 @@
         <a class="wordmark" href="/" aria-label="Andrea Padula, home">Andrea Padula</a>
         <div class="nav-links">
             <a class="nav-link" href="/">Home</a>
-            <a class="nav-link" href="about.html">About</a>
+            <a class="nav-link" href="about.html">Journey</a>
             <a class="nav-link" href="writing.html" aria-current="page">Writing</a>
-            <a class="nav-link" href="speaking.html">Speaking</a>
         </div>
-        <a class="nav-cta" href="mailto:andreapadula@streetbeat.com">Contact</a>
+        <a class="nav-cta" href="contact.html">Contact</a>
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Open navigation"><span></span></button>
         <div class="nav-drawer" id="site-menu" hidden>
             <a class="drawer-link" href="/">Home <span aria-hidden="true">→</span></a>
-            <a class="drawer-link" href="about.html">About <span aria-hidden="true">→</span></a>
+            <a class="drawer-link" href="about.html">Journey <span aria-hidden="true">→</span></a>
             <a class="drawer-link" href="writing.html" aria-current="page">Writing <span aria-hidden="true">→</span></a>
-            <a class="drawer-link" href="speaking.html">Speaking <span aria-hidden="true">→</span></a>
-            <a class="drawer-link" href="mailto:andreapadula@streetbeat.com">Contact <span aria-hidden="true">→</span></a>
+            <a class="drawer-link" href="contact.html">Contact <span aria-hidden="true">→</span></a>
         </div>
     </nav>
 </header>
@@ -236,14 +233,13 @@
 </main>
 <footer class="site-footer article-footer">
     <div class="article-footer-inner">
-        <a class="footer-name" href="/">Andrea Padula</a>
-        <p>AI, financial services, and the systems around them.</p>
-        <div class="footer-links">
+        <p>© 2026 Andrea Padula · AI, technology, choices, and the inner life.</p>
+        <nav class="footer-links" aria-label="Footer navigation">
+            <a href="about.html">Journey</a>
             <a href="writing.html">Writing</a>
-            <a href="about.html">About</a>
-            <a href="https://medium.com/@padula.andrea" rel="me">Medium</a>
-            <a href="https://www.linkedin.com/in/andreapadula/" rel="me">LinkedIn</a>
-        </div>
+            <a href="speaking.html">Speaking</a>
+            <a href="contact.html">Contact</a>
+        </nav>
     </div>
 </footer>
 <script src="assets/article.js" defer></script>

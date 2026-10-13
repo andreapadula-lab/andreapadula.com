@@ -1,11 +1,12 @@
 # Andrea Padula
 
-> Head of Partnerships & Business Development at Streetbeat. Based between Milan and Silicon Valley. Writing about AI adoption in banking, the strategy-to-execution gap, and the bridge between European finance and Silicon Valley tech.
+> Head of Partnerships & Business Development at Streetbeat. Writing from Milan about AI in financial services, technological change, choices, attention, meaning, and the inner life.
 
-## About
-- [About Andrea](https://andreapadula.com/about.html)
-- [Speaker & Media Kit](https://andreapadula.com/speaking.html)
+## Start here
+- [Journey](https://andreapadula.com/about.html)
 - [Writing Archive](https://andreapadula.com/writing.html)
+- [Contact](https://andreapadula.com/contact.html)
+- [Speaking](https://andreapadula.com/speaking.html)
 
 ## Key Articles
 
@@ -68,6 +69,7 @@ The 2026 AI collection comprises 20 evidence-led essays across two ten-part volu
 - [Deep Work Is the New Competitive Advantage](https://andreapadula.com/deep-work-is-the-new-competitive-advantage.html)
 
 ## Contact
+- Page: https://andreapadula.com/contact.html
 - Email: andreapadula@streetbeat.com
 - LinkedIn: https://www.linkedin.com/in/andreapadula/
 - Medium: https://medium.com/@padula.andrea
