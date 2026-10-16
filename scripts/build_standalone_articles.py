@@ -177,7 +177,7 @@ def render_article(
 <body class="long-horizon-essay">
 <a class="skip-link" href="#main">Skip to content</a>
 <div class="progress-bar" id="progressBar"></div>
-{shared_nav("vision")}
+{shared_nav("writing")}
 
 <main id="main" tabindex="-1">
 <header class="article-hero">
@@ -215,7 +215,6 @@ def render_article(
 
     <section class="author-box" aria-label="About the author">
         <div class="author-inner">
-            <a href="about.html"><img src="assets/andrea-padula-192.jpg" alt="Andrea Padula" width="66" height="66" loading="lazy"></a>
             <div class="author-copy">
                 <h2><a href="about.html">Andrea Padula</a></h2>
                 <p>Head of Partnerships &amp; Business Development at Streetbeat. Writing from Milan about AI, technology, choices, and the inner life.</p>
@@ -225,7 +224,7 @@ def render_article(
     </section>
 </main>
 
-{shared_footer("vision")}
+{shared_footer("writing")}
 <script src="assets/article.js" defer></script>
 <script src="assets/site.js" defer></script>
 </body>

@@ -29,17 +29,17 @@ def shared_nav(current: str = "writing") -> str:
         <a class="wordmark" href="/" aria-label="Andrea Padula, home">Andrea Padula</a>
         <div class="nav-links">
             <a class="nav-link" href="/"{current_attr("home")}>Home</a>
-            <a class="nav-link" href="about.html"{current_attr("journey")}>Journey</a>
-            <a class="nav-link" href="vision.html"{current_attr("vision")}>Vision</a>
+            <a class="nav-link" href="about.html"{current_attr("about")}>About</a>
             <a class="nav-link" href="writing.html"{current_attr("writing")}>Writing</a>
+            <a class="nav-link" href="speaking.html"{current_attr("speaking")}>Speaking</a>
         </div>
         <a class="nav-cta" href="contact.html"{current_attr("contact")}>Contact</a>
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Open navigation"><span></span></button>
         <div class="nav-drawer" id="site-menu" hidden>
             <a class="drawer-link" href="/"{current_attr("home")}>Home <span aria-hidden="true">→</span></a>
-            <a class="drawer-link" href="about.html"{current_attr("journey")}>Journey <span aria-hidden="true">→</span></a>
-            <a class="drawer-link" href="vision.html"{current_attr("vision")}>Vision <span aria-hidden="true">→</span></a>
+            <a class="drawer-link" href="about.html"{current_attr("about")}>About <span aria-hidden="true">→</span></a>
             <a class="drawer-link" href="writing.html"{current_attr("writing")}>Writing <span aria-hidden="true">→</span></a>
+            <a class="drawer-link" href="speaking.html"{current_attr("speaking")}>Speaking <span aria-hidden="true">→</span></a>
             <a class="drawer-link" href="contact.html"{current_attr("contact")}>Contact <span aria-hidden="true">→</span></a>
         </div>
     </nav>
@@ -55,7 +55,7 @@ def shared_footer(current: str | None = None) -> str:
     return f'''<footer class="article-footer">
     <div class="article-footer-inner">
         <p>© 2026 Andrea Padula · AI, technology, choices, and the inner life.</p>
-        <nav aria-label="Footer navigation"><a href="about.html"{current_attr("journey")}>Journey</a><a href="vision.html"{current_attr("vision")}>Vision</a><a href="writing.html"{current_attr("writing")}>Writing</a><a href="speaking.html">Speaking</a><a href="contact.html"{current_attr("contact")}>Contact</a></nav>
+        <nav aria-label="Footer navigation"><a href="/"{current_attr("home")}>Home</a><a href="about.html"{current_attr("about")}>About</a><a href="writing.html"{current_attr("writing")}>Writing</a><a href="speaking.html"{current_attr("speaking")}>Speaking</a><a href="contact.html"{current_attr("contact")}>Contact</a><a href="vision.html">Vision</a></nav>
     </div>
 </footer>'''
 
@@ -309,7 +309,6 @@ def render_article(
 
     <section class="author-box" aria-label="About the author">
         <div class="author-inner">
-            <a href="about.html"><img src="assets/andrea-padula-192.jpg" alt="Andrea Padula" width="66" height="66" loading="lazy"></a>
             <div class="author-copy">
                 <h2><a href="about.html">Andrea Padula</a></h2>
                 <p>Head of Partnerships &amp; Business Development at Streetbeat. Writing from Milan about AI, financial services, and the bridge between European banking and Silicon Valley technology.</p>

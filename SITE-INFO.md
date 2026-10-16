@@ -7,15 +7,16 @@
 - **Domain registrar:** Namecheap (registrar-servers.com DNS)
 - **HTTPS:** Let's Encrypt via GitHub Pages, auto-renewing (verified 2026-10-05; current certificate expires 2027-01-03)
 - **Last content deploy:** 2026-10-16
-- **Primary navigation:** Home · Journey · Vision · Writing · Contact
+- **Primary navigation:** Home · About · Writing · Speaking · Contact
 - **Contact page:** https://andreapadula.com/contact.html
-- **Speaking page:** https://andreapadula.com/speaking.html (secondary navigation)
-- **Vision page:** https://andreapadula.com/vision.html
+- **Speaking page:** https://andreapadula.com/speaking.html (primary navigation)
+- **Vision page:** https://andreapadula.com/vision.html (secondary long-horizon chapter)
 - **Writing archive:** https://andreapadula.com/writing.html
 - **2026 AI essay collection:** 20 essays across two ten-part volumes
   - Volume I: https://andreapadula.com/ai-financial-services.html
   - Volume II: https://andreapadula.com/one-brain-many-minds.html
-- **Google Search Console:** Verified (DNS TXT), sitemap submitted
+- **Google Search Console:** Verified (HTML file and DNS TXT); post-relaunch sitemap refresh required
+- **Personal-brand measurement:** `docs/PERSONAL-BRAND-MEASUREMENT.md`; weekly private history outside the public repository
 - **DNS records:**
   - 4x A records: 185.199.108-111.153
   - CNAME: www → andreapadula-lab.github.io

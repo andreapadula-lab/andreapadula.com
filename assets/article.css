@@ -265,15 +265,11 @@ body.one-brain-series {
 
 .author-box { padding-bottom: 82px; }
 .author-inner {
-    display: flex;
-    gap: 20px;
-    align-items: center;
     padding: 26px;
     border: 1px solid var(--line);
     border-radius: var(--radius-md);
     background: var(--surface);
 }
-.author-inner img { width: 66px; height: 66px; border-radius: 50%; object-fit: cover; }
 .author-copy h2 { margin-bottom: 5px; font-size: 17px; letter-spacing: -.02em; }
 .author-copy p { margin: 0; color: var(--ink-soft); font-size: 13px; line-height: 1.6; }
 .author-copy .disclosure { margin-top: 4px; color: var(--ink-quiet); font-size: 11px; }
@@ -327,7 +323,6 @@ body.one-brain-series {
     .meta-dot::before { margin-right: 13px; }
     .article-body > p { font-size: 17px; }
     .article-body > p:first-child { font-size: 19px; }
-    .author-inner { align-items: flex-start; }
 }
 
 @media (max-width: 480px) {
@@ -338,6 +333,5 @@ body.one-brain-series {
     .series-card p,
     .card-meta { grid-column: 1 / -1; }
     .card-arrow { grid-column: 2; grid-row: 1; }
-    .author-inner { display: grid; grid-template-columns: 54px 1fr; padding: 20px; }
-    .author-inner img { width: 54px; height: 54px; }
+    .author-inner { padding: 20px; }
 }

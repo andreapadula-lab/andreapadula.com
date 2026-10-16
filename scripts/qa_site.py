@@ -69,6 +69,19 @@ def sitemap_paths() -> list[str]:
     return paths
 
 
+def verify_portrait_policy(paths: list[str]) -> None:
+    """Andrea's portrait belongs only on About; article artwork is unaffected."""
+    for route in paths:
+        path = ROOT / (route or "index.html")
+        source = path.read_text(encoding="utf-8")
+        main = source.split("<main", 1)[-1].split("</main>", 1)[0]
+        has_portrait = 'src="assets/andrea-padula' in main or 'src="andrea-padula' in main
+        if route == "about.html":
+            expect(has_portrait, "about: portrait missing from main content")
+        else:
+            expect(not has_portrait, f"{label(route)}: portrait must remain exclusive to About")
+
+
 def main() -> None:
     SCREENSHOT_DIR.mkdir(parents=True, exist_ok=True)
     console_errors: list[str] = []
@@ -79,6 +92,7 @@ def main() -> None:
     with sync_playwright() as playwright:
         request = playwright.request.new_context(base_url=BASE_URL)
         sitemap_routes = sitemap_paths()
+        verify_portrait_policy(sitemap_routes)
         for path in sitemap_routes:
             response = request.get(path or "/")
             expect(response.status == 200, f"sitemap/{label(path)}: expected HTTP 200, got {response.status}")
@@ -112,7 +126,7 @@ def main() -> None:
                 expect(page.locator(".site-header .wordmark").count() == 1, f"{prefix}: shared navigation missing")
                 expect(page.locator("a[href='writing.html']").count() >= 1, f"{prefix}: Writing navigation missing")
                 expect(
-                    page.locator(".nav-links > a").all_inner_texts() == ["Home", "Journey", "Vision", "Writing"],
+                    page.locator(".nav-links > a").all_inner_texts() == ["Home", "About", "Writing", "Speaking"],
                     f"{prefix}: primary navigation order is incorrect",
                 )
                 expect(
@@ -127,17 +141,12 @@ def main() -> None:
                     )
                 expect(
                     [text.replace("→", "").strip() for text in page.locator("#site-menu > a").all_inner_texts()]
-                    == ["Home", "Journey", "Vision", "Writing", "Contact"],
+                    == ["Home", "About", "Writing", "Speaking", "Contact"],
                     f"{prefix}: mobile navigation order is incorrect",
                 )
-                expect(
-                    page.locator("footer a[href='speaking.html']").count() >= 1,
-                    f"{prefix}: Speaking must remain available in the footer",
-                )
-                expect(
-                    page.locator(".site-header a[href='speaking.html']").count() == 0,
-                    f"{prefix}: Speaking must not appear in the primary navigation",
-                )
+                expect(page.locator("footer a[href='speaking.html']").count() >= 1, f"{prefix}: Speaking footer link missing")
+                expect(page.locator(".site-header a[href='speaking.html']").count() >= 1, f"{prefix}: Speaking primary link missing")
+                expect(page.locator(".site-header a[href='vision.html']").count() == 0, f"{prefix}: Vision must remain secondary")
                 expect(
                     page.evaluate("document.documentElement.scrollWidth <= window.innerWidth + 1"),
                     f"{prefix}: horizontal overflow",
@@ -153,8 +162,12 @@ def main() -> None:
                 for script in page.locator("script[type='application/ld+json']").all_text_contents():
                     json.loads(script)
 
-                if path in {"", "speaking.html"}:
-                    expect(page.locator("main img").count() == 0, f"{prefix}: portrait should not appear in this page")
+                if path == "":
+                    expect(page.locator("main img[src*='andrea-padula']").count() == 0, f"{prefix}: portrait should not appear on the home page")
+                    expect(page.locator(".ed-domain-card").count() == 3, f"{prefix}: home must present three clear domains")
+                    expect(page.locator(".ed-operating-card").count() == 1, f"{prefix}: home operating context missing")
+                if path == "speaking.html":
+                    expect(page.locator("main img").count() == 0, f"{prefix}: portrait should not appear on Speaking")
                 if path == "speaking.html":
                     expect("One Brain" not in page.locator("main").inner_text(), f"{prefix}: series concept is still a primary speaking theme")
                 if path == "about.html":
@@ -167,10 +180,13 @@ def main() -> None:
                     latest_top = page.locator("#start-here").bounding_box()["y"]
                     series_top = page.locator(".ed-series").bounding_box()["y"]
                     expect(latest_top < series_top, f"{prefix}: writing should lead with essays, not series")
+                    expect(page.locator(".ed-theme-card").count() == 3, f"{prefix}: Writing must use three themes")
+                    expect(page.locator(".ed-archive-list > li").count() == 39, f"{prefix}: full archive must retain 39 essays")
+                    expect(not page.locator(".ed-archive-disclosure").evaluate("node => node.open"), f"{prefix}: full archive should start collapsed")
                 if path == "vision.html":
                     expect(
-                        page.locator(".nav-links a[href='vision.html'][aria-current='page']").count() == 1,
-                        f"{prefix}: Vision must be the current primary section",
+                        page.locator(".nav-links a[href='vision.html']").count() == 0,
+                        f"{prefix}: Vision must not be a primary navigation section",
                     )
                     expect(
                         page.locator(".ed-vision-list > li").count() == 5,
@@ -217,8 +233,8 @@ def main() -> None:
                         f"{prefix}: manifesto structure is incomplete",
                     )
                     expect(
-                        page.locator(".nav-links a[href='vision.html'][aria-current='page']").count() == 1,
-                        f"{prefix}: manifesto must belong to Vision",
+                        page.locator(".nav-links a[href='writing.html'][aria-current='page']").count() == 1,
+                        f"{prefix}: manifesto must belong to Writing in primary navigation",
                     )
                 checked += 1
 

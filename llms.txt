@@ -3,11 +3,12 @@
 > Head of Partnerships & Business Development at Streetbeat. Writing from Milan about AI in financial services, technological change, choices, attention, meaning, and the inner life.
 
 ## Start here
-- [Journey](https://andreapadula.com/about.html)
-- [Vision](https://andreapadula.com/vision.html)
-- [Writing Archive](https://andreapadula.com/writing.html)
-- [Contact](https://andreapadula.com/contact.html)
+- [Home](https://andreapadula.com/)
+- [About](https://andreapadula.com/about.html)
+- [Writing](https://andreapadula.com/writing.html)
 - [Speaking](https://andreapadula.com/speaking.html)
+- [Contact](https://andreapadula.com/contact.html)
+- [Vision](https://andreapadula.com/vision.html) — a secondary long-horizon chapter
 
 ## Key Articles
 

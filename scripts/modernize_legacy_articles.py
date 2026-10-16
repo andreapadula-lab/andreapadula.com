@@ -2,8 +2,8 @@
 """Apply the shared site shell to the hand-authored legacy essays.
 
 The article copy and metadata are intentionally left untouched. The script only
-adds the shared styles/scripts, navigation landmarks, optimized author portrait,
-and compact footer. It is safe to run more than once.
+adds the shared styles/scripts, navigation landmarks, compact author biography,
+and footer. It is safe to run more than once.
 """
 
 from __future__ import annotations
@@ -24,17 +24,17 @@ SHARED_NAV = '''<header class="site-header">
         <a class="wordmark" href="/" aria-label="Andrea Padula, home">Andrea Padula</a>
         <div class="nav-links">
             <a class="nav-link" href="/">Home</a>
-            <a class="nav-link" href="about.html">Journey</a>
-            <a class="nav-link" href="vision.html">Vision</a>
+            <a class="nav-link" href="about.html">About</a>
             <a class="nav-link" href="writing.html" aria-current="page">Writing</a>
+            <a class="nav-link" href="speaking.html">Speaking</a>
         </div>
         <a class="nav-cta" href="contact.html">Contact</a>
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Open navigation"><span></span></button>
         <div class="nav-drawer" id="site-menu" hidden>
             <a class="drawer-link" href="/">Home <span aria-hidden="true">→</span></a>
-            <a class="drawer-link" href="about.html">Journey <span aria-hidden="true">→</span></a>
-            <a class="drawer-link" href="vision.html">Vision <span aria-hidden="true">→</span></a>
+            <a class="drawer-link" href="about.html">About <span aria-hidden="true">→</span></a>
             <a class="drawer-link" href="writing.html" aria-current="page">Writing <span aria-hidden="true">→</span></a>
+            <a class="drawer-link" href="speaking.html">Speaking <span aria-hidden="true">→</span></a>
             <a class="drawer-link" href="contact.html">Contact <span aria-hidden="true">→</span></a>
         </div>
     </nav>
@@ -44,11 +44,12 @@ SHARED_FOOTER = '''<footer class="site-footer article-footer">
     <div class="article-footer-inner">
         <p>© 2026 Andrea Padula · AI, technology, choices, and the inner life.</p>
         <nav class="footer-links" aria-label="Footer navigation">
-            <a href="about.html">Journey</a>
-            <a href="vision.html">Vision</a>
-            <a href="writing.html">Writing</a>
+            <a href="/">Home</a>
+            <a href="about.html">About</a>
+            <a href="writing.html" aria-current="page">Writing</a>
             <a href="speaking.html">Speaking</a>
             <a href="contact.html">Contact</a>
+            <a href="vision.html">Vision</a>
         </nav>
     </div>
 </footer>'''
@@ -60,6 +61,20 @@ def is_legacy_article(path: Path, text: str) -> bool:
         and 'assets/article.css' not in text
         and (OLD_NAV in text or 'assets/legacy-article.css' in text)
     )
+
+
+def remove_author_portrait(text: str, path: Path) -> str:
+    """Keep Andrea's portrait exclusive to About without removing article art."""
+    updated, count = re.subn(
+        r'(<div class="author-box">\s*)'
+        r'<img\s+[^>]*src="(?:assets/)?andrea-padula(?:-192)?\.(?:jpg|png)"[^>]*>\s*',
+        r'\1',
+        text,
+        count=1,
+    )
+    if 'class="author-box"' in text and count != 1 and 'andrea-padula' in text.split('class="author-box"', 1)[1]:
+        raise ValueError(f"Could not remove author portrait in {path.name}")
+    return updated
 
 
 def modernize(text: str, path: Path) -> str:
@@ -92,7 +107,7 @@ def modernize(text: str, path: Path) -> str:
         )
         if footer_count != 1:
             raise ValueError(f"Expected one shared footer in {path.name}")
-        return text
+        return remove_author_portrait(text, path)
 
     original = text
     style_close = '    </style>\n</head>'
@@ -121,11 +136,7 @@ def modernize(text: str, path: Path) -> str:
         raise ValueError(f"Expected one hero marker in {path.name}")
     text = text.replace(hero_marker, '\n\n<main id="main" tabindex="-1">\n<div class="hero-img">', 1)
 
-    text = text.replace(
-        '<img src="andrea-padula.png" alt="Andrea Padula">',
-        '<img src="assets/andrea-padula-192.jpg" alt="Andrea Padula" width="192" height="192" loading="lazy">',
-        1,
-    )
+    text = remove_author_portrait(text, path)
 
     text, footer_count = re.subn(
         r'<footer><div class="container"><p>&copy; 2026 Andrea Padula(?:\. All rights reserved\.)?</p></div></footer>',

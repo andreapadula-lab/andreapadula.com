@@ -3,11 +3,12 @@
 > Head of Partnerships & Business Development at Streetbeat. Writing from Milan about AI in financial services, technological change, choices, attention, meaning, and the inner life.
 
 ## Start here
-- [Journey](https://andreapadula.com/about.html): Andrea Padula is Head of Partnerships & Business Development at Streetbeat. Based in Milan, his published journey spans work and study across Europe, the Middle East, Asia, and the United States.
-- [Vision](https://andreapadula.com/vision.html): Five long-horizon ambitions that orient Andrea's work—healthy longevity, freedom from poverty, interstellar science, deeper self-awareness, and abundant clean energy—plus a method for turning ambition into evidence.
-- [Writing Archive](https://andreapadula.com/writing.html): The complete index of Andrea Padula's essays, including two 2026 collections and earlier writing on financial AI, European innovation, frontier systems, and human performance.
-- [Contact](https://andreapadula.com/contact.html): The direct route for a conversation about the work, the writing, or a speaking invitation.
+- [Home](https://andreapadula.com/): Andrea Padula's current role, primary focus on AI and financial services, selected writing, and routes to a conversation.
+- [About](https://andreapadula.com/about.html): Andrea Padula is Head of Partnerships & Business Development at Streetbeat. Based in Milan, his experience spans work and study across Europe, the Middle East, Asia, and the United States.
+- [Writing](https://andreapadula.com/writing.html): Essays organized across AI and financial services; technology, institutions and society; and attention, meaning and the inner life.
 - [Speaking](https://andreapadula.com/speaking.html): Keynotes, executive workshops, and roundtables on AI in financial services, regulated markets, and institutional change.
+- [Contact](https://andreapadula.com/contact.html): The direct route for a conversation about the work, the writing, or a speaking invitation.
+- [Vision](https://andreapadula.com/vision.html): A secondary long-horizon chapter with five ambitions and a method for turning bold questions into evidence.
 
 ## Key Articles
 
