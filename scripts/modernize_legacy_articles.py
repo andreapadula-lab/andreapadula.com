@@ -25,6 +25,7 @@ SHARED_NAV = '''<header class="site-header">
         <div class="nav-links">
             <a class="nav-link" href="/">Home</a>
             <a class="nav-link" href="about.html">Journey</a>
+            <a class="nav-link" href="vision.html">Vision</a>
             <a class="nav-link" href="writing.html" aria-current="page">Writing</a>
         </div>
         <a class="nav-cta" href="contact.html">Contact</a>
@@ -32,6 +33,7 @@ SHARED_NAV = '''<header class="site-header">
         <div class="nav-drawer" id="site-menu" hidden>
             <a class="drawer-link" href="/">Home <span aria-hidden="true">→</span></a>
             <a class="drawer-link" href="about.html">Journey <span aria-hidden="true">→</span></a>
+            <a class="drawer-link" href="vision.html">Vision <span aria-hidden="true">→</span></a>
             <a class="drawer-link" href="writing.html" aria-current="page">Writing <span aria-hidden="true">→</span></a>
             <a class="drawer-link" href="contact.html">Contact <span aria-hidden="true">→</span></a>
         </div>
@@ -43,6 +45,7 @@ SHARED_FOOTER = '''<footer class="site-footer article-footer">
         <p>© 2026 Andrea Padula · AI, technology, choices, and the inner life.</p>
         <nav class="footer-links" aria-label="Footer navigation">
             <a href="about.html">Journey</a>
+            <a href="vision.html">Vision</a>
             <a href="writing.html">Writing</a>
             <a href="speaking.html">Speaking</a>
             <a href="contact.html">Contact</a>

@@ -18,29 +18,44 @@ SITE_URL = "https://andreapadula.com"
 AUTHOR_ID = f"{SITE_URL}/#person"
 AUTHOR_IMAGE_URL = f"{SITE_URL}/andrea-padula.png"
 
-SHARED_NAV = '''<header class="site-header">
+def shared_nav(current: str = "writing") -> str:
+    """Render the shared site navigation with one explicit current section."""
+
+    def current_attr(section: str) -> str:
+        return ' aria-current="page"' if current == section else ""
+
+    return f'''<header class="site-header">
     <nav class="nav-shell" aria-label="Primary navigation">
         <a class="wordmark" href="/" aria-label="Andrea Padula, home">Andrea Padula</a>
         <div class="nav-links">
-            <a class="nav-link" href="/">Home</a>
-            <a class="nav-link" href="about.html">Journey</a>
-            <a class="nav-link" href="writing.html" aria-current="page">Writing</a>
+            <a class="nav-link" href="/"{current_attr("home")}>Home</a>
+            <a class="nav-link" href="about.html"{current_attr("journey")}>Journey</a>
+            <a class="nav-link" href="vision.html"{current_attr("vision")}>Vision</a>
+            <a class="nav-link" href="writing.html"{current_attr("writing")}>Writing</a>
         </div>
-        <a class="nav-cta" href="contact.html">Contact</a>
+        <a class="nav-cta" href="contact.html"{current_attr("contact")}>Contact</a>
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Open navigation"><span></span></button>
         <div class="nav-drawer" id="site-menu" hidden>
-            <a class="drawer-link" href="/">Home <span aria-hidden="true">→</span></a>
-            <a class="drawer-link" href="about.html">Journey <span aria-hidden="true">→</span></a>
-            <a class="drawer-link" href="writing.html" aria-current="page">Writing <span aria-hidden="true">→</span></a>
-            <a class="drawer-link" href="contact.html">Contact <span aria-hidden="true">→</span></a>
+            <a class="drawer-link" href="/"{current_attr("home")}>Home <span aria-hidden="true">→</span></a>
+            <a class="drawer-link" href="about.html"{current_attr("journey")}>Journey <span aria-hidden="true">→</span></a>
+            <a class="drawer-link" href="vision.html"{current_attr("vision")}>Vision <span aria-hidden="true">→</span></a>
+            <a class="drawer-link" href="writing.html"{current_attr("writing")}>Writing <span aria-hidden="true">→</span></a>
+            <a class="drawer-link" href="contact.html"{current_attr("contact")}>Contact <span aria-hidden="true">→</span></a>
         </div>
     </nav>
 </header>'''
 
-SHARED_FOOTER = '''<footer class="article-footer">
+
+def shared_footer(current: str | None = None) -> str:
+    """Render the compact article footer."""
+
+    def current_attr(section: str) -> str:
+        return ' aria-current="page"' if current == section else ""
+
+    return f'''<footer class="article-footer">
     <div class="article-footer-inner">
         <p>© 2026 Andrea Padula · AI, technology, choices, and the inner life.</p>
-        <nav aria-label="Footer navigation"><a href="about.html">Journey</a><a href="writing.html">Writing</a><a href="speaking.html">Speaking</a><a href="contact.html">Contact</a></nav>
+        <nav aria-label="Footer navigation"><a href="about.html"{current_attr("journey")}>Journey</a><a href="vision.html"{current_attr("vision")}>Vision</a><a href="writing.html"{current_attr("writing")}>Writing</a><a href="speaking.html">Speaking</a><a href="contact.html"{current_attr("contact")}>Contact</a></nav>
     </div>
 </footer>'''
 
@@ -256,8 +271,9 @@ def render_article(
 <body class="{html.escape(series.get('body_class', ''), quote=True)}">
 <a class="skip-link" href="#main">Skip to content</a>
 <div class="progress-bar" id="progressBar"></div>
-{SHARED_NAV}
+{shared_nav("writing")}
 
+<main id="main" tabindex="-1">
 <header class="article-hero">
     <div class="hero-inner">
         <div class="eyebrow">{article_type} · {html.escape(series['short_label'])} · Essay {index:02d}/{total:02d}</div>
@@ -271,7 +287,6 @@ def render_article(
     </div>
 </header>
 
-<main id="main">
     <div class="article-shell">
         <article class="article-body">
 {body_html}
@@ -304,7 +319,7 @@ def render_article(
     </section>
 </main>
 
-{SHARED_FOOTER}
+{shared_footer("writing")}
 <script src="assets/article.js" defer></script>
 <script src="assets/site.js" defer></script>
 </body>
@@ -446,8 +461,9 @@ def render_series(manifest: dict, drafts: dict[str, dict], series: dict) -> str:
 </head>
 <body class="{html.escape(series.get('body_class', ''), quote=True)}">
 <a class="skip-link" href="#main">Skip to content</a>
-{SHARED_NAV}
+{shared_nav("writing")}
 
+<main id="main" tabindex="-1">
 <header class="series-hero">
     <div class="hero-inner">
         <div class="eyebrow">{series_type} · {html.escape(series['hero_label'])}</div>
@@ -456,7 +472,6 @@ def render_series(manifest: dict, drafts: dict[str, dict], series: dict) -> str:
     </div>
 </header>
 
-<main id="main">
     <section class="series-intro" aria-label="About the series">
         <div class="series-copy">
 {intro_html}
@@ -478,7 +493,7 @@ def render_series(manifest: dict, drafts: dict[str, dict], series: dict) -> str:
     </section>
 </main>
 
-{SHARED_FOOTER}
+{shared_footer("writing")}
 <script src="assets/site.js" defer></script>
 </body>
 </html>

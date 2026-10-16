@@ -19,6 +19,7 @@ PAGES = [
     "",
     "writing.html",
     "about.html",
+    "vision.html",
     "speaking.html",
     "contact.html",
     "five-ambitions-worth-a-lifetime.html",
@@ -31,6 +32,7 @@ PAGES = [
 VIEWPORTS = {
     "desktop": {"width": 1440, "height": 1000},
     "laptop": {"width": 1024, "height": 900},
+    "breakpoint": {"width": 861, "height": 900},
     "tablet": {"width": 768, "height": 1024},
     "mobile": {"width": 390, "height": 844},
     "narrow": {"width": 320, "height": 720},
@@ -105,20 +107,27 @@ def main() -> None:
                 prefix = f"{viewport_name}/{page_name}"
                 expect(response is not None and response.status == 200, f"{prefix}: expected HTTP 200")
                 expect(page.locator("main").count() == 1, f"{prefix}: expected one main landmark")
+                expect(page.locator("main").get_attribute("tabindex") == "-1", f"{prefix}: main must receive skip-link focus")
                 expect(page.locator("h1").count() == 1, f"{prefix}: expected one H1")
                 expect(page.locator(".site-header .wordmark").count() == 1, f"{prefix}: shared navigation missing")
                 expect(page.locator("a[href='writing.html']").count() >= 1, f"{prefix}: Writing navigation missing")
                 expect(
-                    page.locator(".nav-links > a").all_inner_texts() == ["Home", "Journey", "Writing"],
+                    page.locator(".nav-links > a").all_inner_texts() == ["Home", "Journey", "Vision", "Writing"],
                     f"{prefix}: primary navigation order is incorrect",
                 )
                 expect(
                     page.locator(".nav-cta[href='contact.html']").count() == 1,
                     f"{prefix}: Contact CTA is missing or does not use contact.html",
                 )
+                if viewport["width"] > 860:
+                    contact_box = page.locator(".nav-cta[href='contact.html']").bounding_box()
+                    expect(
+                        contact_box is not None and contact_box["height"] >= 44,
+                        f"{prefix}: desktop Contact target is smaller than 44px",
+                    )
                 expect(
                     [text.replace("→", "").strip() for text in page.locator("#site-menu > a").all_inner_texts()]
-                    == ["Home", "Journey", "Writing", "Contact"],
+                    == ["Home", "Journey", "Vision", "Writing", "Contact"],
                     f"{prefix}: mobile navigation order is incorrect",
                 )
                 expect(
@@ -158,6 +167,36 @@ def main() -> None:
                     latest_top = page.locator("#start-here").bounding_box()["y"]
                     series_top = page.locator(".ed-series").bounding_box()["y"]
                     expect(latest_top < series_top, f"{prefix}: writing should lead with essays, not series")
+                if path == "vision.html":
+                    expect(
+                        page.locator(".nav-links a[href='vision.html'][aria-current='page']").count() == 1,
+                        f"{prefix}: Vision must be the current primary section",
+                    )
+                    expect(
+                        page.locator(".ed-vision-list > li").count() == 5,
+                        f"{prefix}: Vision must present five ambitions",
+                    )
+                    expect(
+                        page.locator(".ed-vision-list li > p").evaluate_all(
+                            """elements => elements.every(element => {
+                                const rect = element.getBoundingClientRect();
+                                return rect.width > 0 && rect.left >= -1 && rect.right <= window.innerWidth + 1;
+                            })"""
+                        ),
+                        f"{prefix}: ambition descriptions are clipped",
+                    )
+                    expect(
+                        page.locator("a[href='five-ambitions-worth-a-lifetime.html']").count() >= 2,
+                        f"{prefix}: Vision must lead to the founding essay",
+                    )
+                    cover = page.locator(".ed-manifesto-cover img")
+                    cover.scroll_into_view_if_needed()
+                    expect(
+                        cover.evaluate(
+                            "img => img.decode().then(() => img.naturalWidth === 1200 && img.naturalHeight === 630)"
+                        ),
+                        f"{prefix}: manifesto cover did not load at its declared size",
+                    )
                 if path == "ai-financial-services.html":
                     expect(
                         page.locator(".eyebrow").inner_text().casefold().startswith("analysis ·"),
@@ -177,12 +216,22 @@ def main() -> None:
                         page.locator(".article-body h2").count() >= 10,
                         f"{prefix}: manifesto structure is incomplete",
                     )
+                    expect(
+                        page.locator(".nav-links a[href='vision.html'][aria-current='page']").count() == 1,
+                        f"{prefix}: manifesto must belong to Vision",
+                    )
                 checked += 1
 
                 if (
-                    (viewport_name == "desktop" and path in {"", "writing.html", "about.html", "speaking.html", "contact.html", "one-brain-many-minds.html", "five-ambitions-worth-a-lifetime.html"})
-                    or (viewport_name == "mobile" and path in {"", "writing.html", "about.html", "speaking.html", "contact.html", "trust-is-not-a-model-score.html", "deep-work-is-the-new-competitive-advantage.html", "five-ambitions-worth-a-lifetime.html"})
+                    (viewport_name == "desktop" and path in {"", "writing.html", "about.html", "vision.html", "speaking.html", "contact.html", "one-brain-many-minds.html", "five-ambitions-worth-a-lifetime.html"})
+                    or (viewport_name == "breakpoint" and path in {"", "vision.html"})
+                    or (viewport_name == "tablet" and path == "vision.html")
+                    or (viewport_name == "mobile" and path in {"", "writing.html", "about.html", "vision.html", "speaking.html", "contact.html", "trust-is-not-a-model-score.html", "deep-work-is-the-new-competitive-advantage.html", "five-ambitions-worth-a-lifetime.html"})
                 ):
+                    page.evaluate(
+                        "() => { document.documentElement.style.scrollBehavior = 'auto'; if (document.activeElement instanceof HTMLElement) document.activeElement.blur(); document.querySelector('.skip-link')?.blur(); window.scrollTo(0, 0); }"
+                    )
+                    page.wait_for_function("window.scrollY === 0")
                     page.screenshot(
                         path=str(SCREENSHOT_DIR / f"{viewport_name}-{page_name}.png"),
                         full_page=True,

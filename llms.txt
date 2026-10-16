@@ -4,6 +4,7 @@
 
 ## Start here
 - [Journey](https://andreapadula.com/about.html)
+- [Vision](https://andreapadula.com/vision.html)
 - [Writing Archive](https://andreapadula.com/writing.html)
 - [Contact](https://andreapadula.com/contact.html)
 - [Speaking](https://andreapadula.com/speaking.html)
@@ -12,7 +13,8 @@
 
 The 2026 AI collection comprises 20 evidence-led essays across two ten-part volumes.
 
-### Personal manifesto
+### Vision and personal manifesto
+- [Vision](https://andreapadula.com/vision.html) — Andrea Padula's long-horizon framework across healthy longevity, freedom from poverty, interstellar science, self-awareness, and abundant clean energy.
 - [Five Ambitions Worth a Lifetime](https://andreapadula.com/five-ambitions-worth-a-lifetime.html) — Five directions for a lifetime of work: healthy longevity, freedom from poverty, interstellar science, deeper self-awareness, and abundant clean energy.
 
 ### AI in Financial Services — 2026 Series

@@ -13,10 +13,10 @@ from pathlib import Path
 from build_ai_series import (
     AUTHOR_ID,
     AUTHOR_IMAGE_URL,
-    SHARED_FOOTER,
-    SHARED_NAV,
     SITE_URL,
     read_draft,
+    shared_footer,
+    shared_nav,
     title_key,
 )
 
@@ -94,8 +94,8 @@ def json_ld(article: dict, word_count: int) -> str:
                     {
                         "@type": "ListItem",
                         "position": 2,
-                        "name": "Writing",
-                        "item": f"{SITE_URL}/writing.html",
+                        "name": "Vision",
+                        "item": f"{SITE_URL}/vision.html",
                     },
                     {
                         "@type": "ListItem",
@@ -177,8 +177,9 @@ def render_article(
 <body class="long-horizon-essay">
 <a class="skip-link" href="#main">Skip to content</a>
 <div class="progress-bar" id="progressBar"></div>
-{SHARED_NAV}
+{shared_nav("vision")}
 
+<main id="main" tabindex="-1">
 <header class="article-hero">
     <div class="hero-inner">
         <div class="eyebrow">{html.escape(article['eyebrow'])}</div>
@@ -192,7 +193,6 @@ def render_article(
     </div>
 </header>
 
-<main id="main" tabindex="-1">
     <div class="article-shell">
         <article class="article-body">
 {body_html}
@@ -201,7 +201,7 @@ def render_article(
             <div class="aside-card">
                 <div class="aside-label">{html.escape(article['aside_label'])}</div>
                 <p>{html.escape(article['aside_copy'])}</p>
-                <a href="writing.html">Explore all writing →</a>
+                <a href="vision.html">Explore the vision →</a>
             </div>
         </aside>
     </div>
@@ -225,7 +225,7 @@ def render_article(
     </section>
 </main>
 
-{SHARED_FOOTER}
+{shared_footer("vision")}
 <script src="assets/article.js" defer></script>
 <script src="assets/site.js" defer></script>
 </body>

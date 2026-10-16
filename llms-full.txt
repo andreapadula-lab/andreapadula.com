@@ -4,6 +4,7 @@
 
 ## Start here
 - [Journey](https://andreapadula.com/about.html): Andrea Padula is Head of Partnerships & Business Development at Streetbeat. Based in Milan, his published journey spans work and study across Europe, the Middle East, Asia, and the United States.
+- [Vision](https://andreapadula.com/vision.html): Five long-horizon ambitions that orient Andrea's work—healthy longevity, freedom from poverty, interstellar science, deeper self-awareness, and abundant clean energy—plus a method for turning ambition into evidence.
 - [Writing Archive](https://andreapadula.com/writing.html): The complete index of Andrea Padula's essays, including two 2026 collections and earlier writing on financial AI, European innovation, frontier systems, and human performance.
 - [Contact](https://andreapadula.com/contact.html): The direct route for a conversation about the work, the writing, or a speaking invitation.
 - [Speaking](https://andreapadula.com/speaking.html): Keynotes, executive workshops, and roundtables on AI in financial services, regulated markets, and institutional change.
@@ -12,7 +13,8 @@
 
 The 2026 AI collection comprises 20 evidence-led essays across two ten-part volumes.
 
-### Personal manifesto
+### Vision and personal manifesto
+- [Vision](https://andreapadula.com/vision.html): The central home for Andrea Padula's long-horizon framework, connecting five ambitions through time, agency, horizon, judgment, and capacity.
 - [Five Ambitions Worth a Lifetime](https://andreapadula.com/five-ambitions-worth-a-lifetime.html): Five ambitious directions for a lifetime of work—longer healthy lives, freedom from poverty, interstellar science, deeper self-awareness, and abundant clean energy—paired with an evidence-led method for starting now.
 
 ### AI in Financial Services — 2026 Series
