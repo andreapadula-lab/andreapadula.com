@@ -12,6 +12,9 @@
 
 The 2026 AI collection comprises 20 evidence-led essays across two ten-part volumes.
 
+### Personal manifesto
+- [Five Ambitions Worth a Lifetime](https://andreapadula.com/five-ambitions-worth-a-lifetime.html): Five ambitious directions for a lifetime of work—longer healthy lives, freedom from poverty, interstellar science, deeper self-awareness, and abundant clean energy—paired with an evidence-led method for starting now.
+
 ### AI in Financial Services — 2026 Series
 - [AI in Financial Services: What Works, What Doesn't, and What Comes Next](https://andreapadula.com/ai-financial-services.html): A ten-essay, evidence-led field guide to AI adoption, governance, agents, wealth management, procurement, and the future of banking. Sources include the ECB, Bank of England, FCA, BIS, EBA, FSB, European legislation, and financial institutions deploying AI at scale.
 - [The Model Is the Cheapest Part of Enterprise AI](https://andreapadula.com/the-model-is-the-cheapest-part-of-enterprise-ai.html): Model access is a small part of enterprise AI cost. Workflow redesign, permissions, integration, controls, adoption, and measurement determine whether a bank creates value.

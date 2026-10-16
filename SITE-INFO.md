@@ -6,7 +6,7 @@
 - **Hosting:** GitHub Pages
 - **Domain registrar:** Namecheap (registrar-servers.com DNS)
 - **HTTPS:** Let's Encrypt via GitHub Pages, auto-renewing (verified 2026-10-05; current certificate expires 2027-01-03)
-- **Last content deploy:** 2026-10-13
+- **Last content deploy:** 2026-10-16
 - **Primary navigation:** Home · Journey · Writing · Contact
 - **Contact page:** https://andreapadula.com/contact.html
 - **Speaking page:** https://andreapadula.com/speaking.html (secondary navigation)

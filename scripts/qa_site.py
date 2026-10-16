@@ -21,6 +21,7 @@ PAGES = [
     "about.html",
     "speaking.html",
     "contact.html",
+    "five-ambitions-worth-a-lifetime.html",
     "ai-financial-services.html",
     "one-brain-many-minds.html",
     "trust-is-not-a-model-score.html",
@@ -167,11 +168,20 @@ def main() -> None:
                         page.locator(".eyebrow").inner_text().casefold().startswith("reflection ·"),
                         f"{prefix}: One Brain series must use the Reflection editorial type",
                     )
+                if path == "five-ambitions-worth-a-lifetime.html":
+                    expect(
+                        page.locator(".eyebrow").inner_text().casefold().startswith("manifesto ·"),
+                        f"{prefix}: standalone essay must use the Manifesto editorial type",
+                    )
+                    expect(
+                        page.locator(".article-body h2").count() >= 10,
+                        f"{prefix}: manifesto structure is incomplete",
+                    )
                 checked += 1
 
                 if (
-                    (viewport_name == "desktop" and path in {"", "writing.html", "about.html", "speaking.html", "contact.html", "one-brain-many-minds.html"})
-                    or (viewport_name == "mobile" and path in {"", "writing.html", "about.html", "speaking.html", "contact.html", "trust-is-not-a-model-score.html", "deep-work-is-the-new-competitive-advantage.html"})
+                    (viewport_name == "desktop" and path in {"", "writing.html", "about.html", "speaking.html", "contact.html", "one-brain-many-minds.html", "five-ambitions-worth-a-lifetime.html"})
+                    or (viewport_name == "mobile" and path in {"", "writing.html", "about.html", "speaking.html", "contact.html", "trust-is-not-a-model-score.html", "deep-work-is-the-new-competitive-advantage.html", "five-ambitions-worth-a-lifetime.html"})
                 ):
                     page.screenshot(
                         path=str(SCREENSHOT_DIR / f"{viewport_name}-{page_name}.png"),

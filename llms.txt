@@ -12,6 +12,9 @@
 
 The 2026 AI collection comprises 20 evidence-led essays across two ten-part volumes.
 
+### Personal manifesto
+- [Five Ambitions Worth a Lifetime](https://andreapadula.com/five-ambitions-worth-a-lifetime.html) — Five directions for a lifetime of work: healthy longevity, freedom from poverty, interstellar science, deeper self-awareness, and abundant clean energy.
+
 ### AI in Financial Services — 2026 Series
 - [AI in Financial Services: What Works, What Doesn't, and What Comes Next](https://andreapadula.com/ai-financial-services.html)
 - [The Model Is the Cheapest Part of Enterprise AI](https://andreapadula.com/the-model-is-the-cheapest-part-of-enterprise-ai.html)

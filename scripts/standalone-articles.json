@@ -1,0 +1,45 @@
+{
+  "articles": [
+    {
+      "slug": "five-ambitions-worth-a-lifetime",
+      "draft": "five-ambitions-worth-a-lifetime.md",
+      "title": "Five Ambitions Worth a Lifetime",
+      "description": "Five ambitious directions for a lifetime of work: longer healthy lives, freedom from poverty, interstellar science, deeper self-awareness, and abundant clean energy.",
+      "published": "2026-10-16",
+      "editorial_type": "Manifesto",
+      "eyebrow": "Manifesto · Long horizon",
+      "section": "Future & Human Possibility",
+      "keywords": [
+        "human longevity",
+        "ending poverty",
+        "interstellar travel",
+        "self-awareness",
+        "abundant clean energy",
+        "AI robotics quantum"
+      ],
+      "schema_about": [
+        "Healthy longevity",
+        "Poverty reduction",
+        "Interstellar travel",
+        "Self-awareness",
+        "Clean energy"
+      ],
+      "aside_label": "The compass",
+      "aside_copy": "Time. Agency. Capacity. Judgment. Horizon. Five directions for a lifetime of work.",
+      "related": [
+        {
+          "slug": "why-longevity-will-be-the-next-trillion-dollar-financial-product",
+          "title": "Why Longevity Will Be the Next Trillion-Dollar Financial Product"
+        },
+        {
+          "slug": "space-is-open-for-business",
+          "title": "Space Is Open for Business — And Finance Isn't Ready"
+        },
+        {
+          "slug": "financial-advice-meaning-not-money",
+          "title": "The Best Financial Advice Will Optimize for Meaning, Not Money"
+        }
+      ]
+    }
+  ]
+}

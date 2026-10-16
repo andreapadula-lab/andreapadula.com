@@ -18,6 +18,10 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument("--manifest", type=Path, default=Path(__file__).with_name("ai-series.json"))
     parser.add_argument("--site", type=Path, default=ROOT)
+    parser.add_argument("--slug")
+    parser.add_argument("--title")
+    parser.add_argument("--label")
+    parser.add_argument("--subtitle")
     return parser.parse_args()
 
 
@@ -86,29 +90,44 @@ h1 {{ font-size: {title_size}px; letter-spacing: -.055em; line-height: 1.03; mar
 
 def main() -> None:
     args = parse_args()
-    manifest = json.loads(args.manifest.read_text(encoding="utf-8"))
-    series = manifest["series"]
     output = args.site / "assets" / "articles"
     output.mkdir(parents=True, exist_ok=True)
-    one_brain = series.get("body_class") == "one-brain-series"
-    entries = [
-        {
-            "slug": series["slug"],
-            "title": series["title"],
-            "label": series["hero_label"],
-            "subtitle": series["og_subtitle"],
-        }
-    ]
-    total = len(manifest["articles"])
-    for index, article in enumerate(manifest["articles"], start=1):
-        entries.append(
+    standalone_values = [args.slug, args.title, args.label, args.subtitle]
+    if any(standalone_values) and not all(standalone_values):
+        raise SystemExit("--slug, --title, --label, and --subtitle must be provided together")
+
+    if all(standalone_values):
+        one_brain = False
+        entries = [
             {
-                "slug": article["slug"],
-                "title": article["title"],
-                "label": f"{series['short_label']} · {index:02d}/{total:02d}",
-                "subtitle": article["description"],
+                "slug": args.slug,
+                "title": args.title,
+                "label": args.label,
+                "subtitle": args.subtitle,
             }
-        )
+        ]
+    else:
+        manifest = json.loads(args.manifest.read_text(encoding="utf-8"))
+        series = manifest["series"]
+        one_brain = series.get("body_class") == "one-brain-series"
+        entries = [
+            {
+                "slug": series["slug"],
+                "title": series["title"],
+                "label": series["hero_label"],
+                "subtitle": series["og_subtitle"],
+            }
+        ]
+        total = len(manifest["articles"])
+        for index, article in enumerate(manifest["articles"], start=1):
+            entries.append(
+                {
+                    "slug": article["slug"],
+                    "title": article["title"],
+                    "label": f"{series['short_label']} · {index:02d}/{total:02d}",
+                    "subtitle": article["description"],
+                }
+            )
 
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(headless=True)

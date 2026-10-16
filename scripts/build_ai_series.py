@@ -86,6 +86,7 @@ def read_draft(path: Path) -> tuple[str, str, str, int]:
     footer_markers = [
         "\n---\n\n*Originally published",
         "\n---\n\nOriginally published",
+        "\n---\n\n**Andrea Padula**",
     ]
     for marker in footer_markers:
         if marker in body:
